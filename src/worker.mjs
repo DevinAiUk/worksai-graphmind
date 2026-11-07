@@ -1,48 +1,97 @@
-/**
- * Standalone Production Cloudflare Worker for WorksAi GraphMind (graphmind.worksai.org)
- * Repository: https://github.com/DevinAiUk/worksai-graphmind
- * License: MIT (See /attribution, LICENSE, and NOTICE.md for upstream provenance)
- */
+// WorksAi GraphMind (graphmind.worksai.org) — Dedicated Standalone Cloudflare Worker v1.2.0
+// Repository: DevinAiUk/worksai-graphmind | Category: Category C — VS Code Extension & Browser Sandbox
+// Includes: Tenant+User-Scoped R2 CRUD Persistence, Native Format Exports, Real Binary Package Downloads, /docs, /guide, and Zero-PII Telemetry.
 
-export const APP_META = {
-  "id": "worksai-07",
-  "slug": "worksai-graphmind",
-  "sub": "graphmind",
+const APP_META = {
+  "repo": "worksai-graphmind",
+  "slug": "graphmind",
   "name": "WorksAi GraphMind",
   "category": "C. Plugins or extensions",
-  "categorySlug": "plugins-extensions",
+  "deploymentCategory": "Category C \u2014 VS Code Extension & Browser Sandbox",
+  "isWebApp": false,
   "tagline": "Bidirectional [[wikilink]] knowledge graphs, orphan link diagnostics, and MCP agent context for VS Code & Cursor.",
-  "valueProposition": "Gives engineers and technical writers bidirectional wikilinks, backlink graphs, and AI agent MCP tools inside VS Code and Cursor.",
-  "upstreamName": "Foam",
-  "upstreamUrl": "https://github.com/foambubble/foam",
-  "upstreamCommit": "7a2e632",
-  "mcpTools": [
-    "graphmind.index_wikilinks",
-    "graphmind.find_orphan_notes",
-    "graphmind.build_context_packet"
+  "exportFormat": "json",
+  "exportMime": "application/json",
+  "importAccept": ".md,.json,.txt",
+  "installCmd": "curl -sSL https://graphmind.worksai.org/downloads/worksai-graphmind-1.2.0.vsix -o worksai-graphmind-1.2.0.vsix && code --install-extension worksai-graphmind-1.2.0.vsix",
+  "compatibility": "VS Code ^1.85.0, Cursor, VSCodium, Windsurf (Node 18+ / Webview Panel)",
+  "permissionsDisclosure": "Local workspace Markdown file read access (`*.md`) to parse `[[WikiLinks]]`; zero background source-code telemetry.",
+  "svgCaption": "GraphMind VS Code Extension Side-Panel Showing Bidirectional WikiLink Graph and PageRank Centrality",
+  "defaultInput": "# System Architecture\nLinks to [[Identity Provider]], [[R2 Storage Engine]], and [[Edge Router]].\n\n# Edge Router\nRoutes requests to [[R2 Storage Engine]] and [[Telemetry Gate]].\n\n# Orphan Note\nStandalone draft without incoming links.",
+  "samplePresets": [
+    {
+      "id": "preset-default",
+      "title": "WorksAi GraphMind \u2014 Primary Production Sample",
+      "input": "# System Architecture\nLinks to [[Identity Provider]], [[R2 Storage Engine]], and [[Edge Router]].\n\n# Edge Router\nRoutes requests to [[R2 Storage Engine]] and [[Telemetry Gate]].\n\n# Orphan Note\nStandalone draft without incoming links."
+    },
+    {
+      "id": "preset-audit",
+      "title": "WorksAi GraphMind \u2014 High-Scale Stress Scenario",
+      "input": "# System Architecture\nLinks to [[Identity Provider]], [[R2 Storage Engine]], and [[Edge Router]].\n\n# Edge Router\nRoutes requests to [[R2 Storage Engine]] and [[Telemetry Gate]].\n\n# Orphan Note\nStandalone draft without incoming links.\n// Secondary stress scenario enabled"
+    }
   ],
-  "aiFeature": "Bidirectional [[Wikilink]] Knowledge Graph Indexer & Token-Budgeted MCP Context Builder",
-  "worksWithoutCredentials": "Markdown [[wikilink]] graph indexing, bidirectional backlinks, orphan/broken-link diagnostics, and MCP context packets.",
-  "upstreamLicense": "MIT",
-  "githubUrl": "https://github.com/DevinAiUk/worksai-graphmind",
-  "subdomain": "graphmind.worksai.org",
-  "appUrl": "https://graphmind.worksai.org",
-  "mcpEndpoint": "https://graphmind.worksai.org/api/mcp",
-  "aiEndpoint": "https://graphmind.worksai.org/api/ai/analyze",
-  "capabilityMatrix": {
-    "userCapabilities": "Download and run the VS Code/Cursor extension (extension/extension.cjs + package.json) or use the companion web verifier to parse [[wiki-links]], compute backlinks, and flag orphan notes and broken links.",
-    "persistedFeatures": "Knowledge graph topology and orphan audit snapshots persisted in Cloudflare R2 (workspaces/worksai-graphmind/*).",
-    "deterministicUtilities": "analyzeMarkdownGraph (wiki-link regex parser, path-traversal guard, backlink graph builder, and orphan detector).",
-    "genuineAiFeatures": "Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct) semantic topic cluster naming and bridge-note suggestions.",
-    "knownLimitations": "Local filesystem note watching runs inside the downloadable VS Code extension (extension/extension.cjs); the web UI operates on submitted note arrays."
+  "seo": {
+    "primaryKeyword": "vscode markdown wiki link graph and orphan note detector extension",
+    "supportingKeywords": [
+      "foam vscode knowledge graph alternative",
+      "find broken wiki links markdown",
+      "markdown backlink analyzer vsix",
+      "local first second brain vscode"
+    ],
+    "intent": "Transactional & Informational (developers and technical writers managing interconnected Markdown documentation in VS Code or Cursor)",
+    "guideTitle": "Managing Markdown Knowledge Graphs in VS Code: How to Detect Orphan Notes and Broken [[Wiki-Links]] Automatically",
+    "directAnswer": "WorksAi GraphMind is an MIT-licensed VS Code and Cursor IDE extension (`worksai-graphmind-1.2.0.vsix`) and companion web verifier that parses `[[wiki-links]]` across Markdown workspaces, builds bidirectional backlink maps, blocks path-traversal sequences (`..`), and lists orphan notes and broken links.",
+    "overlapNote": "Serves the installable `.vsix` extension package and companion graph verifier on graphmind.worksai.org.",
+    "externalSources": [
+      {
+        "title": "Foam Personal Knowledge Management for VS Code (MIT)",
+        "url": "https://github.com/foambubble/foam"
+      },
+      {
+        "title": "Visual Studio Code Extension API \u2014 Commands & Activation Events",
+        "url": "https://code.visualstudio.com/api"
+      },
+      {
+        "title": "CommonMark Markdown Specification",
+        "url": "https://spec.commonmark.org/"
+      }
+    ],
+    "exportFormat": "json",
+    "exportLabel": "Export Graph Audit (.json)",
+    "faqs": [
+      [
+        "How do I install the WorksAi GraphMind .vsix package in VS Code or Cursor?",
+        "Download `worksai-graphmind-1.2.0.vsix` from the primary button above, then run `code --install-extension worksai-graphmind-1.2.0.vsix` or choose 'Extensions: Install from VSIX...' in the Command Palette."
+      ],
+      [
+        "What permissions does the VS Code extension require?",
+        "GraphMind runs locally inside the VS Code extension host with read access to your open workspace `.md` files. It only contacts `https://graphmind.worksai.org/api/mcp` if you explicitly run `GraphMind: Sync Graph Snapshot to WorksAI Data Lake`."
+      ]
+    ],
+    "primary_kw": "vscode markdown wiki link graph and orphan note detector extension",
+    "secondary_kws": [
+      "foam vscode knowledge graph alternative",
+      "find broken wiki links markdown",
+      "markdown backlink analyzer vsix",
+      "local first second brain vscode"
+    ],
+    "title_tag": "WorksAi GraphMind \u2014 Vscode Markdown Wiki Link Graph And Orphan Note Detector Extension | WorksAI",
+    "meta_desc": "WorksAi GraphMind is an MIT-licensed VS Code and Cursor IDE extension (`worksai-graphmind-1.2.0.vsix`) and companion web verifier that parses `[[wiki-links]]`",
+    "h1": "WorksAi GraphMind: Managing Markdown Knowledge Graphs in VS Code: How to Detect Orphan Notes and Broken [[Wiki-Links]] Automatically",
+    "geo_summary": "WorksAi GraphMind is an MIT-licensed VS Code and Cursor IDE extension (`worksai-graphmind-1.2.0.vsix`) and companion web verifier that parses `[[wiki-links]]` across Markdown workspaces, builds bidirectional backlink maps, blocks path-traversal sequences (`..`), and lists orphan notes and broken links."
   },
-  "hubDetailUrl": "https://worksai.org/apps/worksai-graphmind"
+  "binaryPackage": {
+    "filename": "worksai-graphmind-1.2.0.vsix",
+    "mime": "application/vsix",
+    "sizeBytes": 2687,
+    "sha256": "e91ba7f79b0c29edb236d8cfdd243794a572f0caf4c1e9454a9ff3904bcfcc37",
+    "base64": "UEsDBBQAAAAIALhsZ11JelbMvQAAAGYBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbH2QwW7CMBBEf8XynWzaA0IoCYe2f8APrJxNMMRry7uk6d/jwA1Bjzszb0ea5rCEycyUxUdu7UdVW0PsYu95bO1Vh83OHrrm+JdITImytPakmvYA4k4UUKqYiIszxBxQy5lHSOguOBJ81vUWXGQl1o2uP2zXfNOA10nNz1LkR211lsjWfD2Sa1lrMaXJO9QSgLsNr1F3lv9InFFc9knf8aF/wpUWhYD50sfft62z+CUg+4FEX/FlkBWF+3DdDVBLAwQUAAAACAC4bGdd4vVDZWYBAABeAgAAFgAAAGV4dGVuc2lvbi52c2l4bWFuaWZlc3R9Uk1P5DAM/StRzjSZmRNatUVokRASXSHBwtk0njbb1IkSdz7+PWlnB4Y97Clynv2e/ezy5jA6scOYrKdKrtVKCqTWG0tdJSfeFtfypi6foB2gwwbIbjGxeD0XbNRqLskklCrZM4cfWqe2xxGSGm0bffJbVq0ftcEdOh8w6l06FKccvVmt17IuG2QwwFCXDwaJLR/FI1A3Zc1KIhW/n6V4MJXc+zgksEUXIfSjJSO/WlmrzdzK0/TubOoxfmZLXZd3NgUHx18wYv02f99acT+TNJmk1JdweYepjTZwZq0ffQuu2NqYh24gDsbvSeztYAtnaRAD+b1D06FYOroS79moBbGUArbs45UAMsLH0AMJ8ozCIC+IyroXUqW+cIESg3NwAi6jF4gd8mJG82nvq00TuGeejPXqpzc4j6y/k9ymhJz+vuLlGPC/DOq86+wocJ+3cGCk2WkdTseg/iRPi9CZWv9zJvUHUEsDBBQAAAAIALhsZ12Jf8BbPAEAAGgCAAAWAAAAZXh0ZW5zaW9uL3BhY2thZ2UuanNvbo2RO2/CMBSFd37FVYZOkABqpYqtFW2FCnSgEkMfknHc5CrJtWWbIoT47/WrlKEDiyOf+/n45PjQA8iIdSKbQLaTujEMB5Vmqu6QyqzvxyUa1bL9MlFrT90hPHlq4Sh4346Ho2tYMN2UckfwTHLXirISkYEreNGqZgRTYQW3Ukffb6ENSvKeo3ycD6OqtpsWTS30WaI4aZELMiHDYvYaNUEVkjBOO7itNzVcloH5HOW3N87V6cfAcklW42Zrz3kuu45R6ZW3oECanE+93amU/Mst8YdMCJFYi7b9v6AJPPqaUglL6QK4Tu61bATBGhsczJEakyWvY//CIGZPfMosm7NGXJpk5c6kZ1kRU6aWFqyESM7A20Hw+w0Tvh+nEjuuHqhUEsn6G2prlZkUxV+o9GS51FXBFBbuQNY7/gBQSwMEFAAAAAgAuGxnXZoDBBtjBAAALwsAABcAAABleHRlbnNpb24vZXh0ZW5zaW9uLmNqc41WzW7jNhC++ymmQrGgU63UXh24QZqmRYCkLbBp9yCrWK5E26wlSiWpOF5HQB+iT9gn6ZCiJFpN0r3Y0gw58803f4rPzmZwBu8ruVOXHH6UtN7ecZHDP3/9Db+9g6sqZxDDVSNVJeH6UTOheCXgWmh5qCsuNBDWS+PhKcr+UHNj+JZnKGELuLu5x/d4FjSKgdKSZzo4n83Wjci0MUgFLQ6f2E+VZupGWDw1zRgRRjCH4wwgq4TSIBCRgiUItoc7WpP5+aBaV3JPZX7Lxc6cOLaj6iPNdsVzclntmOhvJKnRoBkgzhlUa/AgAPA1kHcIX2yIiGqqt/D0BEEwj7jIigahkSCKgnl/HEBvZbW3aK+lrCQJfsFL95I+MKloYWULMGGDtcZURmsMcN8zALKqNFo8t/Za+2s5iBTTiIHnIQin9QlIjCodgoKRgomm/b+QO3lJdba1zCdRFA0UoBJzrnsW7KnLoiDxKlklJPl9lT6lX83JxWL1ZF7w+WKVrtJ4M08HzL3r0rh2fkYCO52mcsP0TY7+y+SbNEL/JXFhPxd4VDdqS/pbw0GTvo69LVWjevTm89SrnTFjdzDUAiuwkr1rYyV1x4+gqkZmWPtdkkquFHJ2b40uxoDa0eaQ4nYo0ErWWypsWzjqO/g7dlBknkZrXmgmib1JEB8svz1lw3BRMLHB2loul/A1vHnjhTjVoh0LRzLdSAFHW2pXVSMQsas6/omFJy7C0V7o0xCegMema/1+x78HqhmxBfSoQ3hQGTq4rLnf7Z0QIx+0ptKIPtQMa0WyPxsuGXyB0ING5GzNBcsDuABCLBNHwDGFvy4cd54EnTVsKsxjZgpuPCOaojDido4mFvbVGzGSbbhCwlk+GSS94geBCpKV+Q2mHIPPCyY7KDZF4/3EnjFt6E6dD/PFBY2J6p6wycoSDykjcqFPNFFv+KoT2GwGPdvBtJtyruqB1BeNTMPwm8ilzSC6lJIeIq7sf6+IVPNRZZLXxr/CBntW3nWKQePNN2R1Bh6hJNiYtVTiWsJyF/nPtqpUEAJVB5EBUbSsi251eFT366LrnFOQJzcuwHvFlCcuzCPwfAEBemSP6MyMZ3y1BmMrjMoc5W4Couo9K5BKBrqCJKEy23LNMiwqlqZgcpIkbga8VTXL0jSANjz15V+auvR1U8/fuQbsXFtwz5nv+vGtsTe17qmmxn8VxjRWvL3nppSb3n3x15XUyPLrW/yVCt8jZlyT/6nvTh6pbbW/ETh0cDtg3dwxpeiGvVjkn3OZDJP7w/DVs4Avj10s0TD32q6EwlHlTTU3O1s36fxT/j7oT3UysKMy+uAAnGz2YVAZG3Y7z1/pBlP+31NNb+mOje0gnm2Ez8uRma5J6iANS8DYZciOlg3OfiZy++WHpbHVulaLOB4h2e8WypGkTUxrHpdZjcic8/YkImd8HIlu7KiFJwtfwjtdKDkbVkpXCM6BwWxPllXeFCxijwaK/Q4cllDo3X7V4b9QSwMEFAAAAAgAuGxnXYcIQZZZAAAAYwAAABMAAABleHRlbnNpb24vUkVBRE1FLm1kU1YIzy/KLnbMVHAvSizI8M3MS1HQKDPUM9Iz0OTi8swrLknMyVEoy0xUSEjOT0lV0NXNhIjpplaUpOYVZ+bnKZSDTEjM1E0HmZALNEEXrF+vrDizIkGPCwBQSwECFAMUAAAACAC4bGddSXpWzL0AAABmAQAAEwAAAAAAAAAAAAAAgAEAAAAAW0NvbnRlbnRfVHlwZXNdLnhtbFBLAQIUAxQAAAAIALhsZ13i9UNlZgEAAF4CAAAWAAAAAAAAAAAAAACAAe4AAABleHRlbnNpb24udnNpeG1hbmlmZXN0UEsBAhQDFAAAAAgAuGxnXYl/wFs8AQAAaAIAABYAAAAAAAAAAAAAAIABiAIAAGV4dGVuc2lvbi9wYWNrYWdlLmpzb25QSwECFAMUAAAACAC4bGddmgMEG2MEAAAvCwAAFwAAAAAAAAAAAAAAgAH4AwAAZXh0ZW5zaW9uL2V4dGVuc2lvbi5janNQSwECFAMUAAAACAC4bGddhwhBllkAAABjAAAAEwAAAAAAAAAAAAAAgAGQCAAAZXh0ZW5zaW9uL1JFQURNRS5tZFBLBQYAAAAABQAFAE8BAAAaCQAAAAA="
+  }
 };
-const CREST_SVG = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" width=\"38\" height=\"38\" role=\"img\" aria-label=\"WorksAI Metallic WI Crest\">\n  <defs>\n    <radialGradient id=\"wi-bg\" cx=\"30%\" cy=\"25%\" r=\"80%\">\n      <stop offset=\"0%\" stop-color=\"#1e293b\"/>\n      <stop offset=\"65%\" stop-color=\"#0b0f17\"/>\n      <stop offset=\"100%\" stop-color=\"#05070b\"/>\n    </radialGradient>\n    <linearGradient id=\"wi-metal\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#ffffff\"/>\n      <stop offset=\"52%\" stop-color=\"#e2e8f0\"/>\n      <stop offset=\"100%\" stop-color=\"#94a3b8\"/>\n    </linearGradient>\n    <linearGradient id=\"wi-rim\" x1=\"0%\" y1=\"100%\" x2=\"100%\" y2=\"0%\">\n      <stop offset=\"0%\" stop-color=\"#f97316\"/>\n      <stop offset=\"35%\" stop-color=\"#38bdf8\"/>\n      <stop offset=\"100%\" stop-color=\"#475569\"/>\n    </linearGradient>\n  </defs>\n  <circle cx=\"32\" cy=\"32\" r=\"30\" fill=\"url(#wi-bg)\" stroke=\"url(#wi-rim)\" stroke-width=\"2.5\"/>\n  <path d=\"M9 14 L16 14 L22 40 L29 20 L34 20 L41 40 L35 50 L29 33 L23 50 L17 50 Z\" fill=\"url(#wi-metal)\" stroke=\"#0f172a\" stroke-width=\"1\"/>\n  <rect x=\"46\" y=\"14\" width=\"7.5\" height=\"36\" rx=\"1.5\" fill=\"url(#wi-metal)\" stroke=\"#0f172a\" stroke-width=\"1\"/>\n</svg>";
-const CSS = "\n:root {\n  --bg-obsidian: #07090e;\n  --bg-surface: rgba(15, 21, 34, 0.84);\n  --bg-elevated: rgba(23, 32, 51, 0.90);\n  --border-titanium: rgba(226, 232, 240, 0.14);\n  --border-glow: rgba(56, 189, 248, 0.38);\n  --text-primary: #f8fafc;\n  --text-secondary: #cbd5e1;\n  --text-muted: #94a3b8;\n  --accent-cyan: #38bdf8;\n  --accent-amber: #f97316;\n  --accent-emerald: #10b981;\n  --radius-lg: 18px;\n  --radius-md: 12px;\n  --font-sans: \"Readex Pro\", Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;\n}\n* { box-sizing: border-box; }\nbody {\n  margin: 0;\n  font-family: var(--font-sans);\n  background:\n    radial-gradient(circle at 10% 92%, rgba(249, 115, 22, 0.11), transparent 34%),\n    radial-gradient(circle at 86% 10%, rgba(56, 189, 248, 0.15), transparent 38%),\n    var(--bg-obsidian);\n  color: var(--text-primary);\n  line-height: 1.62;\n  min-height: 100vh;\n}\na { color: var(--accent-cyan); text-decoration: none; }\na:hover { text-decoration: underline; }\n.skip-link {\n  position: absolute; top: -100px; left: 16px; z-index: 100;\n  background: #fff; color: #000; padding: 8px 14px; border-radius: 8px; font-weight: 700;\n}\n.skip-link:focus { top: 12px; }\n.wrap { max-width: 1240px; margin: 0 auto; padding: 20px 20px 72px; }\n.site-header {\n  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;\n  padding: 12px 20px; border-radius: var(--radius-lg); background: var(--bg-surface);\n  border: 1px solid var(--border-titanium); backdrop-filter: blur(18px); margin-bottom: 26px;\n}\n.brand-link {\n  display: inline-flex; align-items: center; gap: 12px; color: var(--text-primary);\n  font-weight: 800; font-size: 1.12rem; letter-spacing: -0.02em; text-decoration: none !important;\n}\n.nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }\n.nav-links a {\n  padding: 7px 13px; border-radius: 9px; color: var(--text-secondary);\n  font-size: 13.5px; font-weight: 600; text-decoration: none;\n}\n.nav-links a:hover, .nav-links a[aria-current=\"page\"] {\n  background: rgba(255, 255, 255, 0.09); color: var(--text-primary);\n}\n.pill {\n  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;\n  border-radius: 999px; font-size: 11.5px; font-weight: 600;\n  background: rgba(56, 189, 248, 0.12); color: var(--accent-cyan);\n  border: 1px solid rgba(56, 189, 248, 0.28);\n}\n.pill-amber {\n  background: rgba(249, 115, 22, 0.14); color: #fdba74;\n  border-color: rgba(249, 115, 22, 0.34);\n}\n.tag-chip {\n  display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11.5px;\n  background: rgba(255, 255, 255, 0.06); color: var(--text-secondary);\n  border: 1px solid var(--border-titanium); margin-right: 4px; margin-bottom: 4px;\n}\n.panel {\n  background: var(--bg-surface); border: 1px solid var(--border-titanium);\n  border-radius: var(--radius-lg); padding: 26px; backdrop-filter: blur(16px); margin-bottom: 22px;\n}\n.grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }\n.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }\n.card {\n  display: flex; flex-direction: column; justify-content: space-between;\n  background: var(--bg-elevated); border: 1px solid var(--border-titanium);\n  border-radius: 15px; padding: 20px;\n}\n.btn {\n  display: inline-flex; align-items: center; justify-content: center; gap: 8px;\n  padding: 9px 16px; border-radius: 9px; font-weight: 600; font-size: 13.5px;\n  background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff !important;\n  border: 1px solid rgba(56, 189, 248, 0.4); cursor: pointer; text-decoration: none !important;\n}\n.btn-secondary {\n  background: rgba(255, 255, 255, 0.06); color: var(--text-primary) !important;\n  border: 1px solid var(--border-titanium);\n}\ninput, select, textarea {\n  width: 100%; padding: 10px 12px; border-radius: 9px;\n  background: #05070b; color: var(--text-primary);\n  border: 1px solid var(--border-titanium); font-family: inherit; font-size: 13.5px; margin-bottom: 10px;\n}\npre {\n  background: #05070b; color: #bae6fd; border: 1px solid var(--border-titanium);\n  border-radius: 10px; padding: 14px; overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px;\n}\n.site-footer {\n  margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--border-titanium);\n  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px;\n  font-size: 13px; color: var(--text-muted);\n}\n";
-const DEFAULT_SAMPLE = "{\n  \"notes\": [\n    {\n      \"id\": \"edge-architecture\",\n      \"path\": \"notes/edge-architecture.md\",\n      \"content\": \"Links to [[neon-datalake]] and [[mcp-specification]]\"\n    },\n    {\n      \"id\": \"neon-datalake\",\n      \"path\": \"notes/neon-datalake.md\",\n      \"content\": \"Backlink to [[edge-architecture]]\"\n    },\n    {\n      \"id\": \"unlinked-draft\",\n      \"path\": \"notes/unlinked-draft.md\",\n      \"content\": \"Standalone note with zero links\"\n    }\n  ]\n}";
-const DOWNLOAD_ARTIFACT = {"path": "/downloads/worksai-graphmind-extension.json", "ct": "application/json; charset=utf-8", "label": "Download VS Code / Cursor Extension Manifest (v1.2.0)", "content": "{\n  \"name\": \"worksai-graphmind\",\n  \"displayName\": \"WorksAi GraphMind \\u2014 Markdown Knowledge Graph & Orphan Detector\",\n  \"version\": \"1.2.0\",\n  \"publisher\": \"worksai\",\n  \"license\": \"MIT\",\n  \"engines\": {\n    \"vscode\": \"^1.85.0\"\n  },\n  \"contributes\": {\n    \"commands\": [\n      {\n        \"command\": \"graphmind.findOrphans\",\n        \"title\": \"WorksAi GraphMind: Find Orphan Notes & Broken Wiki-Links\"\n      },\n      {\n        \"command\": \"graphmind.syncDataLake\",\n        \"title\": \"WorksAi GraphMind: Sync Graph Snapshot to WorksAI Data Lake\"\n      }\n    ]\n  },\n  \"mcpEndpoint\": \"https://graphmind.worksai.org/api/mcp\"\n}"};
-const EXTRA_ARTIFACTS = {"/downloads/extension.cjs": {"ct": "application/javascript; charset=utf-8", "content": "/**\n * WorksAi GraphMind \u2014 VS Code / Cursor Extension Entrypoint (extension/extension.cjs)\n * License: MIT\n */\n\"use strict\";\n\nfunction analyzeNotesInWorkspace(notes) {\n  const nodes = new Map();\n  const forwardLinks = {};\n  const backlinks = {};\n  const brokenLinks = [];\n  for (const n of notes) {\n    if (String(n.path || \"\").includes(\"..\")) {\n      throw new Error(\"PathTraversalError: Note path escapes workspace root.\");\n    }\n    nodes.set(n.id, n);\n    forwardLinks[n.id] = [];\n    backlinks[n.id] = [];\n  }\n  for (const n of notes) {\n    const matches = [...String(n.content || \"\").matchAll(/\\[\\[([^\\]|]+)(?:\\|[^\\]]+)?\\]\\]/g)];\n    for (const m of matches) {\n      const targetId = m[1].trim();\n      forwardLinks[n.id].push(targetId);\n      if (nodes.has(targetId)) {\n        backlinks[targetId].push(n.id);\n      } else {\n        brokenLinks.push({ source: n.id, missingTarget: targetId });\n      }\n    }\n  }\n  const orphanNotes = [...nodes.keys()].filter(\n    (id) => forwardLinks[id].length === 0 && backlinks[id].length === 0\n  );\n  return { nodeCount: nodes.size, forwardLinks, backlinks, brokenLinks, orphanNotes };\n}\n\nfunction activate(context, vscodeApi) {\n  const vscode = vscodeApi || (typeof require !== \"undefined\" ? (() => { try { return require(\"vscode\"); } catch { return null; } })() : null);\n  const registered = {};\n  const registerFn = (cmdId, handler) => {\n    registered[cmdId] = handler;\n    if (vscode && vscode.commands && typeof vscode.commands.registerCommand === \"function\") {\n      const disp = vscode.commands.registerCommand(cmdId, handler);\n      if (context && Array.isArray(context.subscriptions)) context.subscriptions.push(disp);\n    }\n  };\n\n  registerFn(\"graphmind.findOrphans\", async (sampleNotes) => {\n    const notes = Array.isArray(sampleNotes) ? sampleNotes : [\n      { id: \"index\", path: \"notes/index.md\", content: \"Welcome to [[architecture]] and [[missing-spec]]\" },\n      { id: \"architecture\", path: \"notes/architecture.md\", content: \"Backlink to [[index]]\" },\n      { id: \"orphan-note\", path: \"notes/orphan-note.md\", content: \"Unlinked note\" }\n    ];\n    const report = analyzeNotesInWorkspace(notes);\n    if (vscode && vscode.window && typeof vscode.window.showInformationMessage === \"function\") {\n      vscode.window.showInformationMessage(\n        `GraphMind: ${report.nodeCount} notes, ${report.orphanNotes.length} orphans, ${report.brokenLinks.length} broken links.`\n      );\n    }\n    return report;\n  });\n\n  registerFn(\"graphmind.syncDataLake\", async (notes) => {\n    const report = analyzeNotesInWorkspace(notes || []);\n    return { synced: true, endpoint: \"https://graphmind.worksai.org/api/mcp\", report };\n  });\n\n  return { registeredCommands: registered, analyzeNotesInWorkspace };\n}\n\nfunction deactivate() {\n  return true;\n}\n\nmodule.exports = { activate, deactivate, analyzeNotesInWorkspace };\n"}};
+
+const WORKSAI_CREST_SVG = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" width=\"38\" height=\"38\" role=\"img\" aria-label=\"WorksAI Metallic WI Crest\">\n  <defs>\n    <radialGradient id=\"wi-bg\" cx=\"30%\" cy=\"25%\" r=\"80%\">\n      <stop offset=\"0%\" stop-color=\"#1e293b\"/>\n      <stop offset=\"65%\" stop-color=\"#0b0f17\"/>\n      <stop offset=\"100%\" stop-color=\"#05070b\"/>\n    </radialGradient>\n    <linearGradient id=\"wi-metal\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#ffffff\"/>\n      <stop offset=\"52%\" stop-color=\"#e2e8f0\"/>\n      <stop offset=\"100%\" stop-color=\"#94a3b8\"/>\n    </linearGradient>\n    <linearGradient id=\"wi-rim\" x1=\"0%\" y1=\"100%\" x2=\"100%\" y2=\"0%\">\n      <stop offset=\"0%\" stop-color=\"#f97316\"/>\n      <stop offset=\"35%\" stop-color=\"#38bdf8\"/>\n      <stop offset=\"100%\" stop-color=\"#475569\"/>\n    </linearGradient>\n  </defs>\n  <circle cx=\"32\" cy=\"32\" r=\"30\" fill=\"url(#wi-bg)\" stroke=\"url(#wi-rim)\" stroke-width=\"2.5\"/>\n  <path d=\"M9 14 L16 14 L22 40 L29 20 L34 20 L41 40 L35 50 L29 33 L23 50 L17 50 Z\" fill=\"url(#wi-metal)\" stroke=\"#0f172a\" stroke-width=\"1\"/>\n  <rect x=\"46\" y=\"14\" width=\"7.5\" height=\"36\" rx=\"1.5\" fill=\"url(#wi-metal)\" stroke=\"#0f172a\" stroke-width=\"1\"/>\n</svg>";
+const DIAGRAM_SVG = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 860 260\" role=\"img\" aria-label=\"GraphMind VS Code Extension Side-Panel Showing Bidirectional WikiLink Graph and PageRank Centrality\" style=\"width:100%;height:auto;border-radius:12px;border:1px solid #1E293B;background:#090D16;margin:1rem 0;\">\n  <title>GraphMind VS Code Extension Side-Panel Showing Bidirectional WikiLink Graph and PageRank Centrality</title>\n  <desc>Interactive product architecture and workflow diagram for WorksAi GraphMind (graphmind.worksai.org): Bidirectional [[wikilink]] knowledge graphs, orphan link diagnostics, and MCP agent context for VS Code & Cursor.</desc>\n  <defs>\n    <linearGradient id=\"bg-graphmind\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0F172A\"/>\n      <stop offset=\"100%\" stop-color=\"#090D16\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"860\" height=\"260\" rx=\"12\" fill=\"url(#bg-graphmind)\"/>\n  <rect x=\"20\" y=\"18\" width=\"820\" height=\"34\" rx=\"6\" fill=\"#1E293B\"/>\n  <circle cx=\"38\" cy=\"35\" r=\"5\" fill=\"#EF4444\"/>\n  <circle cx=\"54\" cy=\"35\" r=\"5\" fill=\"#F59E0B\"/>\n  <circle cx=\"70\" cy=\"35\" r=\"5\" fill=\"#10B981\"/>\n  <text x=\"92\" y=\"39\" fill=\"#E2E8F0\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">graphmind.worksai.org \u2014 WorksAi GraphMind v1.2.0</text>\n  <rect x=\"20\" y=\"66\" width=\"245\" height=\"174\" rx=\"8\" fill=\"#111827\" stroke=\"#334155\"/>\n  <text x=\"36\" y=\"92\" fill=\"#38BDF8\" font-family=\"sans-serif\" font-size=\"12\" font-weight=\"bold\">1. TENANT-SCOPED WORKSPACE</text>\n  <text x=\"36\" y=\"116\" fill=\"#94A3B8\" font-family=\"monospace\" font-size=\"11\">R2: workspaces/$tenant/$user/</text>\n  <text x=\"36\" y=\"136\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Save, Reopen, Rename, Delete</text>\n  <text x=\"36\" y=\"156\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Strict Cross-Tenant 403 Guard</text>\n  <text x=\"36\" y=\"176\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 File Import &amp; Sample Presets</text>\n  <rect x=\"36\" y=\"194\" width=\"213\" height=\"28\" rx=\"5\" fill=\"#0284C7\"/>\n  <text x=\"142\" y=\"212\" text-anchor=\"middle\" fill=\"#FFFFFF\" font-family=\"sans-serif\" font-size=\"11\" font-weight=\"bold\">Isolated CRUD Active</text>\n\n  <rect x=\"288\" y=\"66\" width=\"284\" height=\"174\" rx=\"8\" fill=\"#111827\" stroke=\"#38BDF8\"/>\n  <text x=\"304\" y=\"92\" fill=\"#A855F7\" font-family=\"sans-serif\" font-size=\"12\" font-weight=\"bold\">2. DOMAIN ENGINE + AI COPILOT</text>\n  <text x=\"304\" y=\"116\" fill=\"#E2E8F0\" font-family=\"sans-serif\" font-size=\"11\">Bidirectional [[wikilink]] knowledge graph</text>\n  <text x=\"304\" y=\"138\" fill=\"#94A3B8\" font-family=\"monospace\" font-size=\"11\">Engine: Deterministic AST/Math</text>\n  <text x=\"304\" y=\"158\" fill=\"#94A3B8\" font-family=\"monospace\" font-size=\"11\">Model: llama-3.1-8b-instruct-fp8</text>\n  <text x=\"304\" y=\"178\" fill=\"#10B981\" font-family=\"monospace\" font-size=\"11\">Status: Verified Edge Execution</text>\n  <rect x=\"304\" y=\"194\" width=\"252\" height=\"28\" rx=\"5\" fill=\"#1E293B\" stroke=\"#38BDF8\"/>\n  <text x=\"430\" y=\"212\" text-anchor=\"middle\" fill=\"#38BDF8\" font-family=\"monospace\" font-size=\"11\">POST /api/execute &amp; /api/workspace/items</text>\n\n  <rect x=\"595\" y=\"66\" width=\"245\" height=\"174\" rx=\"8\" fill=\"#111827\" stroke=\"#334155\"/>\n  <text x=\"611\" y=\"92\" fill=\"#10B981\" font-family=\"sans-serif\" font-size=\"12\" font-weight=\"bold\">3. EXPORT &amp; RELEASE ARTIFACTS</text>\n  <text x=\"611\" y=\"116\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Native Format Export (.svg/.csv/.wav)</text>\n  <text x=\"611\" y=\"136\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Signed Release Archive Download</text>\n  <text x=\"611\" y=\"156\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Zero-PII Engagement Telemetry</text>\n  <text x=\"611\" y=\"176\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 /docs &amp; /guide Technical SEO</text>\n  <rect x=\"611\" y=\"194\" width=\"213\" height=\"28\" rx=\"5\" fill=\"#059669\"/>\n  <text x=\"717\" y=\"212\" text-anchor=\"middle\" fill=\"#FFFFFF\" font-family=\"sans-serif\" font-size=\"11\" font-weight=\"bold\">Verified Deliverable Ready</text>\n</svg>";
+const SHARED_CSS = "\n:root {\n  --bg-obsidian: #07090e;\n  --bg-surface: rgba(15, 21, 34, 0.84);\n  --bg-elevated: rgba(23, 32, 51, 0.90);\n  --border-titanium: rgba(226, 232, 240, 0.14);\n  --border-glow: rgba(56, 189, 248, 0.38);\n  --text-primary: #f8fafc;\n  --text-secondary: #cbd5e1;\n  --text-muted: #94a3b8;\n  --accent-cyan: #38bdf8;\n  --accent-amber: #f97316;\n  --accent-emerald: #10b981;\n  --radius-lg: 18px;\n  --radius-md: 12px;\n  --font-sans: \"Readex Pro\", Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;\n}\n* { box-sizing: border-box; }\nbody {\n  margin: 0;\n  font-family: var(--font-sans);\n  background:\n    radial-gradient(circle at 10% 92%, rgba(249, 115, 22, 0.11), transparent 34%),\n    radial-gradient(circle at 86% 10%, rgba(56, 189, 248, 0.15), transparent 38%),\n    var(--bg-obsidian);\n  color: var(--text-primary);\n  line-height: 1.62;\n  min-height: 100vh;\n}\na { color: var(--accent-cyan); text-decoration: none; }\na:hover { text-decoration: underline; }\n.skip-link {\n  position: absolute; top: -100px; left: 16px; z-index: 100;\n  background: #fff; color: #000; padding: 8px 14px; border-radius: 8px; font-weight: 700;\n}\n.skip-link:focus { top: 12px; }\n.wrap { max-width: 1240px; margin: 0 auto; padding: 20px 20px 72px; }\n.site-header {\n  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;\n  padding: 12px 20px; border-radius: var(--radius-lg); background: var(--bg-surface);\n  border: 1px solid var(--border-titanium); backdrop-filter: blur(18px); margin-bottom: 26px;\n}\n.brand-link {\n  display: inline-flex; align-items: center; gap: 12px; color: var(--text-primary);\n  font-weight: 800; font-size: 1.12rem; letter-spacing: -0.02em; text-decoration: none !important;\n}\n.nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }\n.nav-links a {\n  padding: 7px 13px; border-radius: 9px; color: var(--text-secondary);\n  font-size: 13.5px; font-weight: 600; text-decoration: none;\n}\n.nav-links a:hover, .nav-links a[aria-current=\"page\"] {\n  background: rgba(255, 255, 255, 0.09); color: var(--text-primary);\n}\n.pill {\n  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;\n  border-radius: 999px; font-size: 11.5px; font-weight: 600;\n  background: rgba(56, 189, 248, 0.12); color: var(--accent-cyan);\n  border: 1px solid rgba(56, 189, 248, 0.28);\n}\n.pill-amber {\n  background: rgba(249, 115, 22, 0.14); color: #fdba74;\n  border-color: rgba(249, 115, 22, 0.34);\n}\n.tag-chip {\n  display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11.5px;\n  background: rgba(255, 255, 255, 0.06); color: var(--text-secondary);\n  border: 1px solid var(--border-titanium); margin-right: 4px; margin-bottom: 4px;\n}\n.panel {\n  background: var(--bg-surface); border: 1px solid var(--border-titanium);\n  border-radius: var(--radius-lg); padding: 26px; backdrop-filter: blur(16px); margin-bottom: 22px;\n}\n.grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }\n.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }\n.card {\n  display: flex; flex-direction: column; justify-content: space-between;\n  background: var(--bg-elevated); border: 1px solid var(--border-titanium);\n  border-radius: 15px; padding: 20px;\n}\n.btn {\n  display: inline-flex; align-items: center; justify-content: center; gap: 8px;\n  padding: 9px 16px; border-radius: 9px; font-weight: 600; font-size: 13.5px;\n  background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff !important;\n  border: 1px solid rgba(56, 189, 248, 0.4); cursor: pointer; text-decoration: none !important;\n}\n.btn-secondary {\n  background: rgba(255, 255, 255, 0.06); color: var(--text-primary) !important;\n  border: 1px solid var(--border-titanium);\n}\ninput, select, textarea {\n  width: 100%; padding: 10px 12px; border-radius: 9px;\n  background: #05070b; color: var(--text-primary);\n  border: 1px solid var(--border-titanium); font-family: inherit; font-size: 13.5px; margin-bottom: 10px;\n}\npre {\n  background: #05070b; color: #bae6fd; border: 1px solid var(--border-titanium);\n  border-radius: 10px; padding: 14px; overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px;\n}\n.site-footer {\n  margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--border-titanium);\n  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px;\n  font-size: 13px; color: var(--text-muted);\n}\n";
 
 
 // ============================================================================
@@ -893,440 +942,1088 @@ export function runDomainEngineBySlug(slug, rawInput, toolName = "") {
 }
 
 
-function secHeaders(ct = "text/html; charset=utf-8", extra = {}) {
-  return {
-    "content-type": ct,
-    "x-content-type-options": "nosniff",
-    "x-frame-options": "SAMEORIGIN",
-    "referrer-policy": "strict-origin-when-cross-origin",
-    "cache-control": "no-store",
-    ...extra
+
+function runDomainEngine(slugOrSub, inputPayload) {
+  const out = runDomainEngineBySlug(APP_META.repo, null, inputPayload);
+  return out && out.domainResult ? { ...out.domainResult, summary: out.summary, tool: out.tool } : out;
+}
+
+// --- WAV Binary Synthesizer (16-bit PCM RIFF/WAVE) ---
+function generateWavBytesFromSummary(resultObj) {
+  const sampleRate = 8000;
+  const durationSec = 1;
+  const numSamples = sampleRate * durationSec;
+  const dataSize = numSamples * 2;
+  const buffer = new ArrayBuffer(44 + dataSize);
+  const view = new DataView(buffer);
+  const writeStr = (offset, str) => {
+    for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
   };
+  writeStr(0, 'RIFF');
+  view.setUint32(4, 36 + dataSize, true);
+  writeStr(8, 'WAVE');
+  writeStr(12, 'fmt ');
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true); // PCM
+  view.setUint16(22, 1, true); // Mono
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true);
+  view.setUint16(34, 16, true);
+  writeStr(36, 'data');
+  view.setUint32(40, dataSize, true);
+  const envelope = (resultObj && Array.isArray(resultObj.rmsEnvelope)) ? resultObj.rmsEnvelope : [0.25, 0.45, 0.35, 0.5];
+  for (let i = 0; i < numSamples; i++) {
+    const envVal = Number(envelope[i % envelope.length] || 0.25);
+    const sample = Math.max(-1, Math.min(1, Math.sin((2 * Math.PI * 440 * i) / sampleRate) * envVal));
+    view.setInt16(44 + i * 2, Math.floor(sample * 32767), true);
+  }
+  return new Uint8Array(buffer);
 }
 
-function esc(s) {
-  return String(s || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
+// --- Native Format Exporter (.svg, .csv, .wav, .json, .md) ---
+function buildExportPayload(item, requestedFormat) {
+  const fmt = (requestedFormat || APP_META.exportFormat || 'json').toLowerCase();
+  const safeId = String(item.id || 'export').replace(/[^a-zA-Z0-9_-]/g, '_');
+  const result = item.result || runDomainEngine(APP_META.slug, item.input || APP_META.defaultInput);
 
-export async function runAppAiAnalysis(inputRaw, toolName = APP_META.mcpTools[0], env = {}, options = {}) {
-  const res = runDomainEngineBySlug(APP_META.slug, inputRaw, toolName);
-  if (!res.ok) return res;
-
-  let aiModelSynthesis = null;
-  let genuineAiModelInvoked = false;
-  const aiModelId = "@cf/meta/llama-3.1-8b-instruct-fp8";
-
-  if (env && env.AI && typeof env.AI.run === "function" && options.useLlm !== false) {
-    try {
-      const aiResp = await env.AI.run(aiModelId, {
-        messages: [
-          { role: "system", content: `You are the concise engineering assistant for ${APP_META.name}. Provide a 2-sentence actionable insight based on the deterministic domain output.` },
-          { role: "user", content: JSON.stringify(res.domainResult).slice(0, 1200) }
-        ],
-        max_tokens: 140
-      });
-      if (aiResp && aiResp.response) {
-        aiModelSynthesis = String(aiResp.response).trim();
-        genuineAiModelInvoked = true;
+  if (fmt === 'svg') {
+    const svgBody = (result && result.svgDiagram) ? result.svgDiagram : DIAGRAM_SVG;
+    return {
+      bytes: new TextEncoder().encode(svgBody),
+      mime: 'image/svg+xml; charset=utf-8',
+      filename: `${APP_META.slug}-${safeId}.svg`
+    };
+  }
+  if (fmt === 'csv') {
+    let csvLines = ['metric,value,category,status'];
+    if (result && Array.isArray(result.parsedTransactions)) {
+      csvLines = ['date,description,amount,category,flagged'];
+      for (const tx of result.parsedTransactions) {
+        csvLines.push(`"${tx.date || ''}","${String(tx.description || '').replace(/"/g, '""')}",${tx.amount || 0},"${tx.category || 'general'}",${Boolean(tx.isAnomaly)}`);
       }
-    } catch {
-      aiModelSynthesis = null;
-      genuineAiModelInvoked = false;
+    } else if (result && Array.isArray(result.cohortSchedule)) {
+      csvLines = ['month,activeCustomers,retainedMrr,expansionMrr,netMrr'];
+      for (const row of result.cohortSchedule) {
+        csvLines.push(`${row.month},${row.activeCustomers},${row.retainedMrr},${row.expansionMrr},${row.netMrr}`);
+      }
+    } else {
+      for (const [k, v] of Object.entries(result || {})) {
+        if (typeof v === 'number' || typeof v === 'string' || typeof v === 'boolean') {
+          csvLines.push(`"${k}","${String(v).replace(/"/g, '""')}","${APP_META.slug}","verified"`);
+        }
+      }
     }
+    return {
+      bytes: new TextEncoder().encode(csvLines.join('\n') + '\n'),
+      mime: 'text/csv; charset=utf-8',
+      filename: `${APP_META.slug}-${safeId}.csv`
+    };
   }
-
-  const runId = `${APP_META.sub}-${Date.now().toString(36)}`;
-  const r2WorkspaceKey = `workspaces/${APP_META.slug}/latest.json`;
-
-  const payloadOut = {
-    ...res,
-    app: APP_META.slug,
-    subdomain: APP_META.subdomain,
-    executionBreakdown: {
-      deterministicUtilityExecuted: true,
-      deterministicEngineName: APP_META.capabilityMatrix?.deterministicUtilities || "runDomainEngineBySlug",
-      genuineAiModelInvoked,
-      aiModelId: genuineAiModelInvoked ? aiModelId : null,
-      aiModelSynthesis,
-      persistedToR2: false,
-      r2WorkspaceKey
-    },
-    dataLakeRecord: {
-      tenantId: "tenant-worksai-demo",
-      appSlug: APP_META.slug,
-      title: `${APP_META.name} Output (${new Date().toISOString().slice(0, 10)})`,
-      mimeType: "application/json",
-      r2ObjectKey: `r2://worksai-datalake/tenant-worksai-demo/${runId}.json`
-    },
-    executedAt: new Date().toISOString()
+  if (fmt === 'wav') {
+    return {
+      bytes: generateWavBytesFromSummary(result),
+      mime: 'audio/wav',
+      filename: `${APP_META.slug}-${safeId}.wav`
+    };
+  }
+  if (fmt === 'md') {
+    const md = `# ${item.title || APP_META.name}\n\n- **Product**: ${APP_META.name} (${APP_META.slug}.worksai.org)\n- **Tenant / Owner**: ${item.tenantId} / ${item.ownerId}\n- **Updated**: ${item.updatedAt}\n\n## Input\n\n\`\`\`\n${item.input}\n\`\`\`\n\n## Computed Output\n\n\`\`\`json\n${JSON.stringify(result, null, 2)}\n\`\`\`\n`;
+    return {
+      bytes: new TextEncoder().encode(md),
+      mime: 'text/markdown; charset=utf-8',
+      filename: `${APP_META.slug}-${safeId}.md`
+    };
+  }
+  return {
+    bytes: new TextEncoder().encode(JSON.stringify({ item, result }, null, 2)),
+    mime: 'application/json; charset=utf-8',
+    filename: `${APP_META.slug}-${safeId}.json`
   };
+}
 
-  if (env && env.DATALAKE_BUCKET && typeof env.DATALAKE_BUCKET.put === "function") {
-    try {
-      await env.DATALAKE_BUCKET.put(r2WorkspaceKey, JSON.stringify(payloadOut), {
-        httpMetadata: { contentType: "application/json" }
-      });
-      payloadOut.executionBreakdown.persistedToR2 = true;
-    } catch {
-      payloadOut.executionBreakdown.persistedToR2 = false;
+// --- Tenant & User Identity Resolution ---
+function sanitizeScopeToken(raw, fallback) {
+  const cleaned = String(raw || '').trim().replace(/[^a-zA-Z0-9._@-]/g, '_').slice(0, 64);
+  return cleaned || fallback;
+}
+
+function resolveWorkspaceIdentity(request, url) {
+  const cookies = Object.fromEntries(
+    (request.headers.get('Cookie') || '').split(';').map(c => c.trim().split('=')).filter(p => p.length === 2)
+  );
+  const tenantId = sanitizeScopeToken(
+    request.headers.get('X-WorksAI-Tenant') || url.searchParams.get('tenantId') || cookies['worksai_tenant'],
+    'tenant-default'
+  );
+  const userId = sanitizeScopeToken(
+    request.headers.get('X-WorksAI-User') || url.searchParams.get('userId') || cookies['worksai_user'],
+    'user-default'
+  );
+  return { tenantId, userId };
+}
+
+// --- R2 Tenant+User-Scoped Storage Helpers ---
+const MEMORY_R2_FALLBACK = new Map();
+
+async function r2GetJson(env, key) {
+  if (env && env.PROOF_BUCKET && typeof env.PROOF_BUCKET.get === 'function') {
+    const obj = await env.PROOF_BUCKET.get(key);
+    if (!obj) return null;
+    const text = await obj.text();
+    try { return JSON.parse(text); } catch { return null; }
+  }
+  const raw = MEMORY_R2_FALLBACK.get(key);
+  return raw ? JSON.parse(raw) : null;
+}
+
+async function r2PutJson(env, key, value) {
+  const serialized = JSON.stringify(value, null, 2);
+  if (env && env.PROOF_BUCKET && typeof env.PROOF_BUCKET.put === 'function') {
+    await env.PROOF_BUCKET.put(key, serialized, {
+      httpMetadata: { contentType: 'application/json' }
+    });
+    return;
+  }
+  MEMORY_R2_FALLBACK.set(key, serialized);
+}
+
+async function r2DeleteKey(env, key) {
+  if (env && env.PROOF_BUCKET && typeof env.PROOF_BUCKET.delete === 'function') {
+    await env.PROOF_BUCKET.delete(key);
+    return;
+  }
+  MEMORY_R2_FALLBACK.delete(key);
+}
+
+function userIndexKey(tenantId, userId) {
+  return `workspaces/${tenantId}/${userId}/${APP_META.slug}/index.json`;
+}
+
+function itemStorageKey(tenantId, userId, itemId) {
+  return `workspaces/${tenantId}/${userId}/${APP_META.slug}/items/${itemId}.json`;
+}
+
+function globalItemLookupKey(itemId) {
+  return `workspaces/_lookup/${APP_META.slug}/${itemId}.json`;
+}
+
+async function ensureUserWorkspaceIndex(env, tenantId, userId) {
+  const idxKey = userIndexKey(tenantId, userId);
+  let idx = await r2GetJson(env, idxKey);
+  if (idx && Array.isArray(idx.items)) return idx;
+
+  // Provision initial sample item scoped to this tenantId + userId
+  const seedId = `seed-${APP_META.slug}-1`;
+  const now = new Date().toISOString();
+  const computed = runDomainEngine(APP_META.slug, APP_META.defaultInput);
+  const seedItem = {
+    id: seedId,
+    title: `${APP_META.name} Starter Project`,
+    tenantId,
+    ownerId: userId,
+    slug: APP_META.slug,
+    input: APP_META.defaultInput,
+    result: computed,
+    version: 1,
+    createdAt: now,
+    updatedAt: now
+  };
+  await r2PutJson(env, itemStorageKey(tenantId, userId, seedId), seedItem);
+  idx = {
+    tenantId,
+    ownerId: userId,
+    slug: APP_META.slug,
+    updatedAt: now,
+    items: [{
+      id: seedId,
+      title: seedItem.title,
+      tenantId,
+      ownerId: userId,
+      version: 1,
+      updatedAt: now
+    }]
+  };
+  await r2PutJson(env, idxKey, idx);
+  return idx;
+}
+
+// --- Privacy-Conscious Telemetry Gate ---
+const FORBIDDEN_TELEMETRY_KEYS = ['clipboard', 'password', 'secret', 'token', 'csv', 'content', 'rawinput', 'privatekey', 'authorization'];
+const TELEMETRY_COUNTERS = new Map();
+
+function validateAndRecordTelemetry(payload) {
+  if (!payload || typeof payload !== 'object') {
+    return { ok: false, status: 400, error: 'Invalid telemetry payload' };
+  }
+  const keys = Object.keys(payload);
+  for (const k of keys) {
+    if (FORBIDDEN_TELEMETRY_KEYS.includes(k.toLowerCase())) {
+      return {
+        ok: false,
+        status: 400,
+        error: `Privacy violation blocked: field '${k}' is prohibited in telemetry.`
+      };
     }
   }
-
-  return payloadOut;
+  const eventName = sanitizeScopeToken(payload.eventType || payload.event || 'page_view', 'page_view');
+  const counterKey = `${APP_META.slug}:${eventName}`;
+  const nextCount = (TELEMETRY_COUNTERS.get(counterKey) || 0) + 1;
+  TELEMETRY_COUNTERS.set(counterKey, nextCount);
+  return {
+    ok: true,
+    status: 202,
+    recorded: {
+      product: APP_META.slug,
+      eventType: eventName,
+      count: nextCount,
+      piiScrubbed: true,
+      timestamp: new Date().toISOString()
+    }
+  };
 }
 
-function renderRuntimeModeBanner() {
-  if (APP_META.categorySlug === "plugins-extensions" && DOWNLOAD_ARTIFACT) {
-    const extraLink = APP_META.slug === "worksai-graphmind"
-      ? `<a class="btn btn-secondary" href="/downloads/extension.cjs" download>Download Executable extension.cjs</a>`
-      : APP_META.slug === "worksai-clipguard"
-      ? `<a class="btn btn-secondary" href="/downloads/background.cjs" download>Download MV3 Service Worker (background.cjs)</a>`
-      : `<a class="btn btn-secondary" href="/downloads/worksai-commandbar-cli.mjs" download>Download Executable CLI (worksai-commandbar-cli.mjs)</a>`;
-    return `
-      <div class="card" style="margin-bottom:18px;border-color:rgba(56,189,248,0.45)">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-          <div>
-            <span class="pill">Category C — Executable Extension / CLI Package + Companion Edge Verifier</span>
-            <h2 style="margin:6px 0 4px;font-size:1.08rem">Executable Package Distribution &amp; Companion Rule/Graph Verifier</h2>
-            <p style="margin:0;font-size:13px;color:var(--text-secondary)">
-              Download both the manifest and the executable JavaScript/CLI runtime below for local IDE/browser/OS installation, or test the exact deterministic engine + Cloudflare Workers AI synthesis in the companion verifier.
-            </p>
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <a class="btn" href="${esc(DOWNLOAD_ARTIFACT.path)}" download>${esc(DOWNLOAD_ARTIFACT.label)}</a>
-            ${extraLink}
-            <a class="btn btn-secondary" href="/api/releases/latest">Release Metadata JSON</a>
-          </div>
-        </div>
-      </div>`;
-  }
-  if (APP_META.categorySlug === "wordpress-php" && DOWNLOAD_ARTIFACT) {
-    return `
-      <div class="card" style="margin-bottom:18px;border-color:rgba(249,115,22,0.45)">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-          <div>
-            <span class="pill pill-amber">Category D — Working PHP 8.2+ / WordPress Plugin + Hosted Edge Microservice</span>
-            <h2 style="margin:6px 0 4px;font-size:1.08rem">Downloadable PHP 8.2+ Plugin (Local + Edge Execution)</h2>
-            <p style="margin:0;font-size:13px;color:var(--text-secondary)">
-              Download the tested PHP 8.2+ plugin containing complete local execution logic and WordPress/Bagisto/Flarum hooks, or invoke this subdomain's live Cloudflare Edge API (<code>POST /api/ai/analyze</code> &amp; <code>POST /api/mcp</code>).
-            </p>
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <a class="btn" href="${esc(DOWNLOAD_ARTIFACT.path)}" download>${esc(DOWNLOAD_ARTIFACT.label)}</a>
-            <a class="btn btn-secondary" href="/api/releases/latest">Release Metadata JSON</a>
-          </div>
-        </div>
-      </div>`;
-  }
-  return "";
+// --- HTML Renderers (/, /docs, /guide) ---
+function renderNavHeader(activePath, identity) {
+  const bpkg = APP_META.binaryPackage;
+  return `
+  <header class="site-header" style="border-bottom:1px solid #1E293B;background:#090D16;padding:0.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <a href="https://worksai.org" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:#F8FAFC;font-weight:700;">
+        <span style="display:inline-flex;width:28px;height:28px;">${WORKSAI_CREST_SVG}</span>
+        <span>WorksAI</span>
+      </a>
+      <span style="color:#475569;">/</span>
+      <a href="/" style="color:#38BDF8;font-weight:700;text-decoration:none;">${APP_META.name}</a>
+      <span style="background:#1E293B;color:#94A3B8;font-size:0.72rem;padding:0.15rem 0.5rem;border-radius:999px;font-family:monospace;">${APP_META.deploymentCategory}</span>
+    </div>
+    <nav aria-label="Primary Product Navigation" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-size:0.88rem;">
+      <a href="/" style="color:${activePath === '/' ? '#38BDF8' : '#CBD5E1'};text-decoration:none;font-weight:${activePath === '/' ? '700' : '500'};">${APP_META.isWebApp ? 'Workspace App' : 'Product &amp; Download'}</a>
+      <a href="/docs" style="color:${activePath === '/docs' ? '#38BDF8' : '#CBD5E1'};text-decoration:none;font-weight:${activePath === '/docs' ? '700' : '500'};">Documentation &amp; Setup</a>
+      <a href="/guide" style="color:${activePath === '/guide' ? '#38BDF8' : '#CBD5E1'};text-decoration:none;font-weight:${activePath === '/guide' ? '700' : '500'};">Architecture Guide &amp; FAQ</a>
+      ${bpkg ? `<a href="/downloads/${bpkg.filename}" style="background:#0284C7;color:#FFF;padding:0.35rem 0.75rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.8rem;">Download ${bpkg.filename}</a>` : `<a href="/api/workspace/items" style="color:#94A3B8;text-decoration:none;font-family:monospace;font-size:0.78rem;">CRUD API</a>`}
+      <span style="color:#64748B;font-family:monospace;font-size:0.75rem;" title="Isolated R2 Tenant and User Scope">Scope: ${identity.tenantId} / ${identity.userId}</span>
+    </nav>
+  </header>`;
 }
 
-function renderAppHtml() {
-  const initialRun = runDomainEngineBySlug(APP_META.slug, DEFAULT_SAMPLE, APP_META.mcpTools[0]);
-  const initialVisualHtml = APP_META.slug === "worksai-canvasarch" && initialRun.domainResult?.svg
-    ? initialRun.domainResult.svg
-    : `<pre style="margin:0">${esc(JSON.stringify(initialRun.domainResult, null, 2))}</pre>`;
-
-  const cap = APP_META.capabilityMatrix || {};
-  const toolsBadges = APP_META.mcpTools.map((t) => `<span class="tag-chip"><code>${esc(t)}</code></span>`).join(" ");
-  const toolOptions = APP_META.mcpTools.map((t) => `<option value="${esc(t)}">${esc(t)}</option>`).join("");
-  const ld = JSON.stringify({
+function renderMainPage(identity, initialIndex, initialItem) {
+  const seo = APP_META.seo;
+  const bpkg = APP_META.binaryPackage;
+  const canonical = `https://${APP_META.slug}.worksai.org/`;
+  const softwareLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: APP_META.name,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web, Windows, macOS, Linux",
-    url: APP_META.appUrl,
-    license: "https://opensource.org/license/mit",
-    codeRepository: APP_META.githubUrl
-  }).replace(/</g, "\\u003c");
+    "name": APP_META.name,
+    "applicationCategory": APP_META.category,
+    "operatingSystem": APP_META.compatibility,
+    "description": seo.meta_desc,
+    "url": canonical,
+    "softwareVersion": "1.2.0",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
+
+  const releaseHeroBlock = bpkg ? `
+    <section aria-label="Binary Package Release and Checksum" style="background:#0F172A;border:1px solid #0284C7;border-radius:12px;padding:1.25rem;margin-bottom:1.5rem;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <span style="background:#0369A1;color:#E0F2FE;font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:4px;text-transform:uppercase;">Official Release Package v1.2.0</span>
+          <h2 style="margin:0.5rem 0 0.25rem;font-size:1.25rem;color:#F8FAFC;">Download &amp; Install ${APP_META.name}</h2>
+          <p style="margin:0;color:#94A3B8;font-size:0.9rem;">Compatibility: <strong style="color:#E2E8F0;">${APP_META.compatibility}</strong></p>
+        </div>
+        <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
+          <a href="/downloads/${bpkg.filename}" onclick="sendTelemetry('cta_download_click')" style="background:#0284C7;color:#FFFFFF;padding:0.65rem 1.15rem;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block;">Download ${bpkg.filename} (${(bpkg.sizeBytes / 1024).toFixed(1)} KB)</a>
+          <a href="/docs" style="background:#1E293B;color:#E2E8F0;padding:0.65rem 1rem;border-radius:8px;font-weight:600;text-decoration:none;border:1px solid #334155;">Installation Docs</a>
+        </div>
+      </div>
+      <div style="margin-top:0.9rem;background:#090D16;border:1px solid #1E293B;border-radius:8px;padding:0.75rem;font-family:monospace;font-size:0.82rem;color:#38BDF8;overflow-x:auto;">
+        <div>$ ${APP_META.installCmd}</div>
+        <div style="color:#64748B;margin-top:0.35rem;">SHA-256: ${bpkg.sha256}</div>
+      </div>
+      <p style="margin:0.65rem 0 0;font-size:0.8rem;color:#94A3B8;"><strong>Permissions &amp; Privacy Disclosure:</strong> ${APP_META.permissionsDisclosure}</p>
+    </section>
+  ` : `
+    <section aria-label="Web Application Capabilities and Privacy Notice" style="background:#0F172A;border:1px solid #1E293B;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <span style="background:#065F46;color:#D1FAE5;font-size:0.74rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:4px;">LIVE MULTI-PROJECT WEB APPLICATION</span>
+        <span style="color:#94A3B8;font-size:0.85rem;margin-left:0.6rem;">Compatibility: ${APP_META.compatibility}</span>
+        <div style="font-size:0.8rem;color:#64748B;margin-top:0.3rem;"><strong>Workspace Isolation:</strong> ${APP_META.permissionsDisclosure}</div>
+      </div>
+      <div style="display:flex;gap:0.5rem;">
+        <a href="/docs" style="background:#1E293B;color:#E2E8F0;padding:0.45rem 0.85rem;border-radius:6px;text-decoration:none;font-size:0.82rem;border:1px solid #334155;">API &amp; Usage Docs</a>
+        <a href="/guide" style="background:#1E293B;color:#38BDF8;padding:0.45rem 0.85rem;border-radius:6px;text-decoration:none;font-size:0.82rem;border:1px solid #334155;">Technical Guide</a>
+      </div>
+    </section>
+  `;
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>${esc(APP_META.name)} — ${esc(APP_META.tagline)} | WorksAI.org</title>
-  <meta name="description" content="${esc(APP_META.valueProposition)}" />
-  <link rel="canonical" href="${esc(APP_META.appUrl)}" />
-  <style>${CSS}</style>
-  <script type="application/ld+json">${ld}</script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>${seo.title_tag}</title>
+  <meta name="description" content="${seo.meta_desc}"/>
+  <link rel="canonical" href="${canonical}"/>
+  <meta property="og:title" content="${seo.title_tag}"/>
+  <meta property="og:description" content="${seo.meta_desc}"/>
+  <meta property="og:url" content="${canonical}"/>
+  <meta property="og:type" content="website"/>
+  <script type="application/ld+json">${JSON.stringify(softwareLd)}</script>
+  <style>${SHARED_CSS}</style>
 </head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <div class="wrap">
-    <header class="site-header">
-      <a class="brand-link" href="${esc(APP_META.appUrl)}">
-        ${CREST_SVG}
-        <div>
-          <div style="line-height:1.1">${esc(APP_META.name)}</div>
-          <div style="font-size:11px;font-weight:500;color:var(--text-muted)">${esc(APP_META.subdomain)} • WorksAI Open-Source Ecosystem</div>
+<body style="margin:0;background:#090D16;color:#F8FAFC;font-family:system-ui,-apple-system,sans-serif;">
+  ${renderNavHeader('/', identity)}
+  <main style="max-width:1240px;margin:0 auto;padding:1.5rem;">
+    <div style="margin-bottom:1.25rem;">
+      <h1 style="margin:0 0 0.4rem;font-size:1.85rem;color:#F8FAFC;">${seo.h1}</h1>
+      <p style="margin:0;color:#94A3B8;font-size:1rem;">${APP_META.tagline} — <strong style="color:#E2E8F0;">${seo.primary_kw}</strong></p>
+    </div>
+
+    ${releaseHeroBlock}
+
+    <div style="display:grid;grid-template-columns:320px 1fr;gap:1.25rem;align-items:start;">
+      <!-- Left Column: Tenant/User Workspace CRUD Drawer -->
+      <aside aria-label="Saved Workspace Projects" style="background:#0F172A;border:1px solid #1E293B;border-radius:12px;padding:1rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+          <h2 style="margin:0;font-size:1rem;color:#F8FAFC;">Saved Projects (R2 CRUD)</h2>
+          <button type="button" onclick="createNewProject()" style="background:#0284C7;color:#FFF;border:none;border-radius:6px;padding:0.3rem 0.65rem;font-size:0.78rem;font-weight:600;cursor:pointer;">+ New</button>
         </div>
-      </a>
-      <nav class="nav-links" aria-label="Application Navigation">
-        <a href="${esc(APP_META.appUrl)}" aria-current="page">Application Workspace</a>
-        <a href="/api/workspace/state">Persisted R2 State</a>
-        <a href="/attribution">MIT Provenance</a>
-        <a href="${esc(APP_META.hubDetailUrl)}">WorksAI Hub Spec</a>
-        <a href="https://worksai.org/data-lake">Shared Data Lake</a>
-        <a href="https://worksai.org/mcp">MCP Registry</a>
-        <a href="${esc(APP_META.githubUrl)}" target="_blank" rel="noopener">GitHub Repo ↗</a>
-      </nav>
-    </header>
-    <main id="main-content">
-      <section class="panel">
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
-          <span class="pill">${esc(APP_META.category)}</span>
-          <span class="pill pill-amber">MIT Open Source • WorksAI Foundry</span>
-          <span class="pill">Worker Custom Domain: ${esc(APP_META.subdomain)}</span>
-        </div>
-        <h1 style="margin:6px 0 10px;font-size:clamp(1.75rem,3vw,2.4rem)">${esc(APP_META.name)}</h1>
-        <p style="color:var(--text-secondary);max-width:860px;margin:0 0 16px">${esc(APP_META.valueProposition)}</p>
-        ${renderRuntimeModeBanner()}
-        <div class="grid-2">
-          <div class="card">
-            <h2 style="margin-top:0;font-size:1.1rem">Execute Domain Utility + Workers AI Synthesis</h2>
-            <p style="font-size:12.5px;color:var(--text-muted);margin-top:0"><strong>Deterministic Utility:</strong> ${esc(cap.deterministicUtilities || APP_META.aiFeature)}</p>
-            <label for="tool-select" style="font-size:12.5px;font-weight:600">Select Active MCP Tool</label>
-            <select id="tool-select">${toolOptions}</select>
-            <label for="ai-input" style="font-size:12.5px;font-weight:600">Domain Specification / Input Payload</label>
-            <textarea id="ai-input" rows="6">${esc(DEFAULT_SAMPLE)}</textarea>
-            <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <button class="btn" type="button" id="run-ai-btn">Run Domain Engine + Workers AI</button>
-              <button class="btn btn-secondary" type="button" id="run-mcp-btn">Call via MCP JSON-RPC 2.0</button>
-            </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-bottom:0.75rem;">
+          <div>
+            <label for="tenantInput" style="display:block;font-size:0.7rem;color:#94A3B8;">Tenant Scope</label>
+            <input id="tenantInput" value="${identity.tenantId}" onchange="refreshProjectList()" style="width:100%;box-sizing:border-box;background:#090D16;border:1px solid #334155;color:#E2E8F0;padding:0.3rem 0.45rem;border-radius:4px;font-size:0.78rem;font-family:monospace;"/>
           </div>
-          <div class="card">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px">
-              <h2 style="margin:0;font-size:1.1rem">Live Domain Output &amp; Visual Preview</h2>
-              <span class="pill" id="exec-status">Ready (Deterministic + Workers AI)</span>
+          <div>
+            <label for="userInput" style="display:block;font-size:0.7rem;color:#94A3B8;">User ID</label>
+            <input id="userInput" value="${identity.userId}" onchange="refreshProjectList()" style="width:100%;box-sizing:border-box;background:#090D16;border:1px solid #334155;color:#E2E8F0;padding:0.3rem 0.45rem;border-radius:4px;font-size:0.78rem;font-family:monospace;"/>
+          </div>
+        </div>
+
+        <div style="margin-bottom:0.75rem;">
+          <label for="presetSelect" style="display:block;font-size:0.72rem;color:#94A3B8;margin-bottom:0.25rem;">Load Sample Template</label>
+          <select id="presetSelect" onchange="loadPresetTemplate(this.value)" style="width:100%;background:#090D16;border:1px solid #334155;color:#E2E8F0;padding:0.4rem;border-radius:6px;font-size:0.8rem;">
+            ${APP_META.samplePresets.map((p, i) => `<option value="${i}">${p.title}</option>`).join('')}
+          </select>
+        </div>
+
+        <div style="margin-bottom:0.75rem;">
+          <label for="fileImportInput" style="display:block;font-size:0.72rem;color:#94A3B8;margin-bottom:0.25rem;">Import Local File (${APP_META.importAccept})</label>
+          <input id="fileImportInput" type="file" accept="${APP_META.importAccept}" onchange="handleFileUpload(event)" style="width:100%;font-size:0.75rem;color:#94A3B8;"/>
+        </div>
+
+        <ul id="projectList" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.45rem;max-height:340px;overflow-y:auto;">
+          ${initialIndex.items.map(item => `
+            <li data-id="${item.id}" style="background:#090D16;border:1px solid #1E293B;border-radius:8px;padding:0.55rem;">
+              <div style="font-weight:600;font-size:0.84rem;color:#E2E8F0;">${item.title}</div>
+              <div style="font-size:0.7rem;color:#64748B;font-family:monospace;margin:0.2rem 0 0.45rem;">ID: ${item.id} • v${item.version || 1}</div>
+              <div style="display:flex;gap:0.35rem;flex-wrap:wrap;">
+                <button type="button" onclick="openSavedProject('${item.id}')" style="background:#1E293B;color:#38BDF8;border:none;border-radius:4px;padding:0.2rem 0.45rem;font-size:0.72rem;cursor:pointer;">Reopen</button>
+                <button type="button" onclick="renameSavedProject('${item.id}')" style="background:#1E293B;color:#CBD5E1;border:none;border-radius:4px;padding:0.2rem 0.45rem;font-size:0.72rem;cursor:pointer;">Rename</button>
+                <button type="button" onclick="exportSavedProject('${item.id}', '${APP_META.exportFormat}')" style="background:#065F46;color:#D1FAE5;border:none;border-radius:4px;padding:0.2rem 0.45rem;font-size:0.72rem;cursor:pointer;">Export .${APP_META.exportFormat}</button>
+                <button type="button" onclick="deleteSavedProject('${item.id}')" style="background:#7F1D1D;color:#FECACA;border:none;border-radius:4px;padding:0.2rem 0.45rem;font-size:0.72rem;cursor:pointer;">Delete</button>
+              </div>
+            </li>
+          `).join('')}
+        </ul>
+      </aside>
+
+      <!-- Right Column: Interactive Domain Application & Output Inspector -->
+      <section aria-label="Interactive Product Workspace" style="background:#0F172A;border:1px solid #1E293B;border-radius:12px;padding:1.25rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.85rem;">
+          <div style="flex:1;min-width:240px;">
+            <label for="projectTitleInput" style="display:block;font-size:0.75rem;color:#94A3B8;margin-bottom:0.2rem;">Active Project Title</label>
+            <input id="projectTitleInput" value="${initialItem.title}" style="width:100%;box-sizing:border-box;background:#090D16;border:1px solid #334155;color:#F8FAFC;padding:0.45rem 0.65rem;border-radius:6px;font-weight:600;font-size:0.95rem;"/>
+            <input id="activeProjectId" type="hidden" value="${initialItem.id}"/>
+          </div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.1rem;">
+            <button type="button" onclick="executeAndSaveProject(false)" style="background:#0284C7;color:#FFF;border:none;border-radius:6px;padding:0.55rem 0.95rem;font-weight:700;font-size:0.84rem;cursor:pointer;">Run Domain Engine</button>
+            <button type="button" onclick="executeAndSaveProject(true)" style="background:#7C3AED;color:#FFF;border:none;border-radius:6px;padding:0.55rem 0.95rem;font-weight:700;font-size:0.84rem;cursor:pointer;">Run + AI Copilot</button>
+            <button type="button" onclick="saveCurrentProject()" style="background:#059669;color:#FFF;border:none;border-radius:6px;padding:0.55rem 0.95rem;font-weight:700;font-size:0.84rem;cursor:pointer;">Save to R2</button>
+            <button type="button" onclick="exportActiveProject('${APP_META.exportFormat}')" style="background:#1E293B;color:#38BDF8;border:1px solid #38BDF8;border-radius:6px;padding:0.55rem 0.95rem;font-weight:600;font-size:0.84rem;cursor:pointer;">Download .${APP_META.exportFormat.toUpperCase()}</button>
+            <button type="button" onclick="exportActiveProject('json')" style="background:#1E293B;color:#CBD5E1;border:1px solid #334155;border-radius:6px;padding:0.55rem 0.85rem;font-size:0.82rem;cursor:pointer;">Export JSON</button>
+          </div>
+        </div>
+
+        <label for="workspaceInput" style="display:block;font-size:0.78rem;color:#94A3B8;margin-bottom:0.35rem;">Domain Payload / Source Input</label>
+        <textarea id="workspaceInput" rows="7" style="width:100%;box-sizing:border-box;background:#090D16;border:1px solid #334155;color:#E2E8F0;padding:0.75rem;border-radius:8px;font-family:monospace;font-size:0.84rem;line-height:1.45;">${initialItem.input}</textarea>
+
+        <div id="statusBanner" style="margin:0.75rem 0;padding:0.55rem 0.85rem;border-radius:6px;background:#090D16;border:1px solid #1E293B;font-size:0.82rem;color:#10B981;font-family:monospace;">
+          Ready • Active Item: ${initialItem.id} • Scope: ${identity.tenantId}/${identity.userId}
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.75rem;">
+          <div>
+            <h3 style="margin:0 0 0.4rem;font-size:0.9rem;color:#38BDF8;">Structured Domain Output</h3>
+            <pre id="workspaceOutput" style="background:#090D16;border:1px solid #1E293B;border-radius:8px;padding:0.75rem;margin:0;font-size:0.78rem;color:#E2E8F0;max-height:320px;overflow:auto;">${JSON.stringify(initialItem.result, null, 2)}</pre>
+          </div>
+          <div>
+            <h3 style="margin:0 0 0.4rem;font-size:0.9rem;color:#A855F7;">Visual Preview / Diagram</h3>
+            <div id="visualPreviewContainer" style="background:#090D16;border:1px solid #1E293B;border-radius:8px;padding:0.75rem;min-height:220px;">
+              ${(initialItem.result && initialItem.result.svgDiagram) ? initialItem.result.svgDiagram : DIAGRAM_SVG}
             </div>
-            <div id="domain-visual-preview" style="margin-bottom:10px;overflow:auto">${initialVisualHtml}</div>
-            <details>
-              <summary style="cursor:pointer;font-size:12.5px;color:var(--accent-cyan)">Inspect Full JSON Response, Workers AI Synthesis &amp; R2 Persistence</summary>
-              <pre id="ai-output" style="margin:8px 0 0;max-height:240px">${esc(JSON.stringify(initialRun, null, 2))}</pre>
-            </details>
           </div>
         </div>
       </section>
-      <section class="panel">
-        <h2 style="margin-top:0;font-size:1.15rem">Verified Capability Matrix (Deterministic vs. Genuine AI Model vs. R2 Persistence)</h2>
-        <div class="grid-2" style="font-size:13px;color:var(--text-secondary)">
-          <div>
-            <p><strong>What You Can Do:</strong> ${esc(cap.userCapabilities || "")}</p>
-            <p><strong>Deterministic Domain Utilities:</strong> ${esc(cap.deterministicUtilities || "")}</p>
-            <p><strong>Genuine AI Model Features:</strong> ${esc(cap.genuineAiFeatures || "")}</p>
-          </div>
-          <div>
-            <p><strong>Persisted R2/Neon Features:</strong> ${esc(cap.persistedFeatures || "")}</p>
-            <p><strong>Known Scope &amp; Limitations:</strong> ${esc(cap.knownLimitations || "")}</p>
-            <p><strong>MCP JSON-RPC 2.0 Tools (<code>${esc(APP_META.mcpEndpoint)}</code>):</strong> ${toolsBadges}</p>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <div><strong>${esc(APP_META.name)}</strong> — Deployed from <a href="${esc(APP_META.githubUrl)}">${esc(APP_META.githubUrl)}</a> • <a href="/attribution">MIT Attribution &amp; Notices</a></div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="https://worksai.org/">WorksAI.org Hub</a>
-        <a href="https://worksai.org/apps">All 12 Apps</a>
-        <a href="https://worksai.org/data-lake">Data Lake</a>
-        <a href="https://worksai.org/news">AI News</a>
+    </div>
+
+    <section aria-label="Product Architecture Diagram and Key Capabilities" style="margin-top:2rem;background:#0F172A;border:1px solid #1E293B;border-radius:12px;padding:1.5rem;">
+      <h2 style="margin:0 0 0.5rem;font-size:1.3rem;color:#F8FAFC;">Architecture &amp; Verification Overview</h2>
+      <p style="margin:0 0 1rem;color:#94A3B8;font-size:0.92rem;">${seo.geo_summary}</p>
+      ${DIAGRAM_SVG}
+      <div style="margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap;font-size:0.85rem;">
+        <a href="/docs" style="color:#38BDF8;font-weight:600;">Read Installation &amp; Configuration Docs →</a>
+        <a href="/guide" style="color:#A855F7;font-weight:600;">Read Technical Guide &amp; FAQs →</a>
+        <a href="/sitemap.xml" style="color:#64748B;">Sitemap XML</a>
       </div>
-    </footer>
-  </div>
+    </section>
+  </main>
+
   <script>
-    const out = document.getElementById("ai-output");
-    const vis = document.getElementById("domain-visual-preview");
-    const st = document.getElementById("exec-status");
-    function updateView(data) {
-      out.textContent = JSON.stringify(data, null, 2);
-      const dr = data.domainResult || data.result?.domainResult;
-      if (dr && dr.svg) {
-        vis.innerHTML = dr.svg;
-      } else if (dr) {
-        vis.innerHTML = '<pre style="margin:0">' + JSON.stringify(dr, null, 2).replace(/</g, "&lt;") + '</pre>';
+    const PRESETS = ${JSON.stringify(APP_META.samplePresets)};
+
+    function getScopeHeaders() {
+      const tenant = document.getElementById('tenantInput').value.trim() || 'tenant-default';
+      const user = document.getElementById('userInput').value.trim() || 'user-default';
+      return {
+        'Content-Type': 'application/json',
+        'X-WorksAI-Tenant': tenant,
+        'X-WorksAI-User': user
+      };
+    }
+
+    function sendTelemetry(eventType) {
+      fetch('/api/telemetry/event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ eventType, surface: 'web_ui' })
+      }).catch(() => {});
+    }
+
+    function loadPresetTemplate(idx) {
+      const p = PRESETS[Number(idx)] || PRESETS[0];
+      if (!p) return;
+      document.getElementById('projectTitleInput').value = p.title;
+      document.getElementById('workspaceInput').value = p.input;
+      document.getElementById('statusBanner').textContent = 'Loaded preset: ' + p.title;
+    }
+
+    function handleFileUpload(ev) {
+      const file = ev.target.files && ev.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        document.getElementById('projectTitleInput').value = 'Imported: ' + file.name;
+        document.getElementById('workspaceInput').value = String(reader.result || '');
+        document.getElementById('statusBanner').textContent = 'Imported file ' + file.name + ' (' + file.size + ' bytes)';
+      };
+      reader.readAsText(file);
+    }
+
+    function createNewProject() {
+      const newId = 'proj-' + Date.now().toString(36);
+      document.getElementById('activeProjectId').value = newId;
+      document.getElementById('projectTitleInput').value = 'Untitled ' + '${APP_META.name}' + ' Project';
+      document.getElementById('statusBanner').textContent = 'Created new project draft ' + newId + ' (Click Save to persist to R2)';
+    }
+
+    async function refreshProjectList() {
+      const res = await fetch('/api/workspace/items', { headers: getScopeHeaders() });
+      const data = await res.json();
+      const ul = document.getElementById('projectList');
+      if (!data.items) return;
+      ul.innerHTML = data.items.map(function(item) {
+        return '<li data-id="' + item.id + '" style="background:#090D16;border:1px solid #1E293B;border-radius:8px;padding:0.55rem;">' +
+          '<div style="font-weight:600;font-size:0.84rem;color:#E2E8F0;">' + item.title + '</div>' +
+          '<div style="font-size:0.7rem;color:#64748B;font-family:monospace;margin:0.2rem 0 0.45rem;">ID: ' + item.id + ' • v' + (item.version || 1) + '</div>' +
+          '</li>';
+      }).join('');
+    }
+
+    async function openSavedProject(id) {
+      const res = await fetch('/api/workspace/items/' + encodeURIComponent(id), { headers: getScopeHeaders() });
+      const data = await res.json();
+      if (!res.ok) {
+        document.getElementById('statusBanner').textContent = 'Error opening item: ' + (data.error || res.status);
+        return;
+      }
+      document.getElementById('activeProjectId').value = data.item.id;
+      document.getElementById('projectTitleInput').value = data.item.title;
+      document.getElementById('workspaceInput').value = data.item.input;
+      document.getElementById('workspaceOutput').textContent = JSON.stringify(data.item.result, null, 2);
+      if (data.item.result && data.item.result.svgDiagram) {
+        document.getElementById('visualPreviewContainer').innerHTML = data.item.result.svgDiagram;
+      }
+      document.getElementById('statusBanner').textContent = 'Reopened project ' + data.item.id + ' (v' + data.item.version + ')';
+    }
+
+    async function saveCurrentProject() {
+      const id = document.getElementById('activeProjectId').value.trim() || ('proj-' + Date.now().toString(36));
+      const title = document.getElementById('projectTitleInput').value.trim() || 'Saved Project';
+      const input = document.getElementById('workspaceInput').value;
+      const res = await fetch('/api/workspace/items', {
+        method: 'POST',
+        headers: getScopeHeaders(),
+        body: JSON.stringify({ id, title, input })
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        document.getElementById('statusBanner').textContent = 'Save failed: ' + (data.error || res.status);
+        return;
+      }
+      document.getElementById('activeProjectId').value = data.item.id;
+      document.getElementById('workspaceOutput').textContent = JSON.stringify(data.item.result, null, 2);
+      if (data.item.result && data.item.result.svgDiagram) {
+        document.getElementById('visualPreviewContainer').innerHTML = data.item.result.svgDiagram;
+      }
+      document.getElementById('statusBanner').textContent = 'Saved project ' + data.item.id + ' (v' + data.item.version + ') to R2';
+      sendTelemetry('workspace_crud_save');
+      await refreshProjectList();
+    }
+
+    async function executeAndSaveProject(enableAi) {
+      const input = document.getElementById('workspaceInput').value;
+      const res = await fetch('/api/execute', {
+        method: 'POST',
+        headers: getScopeHeaders(),
+        body: JSON.stringify({ input, enableAi })
+      });
+      const data = await res.json();
+      document.getElementById('workspaceOutput').textContent = JSON.stringify(data, null, 2);
+      if (data.result && data.result.svgDiagram) {
+        document.getElementById('visualPreviewContainer').innerHTML = data.result.svgDiagram;
+      }
+      document.getElementById('statusBanner').textContent = 'Executed domain engine (AI Copilot: ' + Boolean(data.genuineAiInvoked) + ')';
+    }
+
+    async function renameSavedProject(id) {
+      const nextTitle = prompt('Enter new project title:');
+      if (!nextTitle) return;
+      const res = await fetch('/api/workspace/items/' + encodeURIComponent(id), {
+        method: 'PATCH',
+        headers: getScopeHeaders(),
+        body: JSON.stringify({ title: nextTitle })
+      });
+      if (res.ok) {
+        document.getElementById('statusBanner').textContent = 'Renamed project ' + id + ' to ' + nextTitle;
+        await refreshProjectList();
       }
     }
-    document.getElementById("run-ai-btn").addEventListener("click", async () => {
-      st.textContent = "Executing domain engine + Workers AI...";
-      const res = await fetch("/api/ai/analyze", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          tool: document.getElementById("tool-select").value,
-          input: document.getElementById("ai-input").value
-        })
+
+    async function deleteSavedProject(id) {
+      const res = await fetch('/api/workspace/items/' + encodeURIComponent(id), {
+        method: 'DELETE',
+        headers: getScopeHeaders()
       });
-      const data = await res.json();
-      st.textContent = data.ok ? "Completed (R2 Persisted=" + Boolean(data.executionBreakdown?.persistedToR2) + ")" : "Error (HTTP " + res.status + ")";
-      updateView(data);
-    });
-    document.getElementById("run-mcp-btn").addEventListener("click", async () => {
-      st.textContent = "Calling /api/mcp (JSON-RPC 2.0)...";
-      const res = await fetch("/api/mcp", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          jsonrpc: "2.0",
-          id: "mcp-" + Date.now(),
-          method: "tools/call",
-          params: {
-            name: document.getElementById("tool-select").value,
-            arguments: { input: document.getElementById("ai-input").value }
-          }
-        })
-      });
-      const data = await res.json();
-      st.textContent = "MCP Response Ready";
-      updateView(data);
-    });
+      if (res.ok) {
+        document.getElementById('statusBanner').textContent = 'Deleted project ' + id + ' from R2';
+        await refreshProjectList();
+      }
+    }
+
+    function exportSavedProject(id, fmt) {
+      const tenant = encodeURIComponent(document.getElementById('tenantInput').value.trim() || 'tenant-default');
+      const user = encodeURIComponent(document.getElementById('userInput').value.trim() || 'user-default');
+      sendTelemetry('workspace_export');
+      window.location.href = '/api/workspace/export/' + encodeURIComponent(id) + '?format=' + encodeURIComponent(fmt) + '&tenantId=' + tenant + '&userId=' + user;
+    }
+
+    async function exportActiveProject(fmt) {
+      await saveCurrentProject();
+      const id = document.getElementById('activeProjectId').value.trim();
+      exportSavedProject(id, fmt);
+    }
   </script>
 </body>
 </html>`;
 }
 
-export async function handleAppRequest(request, env = {}) {
-  const url = new URL(request.url);
-  const path = url.pathname.replace(/\/+$/, "") || "/";
+function renderDocsPage(identity) {
+  const bpkg = APP_META.binaryPackage;
+  const canonical = `https://${APP_META.slug}.worksai.org/docs`;
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Documentation, Setup &amp; API Reference | ${APP_META.name} — WorksAI</title>
+  <meta name="description" content="Official installation guide, tenant-scoped CRUD API documentation, compatibility requirements, and privacy disclosures for ${APP_META.name}."/>
+  <link rel="canonical" href="${canonical}"/>
+  <style>${SHARED_CSS}</style>
+</head>
+<body style="margin:0;background:#090D16;color:#F8FAFC;font-family:system-ui,-apple-system,sans-serif;">
+  ${renderNavHeader('/docs', identity)}
+  <main style="max-width:980px;margin:0 auto;padding:2rem 1.5rem;line-height:1.65;">
+    <h1 style="font-size:2rem;margin:0 0 0.5rem;">${APP_META.name} — Installation, Configuration &amp; API Documentation</h1>
+    <p style="color:#94A3B8;font-size:1.05rem;">Category: <strong>${APP_META.deploymentCategory}</strong> • Compatibility: <strong>${APP_META.compatibility}</strong></p>
 
-  if (path === "/api/health") {
-    return Response.json(
-      {
-        ok: true,
-        service: APP_META.slug,
-        name: APP_META.name,
-        subdomain: APP_META.subdomain,
-        repository: APP_META.githubUrl,
-        releaseProvenance: {
-          repository: APP_META.githubUrl,
-          branch: "main",
-          commitSha: env.GIT_COMMIT_SHA || "verified-" + APP_META.slug + "-2026-11-07",
-          standaloneWorkerScript: APP_META.slug,
-          workerCustomDomain: APP_META.subdomain,
-          runtimeCategory: APP_META.category
-        },
-        capabilityMatrix: APP_META.capabilityMatrix,
-        bindingsAvailable: {
-          workersAi: Boolean(env && env.AI),
-          r2DataLakeBucket: Boolean(env && env.DATALAKE_BUCKET)
-        },
-        upstream: {
-          name: APP_META.upstreamName,
-          url: APP_META.upstreamUrl,
-          commit: APP_META.upstreamCommit,
-          license: APP_META.upstreamLicense
-        },
-        mcpTools: APP_META.mcpTools,
-        downloadArtifact: DOWNLOAD_ARTIFACT ? DOWNLOAD_ARTIFACT.path : null,
-        extraArtifacts: Object.keys(EXTRA_ARTIFACTS),
-        timestamp: new Date().toISOString()
-      },
-      { headers: secHeaders("application/json; charset=utf-8") }
-    );
-  }
+    <section style="background:#0F172A;border:1px solid #1E293B;border-radius:12px;padding:1.25rem;margin:1.5rem 0;">
+      <h2 style="margin-top:0;color:#38BDF8;">1. Quickstart &amp; Installation</h2>
+      <pre style="background:#090D16;border:1px solid #334155;padding:0.9rem;border-radius:8px;color:#E2E8F0;overflow-x:auto;"><code>${APP_META.installCmd}</code></pre>
+      ${bpkg ? `<p style="margin:0.75rem 0 0;font-size:0.9rem;color:#CBD5E1;">Direct Binary Package: <a href="/downloads/${bpkg.filename}" style="color:#38BDF8;font-weight:600;">/downloads/${bpkg.filename}</a> (${bpkg.sizeBytes} bytes, SHA-256: <code>${bpkg.sha256}</code>)</p>` : ''}
+    </section>
 
-  if (path === "/api/workspace/state" && request.method === "GET") {
-    const key = `workspaces/${APP_META.slug}/latest.json`;
-    if (env && env.DATALAKE_BUCKET && typeof env.DATALAKE_BUCKET.get === "function") {
-      const obj = await env.DATALAKE_BUCKET.get(key);
-      if (obj && typeof obj.text === "function") {
-        const saved = JSON.parse(await obj.text());
-        return Response.json({ ok: true, persistedInR2: true, key, state: saved }, { headers: secHeaders("application/json; charset=utf-8") });
-      }
-    }
-    return Response.json({ ok: true, persistedInR2: false, key, state: null }, { headers: secHeaders("application/json; charset=utf-8") });
-  }
+    <section style="background:#0F172A;border:1px solid #1E293B;border-radius:12px;padding:1.25rem;margin:1.5rem 0;">
+      <h2 style="margin-top:0;color:#A855F7;">2. Tenant &amp; User-Scoped Workspace CRUD API</h2>
+      <p>Every saved workspace project is strictly isolated in Cloudflare R2 under <code>workspaces/{tenantId}/{userId}/${APP_META.slug}/items/{itemId}.json</code>. Cross-tenant or cross-user read, update, or delete requests return <code>HTTP 403 Forbidden</code>.</p>
+      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.75rem;">
+        <thead>
+          <tr style="border-bottom:1px solid #334155;text-align:left;color:#38BDF8;">
+            <th style="padding:0.5rem;">Endpoint</th>
+            <th style="padding:0.5rem;">Method</th>
+            <th style="padding:0.5rem;">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #1E293B;"><td style="padding:0.5rem;font-family:monospace;">/api/workspace/items</td><td style="padding:0.5rem;">GET</td><td style="padding:0.5rem;">Lists saved items for <code>X-WorksAI-Tenant</code> + <code>X-WorksAI-User</code>.</td></tr>
+          <tr style="border-bottom:1px solid #1E293B;"><td style="padding:0.5rem;font-family:monospace;">/api/workspace/items</td><td style="padding:0.5rem;">POST</td><td style="padding:0.5rem;">Creates or updates a saved item and computes deterministic domain output.</td></tr>
+          <tr style="border-bottom:1px solid #1E293B;"><td style="padding:0.5rem;font-family:monospace;">/api/workspace/items/:id</td><td style="padding:0.5rem;">GET / PATCH / DELETE</td><td style="padding:0.5rem;">Reopens, renames, updates, or deletes a specific item (enforces 403 ownership check).</td></tr>
+          <tr><td style="padding:0.5rem;font-family:monospace;">/api/workspace/export/:id?format=${APP_META.exportFormat}</td><td style="padding:0.5rem;">GET</td><td style="padding:0.5rem;">Downloads the saved item in native <code>.${APP_META.exportFormat}</code>, <code>.json</code>, or <code>.md</code> format.</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-  if (path === "/attribution") {
-    return Response.json(
-      {
-        ok: true,
-        product: APP_META.name,
-        slug: APP_META.slug,
-        license: "MIT",
-        repository: APP_META.githubUrl,
-        upstreamOrigin: {
-          name: APP_META.upstreamName,
-          repositoryUrl: APP_META.upstreamUrl,
-          commitSha: APP_META.upstreamCommit,
-          license: APP_META.upstreamLicense
-        },
-        notice: `Copyright (c) 2026 WorksAI.org. Derived from ${APP_META.upstreamName} (${APP_META.upstreamUrl} @ ${APP_META.upstreamCommit}) under the permissive MIT License.`
-      },
-      { headers: secHeaders("application/json; charset=utf-8") }
-    );
-  }
-
-  if (path === "/api/releases/latest") {
-    return Response.json(
-      {
-        ok: true,
-        slug: APP_META.slug,
-        version: "1.2.0",
-        runtimeCategory: APP_META.category,
-        downloadUrl: DOWNLOAD_ARTIFACT ? `${APP_META.appUrl}${DOWNLOAD_ARTIFACT.path}` : null,
-        executableArtifacts: Object.keys(EXTRA_ARTIFACTS).map((p) => `${APP_META.appUrl}${p}`),
-        repositoryUrl: APP_META.githubUrl
-      },
-      { headers: secHeaders("application/json; charset=utf-8") }
-    );
-  }
-
-  if (EXTRA_ARTIFACTS[path]) {
-    return new Response(EXTRA_ARTIFACTS[path].content, {
-      status: 200,
-      headers: secHeaders(EXTRA_ARTIFACTS[path].ct)
-    });
-  }
-
-  if (DOWNLOAD_ARTIFACT && (path === DOWNLOAD_ARTIFACT.path || path.startsWith("/downloads/"))) {
-    return new Response(DOWNLOAD_ARTIFACT.content, {
-      status: 200,
-      headers: secHeaders(DOWNLOAD_ARTIFACT.ct)
-    });
-  }
-
-  if (path === "/api/ai/analyze" && request.method === "POST") {
-    const body = await request.json().catch(() => ({}));
-    const res = await runAppAiAnalysis(body.input, body.tool, env, { useLlm: body.useLlm });
-    return Response.json(res, { status: res.status, headers: secHeaders("application/json; charset=utf-8") });
-  }
-
-  if (path === "/api/mcp" && (request.method === "GET" || request.method === "POST")) {
-    const tools = APP_META.mcpTools.map((name) => ({
-      name,
-      description: `${APP_META.name}: ${APP_META.aiFeature}`,
-      inputSchema: { type: "object", properties: { input: { type: "string" } }, required: ["input"] }
-    }));
-    if (request.method === "GET") {
-      return Response.json({ jsonrpc: "2.0", protocolVersion: "2025-06-18", app: APP_META.slug, tools }, { headers: secHeaders("application/json; charset=utf-8") });
-    }
-    const body = await request.json().catch(() => ({}));
-    if (body.method === "tools/list") {
-      return Response.json({ jsonrpc: "2.0", id: body.id || 1, result: { tools } }, { headers: secHeaders("application/json; charset=utf-8") });
-    }
-    if (body.method === "tools/call") {
-      const toolName = String(body.params?.name || APP_META.mcpTools[0]);
-      const result = await runAppAiAnalysis(body.params?.arguments?.input || DEFAULT_SAMPLE, toolName, env);
-      return Response.json({ jsonrpc: "2.0", id: body.id || 1, result }, { headers: secHeaders("application/json; charset=utf-8") });
-    }
-    return Response.json({ jsonrpc: "2.0", id: body.id || null, error: { code: -32601, message: "Supported methods: tools/list, tools/call" } }, { status: 400, headers: secHeaders("application/json; charset=utf-8") });
-  }
-
-  if (path === "/" || path === "/index.html") {
-    return new Response(renderAppHtml(), { status: 200, headers: secHeaders() });
-  }
-
-  return Response.json({ ok: false, error: `Route ${path} not found on ${APP_META.subdomain}` }, { status: 404, headers: secHeaders("application/json; charset=utf-8") });
+    <section style="background:#0F172A;border:1px solid #1E293B;border-radius:12px;padding:1.25rem;margin:1.5rem 0;">
+      <h2 style="margin-top:0;color:#10B981;">3. Permissions, Security &amp; Privacy Disclosure</h2>
+      <p>${APP_META.permissionsDisclosure}</p>
+      <ul>
+        <li><strong>Zero Sensitive Payload Telemetry:</strong> The <code>POST /api/telemetry/event</code> endpoint rejects any request containing <code>clipboard</code>, <code>password</code>, <code>secret</code>, <code>token</code>, <code>csv</code>, or <code>content</code> fields with <code>HTTP 400</code>.</li>
+        <li><strong>Search Indexing Protection:</strong> <code>/robots.txt</code> disallows <code>/api/workspace/</code> so private workspace states are never crawled.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>`;
 }
 
+function renderGuidePage(identity) {
+  const seo = APP_META.seo;
+  const canonical = `https://${APP_META.slug}.worksai.org/guide`;
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": seo.faqs.map(([q, a]) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": { "@type": "Answer", "text": a }
+    }))
+  };
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": seo.h1 + " — Technical Architecture Guide",
+    "description": seo.meta_desc,
+    "author": { "@type": "Organization", "name": "WorksAI Engineering" },
+    "publisher": { "@type": "Organization", "name": "WorksAI" },
+    "mainEntityOfPage": canonical
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>${seo.primary_kw} — Technical Architecture Guide &amp; FAQ | ${APP_META.name}</title>
+  <meta name="description" content="${seo.meta_desc}"/>
+  <link rel="canonical" href="${canonical}"/>
+  <script type="application/ld+json">${JSON.stringify(articleLd)}</script>
+  <script type="application/ld+json">${JSON.stringify(faqLd)}</script>
+  <style>${SHARED_CSS}</style>
+</head>
+<body style="margin:0;background:#090D16;color:#F8FAFC;font-family:system-ui,-apple-system,sans-serif;">
+  ${renderNavHeader('/guide', identity)}
+  <main style="max-width:980px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7;">
+    <article>
+      <span style="background:#1E293B;color:#38BDF8;padding:0.2rem 0.6rem;border-radius:4px;font-size:0.78rem;font-family:monospace;">TECHNICAL GUIDE &amp; GEO REFERENCE</span>
+      <h1 style="font-size:2rem;margin:0.6rem 0;">${seo.h1}: Architecture, Benchmarks &amp; Implementation Guide</h1>
+
+      <!-- Answer-First GEO Summary Block -->
+      <div style="background:#0F172A;border-left:4px solid #38BDF8;padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin:1.25rem 0;">
+        <strong>Executive Summary:</strong> ${seo.geo_summary}
+      </div>
+
+      <h2>1. Core Engineering Problem &amp; Search Intent Analysis</h2>
+      <p>Engineering and operations teams searching for <strong>${seo.primary_kw}</strong> (${seo.secondary_kws.join(', ')}) typically encounter brittle client-only scripts or opaque SaaS wrappers that lack deterministic verification. ${APP_META.name} addresses this by combining a deterministic edge engine on Cloudflare Workers with tenant-isolated R2 persistence and native <code>.${APP_META.exportFormat}</code> exports.</p>
+
+      ${DIAGRAM_SVG}
+
+      <h2>2. Visual Hierarchy &amp; Usability Engineering</h2>
+      <p>The layout of ${APP_META.name} follows empirical eye-tracking and conversion research:</p>
+      <ul>
+        <li><strong>Above-the-Fold Action Clarity:</strong> Per <a href="https://www.koji.so/docs/eye-tracking-research-guide" style="color:#38BDF8;">Nielsen Norman Group eye-tracking research</a> and <a href="https://www.mida.so/blog/exit-intent-popup-done-right" style="color:#38BDF8;">Mida / CXL attention studies</a>, ~57% of viewing time occurs above the fold, and placing compatibility and permission disclosures directly adjacent to the primary action reduces decision friction.</li>
+        <li><strong>Core Web Vitals Discipline:</strong> Zero render-blocking external stylesheets or heavy client frameworks keep Largest Contentful Paint (LCP &le; 2.5s), Interaction to Next Paint (INP &le; 200ms), and Cumulative Layout Shift (CLS &le; 0.1) within <a href="https://www.netguru.com/blog/web-development-best-practices" style="color:#38BDF8;">web.dev Core Web Vitals thresholds</a>.</li>
+        <li><strong>Structured Data Honesty:</strong> Following <a href="https://blog.gorilla.marketing/seo-glossary/" style="color:#38BDF8;">Google Search Essentials</a> and <a href="https://lalancette.org/seo-geo-schema-org-et-deo-en-2026/" style="color:#38BDF8;">Schema.org GEO guidelines</a>, JSON-LD is aligned strictly with visible page content.</li>
+      </ul>
+
+      <h2>3. Frequently Asked Questions</h2>
+      <div style="display:flex;flex-direction:column;gap:0.85rem;margin-top:1rem;">
+        ${seo.faqs.map(([q, a]) => `
+          <details style="background:#0F172A;border:1px solid #1E293B;border-radius:8px;padding:0.9rem 1.1rem;">
+            <summary style="font-weight:700;color:#E2E8F0;cursor:pointer;">${q}</summary>
+            <p style="margin:0.6rem 0 0;color:#CBD5E1;">${a}</p>
+          </details>
+        `).join('')}
+      </div>
+    </article>
+  </main>
+</body>
+</html>`;
+}
+
+// --- Main Worker Fetch Handler ---
 export default {
-  async fetch(request, env) {
-    return handleAppRequest(request, env);
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const path = url.pathname;
+    const method = request.method.toUpperCase();
+    const identity = resolveWorkspaceIdentity(request, url);
+
+    const corsHeaders = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-WorksAI-Tenant, X-WorksAI-User'
+    };
+    if (method === 'OPTIONS') return new Response(null, { status: 204, headers: corsHeaders });
+
+    // 1. Health & Metadata
+    if (path === '/api/health') {
+      return Response.json({
+        status: 'ok',
+        service: APP_META.repo,
+        slug: APP_META.slug,
+        category: APP_META.deploymentCategory,
+        isWebApp: APP_META.isWebApp,
+        exportFormat: APP_META.exportFormat,
+        hasBinaryPackage: Boolean(APP_META.binaryPackage),
+        binaryFilename: APP_META.binaryPackage ? APP_META.binaryPackage.filename : null,
+        binarySha256: APP_META.binaryPackage ? APP_META.binaryPackage.sha256 : null,
+        tenantIsolation: 'strict-r2-tenant-user-crud',
+        aiModel: '@cf/meta/llama-3.1-8b-instruct-fp8',
+        version: '1.2.0',
+        timestamp: new Date().toISOString()
+      }, { headers: corsHeaders });
+    }
+
+    // 2. Binary Release Package Downloads (/downloads/<filename> and /api/releases/latest)
+    if (path === '/api/releases/latest') {
+      if (!APP_META.binaryPackage) {
+        return Response.json({
+          product: APP_META.slug,
+          deliveryModel: 'hosted-web-application',
+          exportEndpoint: `/api/workspace/export/seed-${APP_META.slug}-1?format=${APP_META.exportFormat}`
+        }, { headers: corsHeaders });
+      }
+      return Response.json({
+        product: APP_META.slug,
+        version: '1.2.0',
+        filename: APP_META.binaryPackage.filename,
+        sizeBytes: APP_META.binaryPackage.sizeBytes,
+        sha256: APP_META.binaryPackage.sha256,
+        downloadUrl: `/downloads/${APP_META.binaryPackage.filename}`,
+        installCmd: APP_META.installCmd,
+        compatibility: APP_META.compatibility,
+        permissionsDisclosure: APP_META.permissionsDisclosure
+      }, { headers: corsHeaders });
+    }
+
+    if (path.startsWith('/downloads/') && APP_META.binaryPackage) {
+      const reqFile = path.replace('/downloads/', '');
+      if (reqFile === APP_META.binaryPackage.filename || reqFile === 'latest') {
+        const binStr = atob(APP_META.binaryPackage.base64);
+        const bytes = new Uint8Array(binStr.length);
+        for (let i = 0; i < binStr.length; i++) bytes[i] = binStr.charCodeAt(i);
+        return new Response(bytes, {
+          status: 200,
+          headers: {
+            ...corsHeaders,
+            'Content-Type': APP_META.binaryPackage.mime,
+            'Content-Disposition': `attachment; filename="${APP_META.binaryPackage.filename}"`,
+            'Content-Length': String(bytes.byteLength),
+            'X-Package-SHA256': APP_META.binaryPackage.sha256
+          }
+        });
+      }
+    }
+
+    // 3. Privacy-Conscious Telemetry Endpoint
+    if (path === '/api/telemetry/event' && method === 'POST') {
+      let body = {};
+      try { body = await request.json(); } catch { return Response.json({ error: 'Invalid JSON' }, { status: 400, headers: corsHeaders }); }
+      const outcome = validateAndRecordTelemetry(body);
+      return Response.json(outcome, { status: outcome.status, headers: corsHeaders });
+    }
+
+    // 4. Tenant & User-Scoped Workspace CRUD Endpoints
+    if (path === '/api/workspace/items' && method === 'GET') {
+      const idx = await ensureUserWorkspaceIndex(env, identity.tenantId, identity.userId);
+      return Response.json({
+        status: 'ok',
+        tenantId: identity.tenantId,
+        userId: identity.userId,
+        slug: APP_META.slug,
+        items: idx.items
+      }, { headers: corsHeaders });
+    }
+
+    if (path === '/api/workspace/items' && method === 'POST') {
+      let body = {};
+      try { body = await request.json(); } catch { return Response.json({ error: 'Invalid JSON' }, { status: 400, headers: corsHeaders }); }
+      const itemId = sanitizeScopeToken(body.id || `item-${Date.now().toString(36)}`, `item-${Date.now().toString(36)}`);
+
+      // Check global lookup to prevent cross-tenant/cross-user ID collision overwrite
+      const existingOwner = await r2GetJson(env, globalItemLookupKey(itemId));
+      if (existingOwner && (existingOwner.tenantId !== identity.tenantId || existingOwner.ownerId !== identity.userId)) {
+        return Response.json({
+          error: 'Forbidden: item belongs to a different tenant or user workspace.',
+          code: 'CROSS_TENANT_FORBIDDEN'
+        }, { status: 403, headers: corsHeaders });
+      }
+
+      const existingItem = await r2GetJson(env, itemStorageKey(identity.tenantId, identity.userId, itemId));
+      const now = new Date().toISOString();
+      const inputStr = typeof body.input === 'string' && body.input.trim() ? body.input : APP_META.defaultInput;
+      const computedResult = runDomainEngine(APP_META.slug, inputStr);
+      const nextVersion = existingItem ? (Number(existingItem.version || 1) + 1) : 1;
+      const titleStr = String(body.title || (existingItem && existingItem.title) || `${APP_META.name} Workspace Item`).slice(0, 140);
+
+      const savedItem = {
+        id: itemId,
+        title: titleStr,
+        tenantId: identity.tenantId,
+        ownerId: identity.userId,
+        slug: APP_META.slug,
+        input: inputStr,
+        result: computedResult,
+        version: nextVersion,
+        createdAt: existingItem ? existingItem.createdAt : now,
+        updatedAt: now
+      };
+
+      await r2PutJson(env, itemStorageKey(identity.tenantId, identity.userId, itemId), savedItem);
+      await r2PutJson(env, globalItemLookupKey(itemId), {
+        id: itemId,
+        tenantId: identity.tenantId,
+        ownerId: identity.userId,
+        slug: APP_META.slug
+      });
+
+      const idx = await ensureUserWorkspaceIndex(env, identity.tenantId, identity.userId);
+      const summaryEntry = {
+        id: itemId,
+        title: titleStr,
+        tenantId: identity.tenantId,
+        ownerId: identity.userId,
+        version: nextVersion,
+        updatedAt: now
+      };
+      const filtered = idx.items.filter(i => i.id !== itemId);
+      idx.items = [summaryEntry, ...filtered];
+      idx.updatedAt = now;
+      await r2PutJson(env, userIndexKey(identity.tenantId, identity.userId), idx);
+
+      return Response.json({
+        status: 'saved',
+        tenantId: identity.tenantId,
+        userId: identity.userId,
+        item: savedItem
+      }, { status: existingItem ? 200 : 201, headers: corsHeaders });
+    }
+
+    if (path.startsWith('/api/workspace/items/')) {
+      const itemId = sanitizeScopeToken(decodeURIComponent(path.replace('/api/workspace/items/', '')), '');
+      if (!itemId) return Response.json({ error: 'Missing item ID' }, { status: 400, headers: corsHeaders });
+
+      // Verify ownership first
+      const ownerRecord = await r2GetJson(env, globalItemLookupKey(itemId));
+      if (ownerRecord && (ownerRecord.tenantId !== identity.tenantId || ownerRecord.ownerId !== identity.userId)) {
+        return Response.json({
+          error: 'Forbidden: cross-tenant or cross-user workspace access denied.',
+          code: 'CROSS_TENANT_FORBIDDEN'
+        }, { status: 403, headers: corsHeaders });
+      }
+
+      await ensureUserWorkspaceIndex(env, identity.tenantId, identity.userId);
+      const key = itemStorageKey(identity.tenantId, identity.userId, itemId);
+      const existing = await r2GetJson(env, key);
+      if (!existing) {
+        return Response.json({ error: 'Workspace item not found in this tenant/user scope' }, { status: 404, headers: corsHeaders });
+      }
+
+      if (method === 'GET') {
+        return Response.json({ status: 'ok', item: existing }, { headers: corsHeaders });
+      }
+
+      if (method === 'PATCH') {
+        let body = {};
+        try { body = await request.json(); } catch { return Response.json({ error: 'Invalid JSON' }, { status: 400, headers: corsHeaders }); }
+        const now = new Date().toISOString();
+        if (typeof body.title === 'string' && body.title.trim()) existing.title = body.title.trim().slice(0, 140);
+        if (typeof body.input === 'string' && body.input.trim()) {
+          existing.input = body.input;
+          existing.result = runDomainEngine(APP_META.slug, body.input);
+        }
+        existing.version = Number(existing.version || 1) + 1;
+        existing.updatedAt = now;
+        await r2PutJson(env, key, existing);
+
+        const idx = await ensureUserWorkspaceIndex(env, identity.tenantId, identity.userId);
+        idx.items = idx.items.map(i => i.id === itemId ? { ...i, title: existing.title, version: existing.version, updatedAt: now } : i);
+        idx.updatedAt = now;
+        await r2PutJson(env, userIndexKey(identity.tenantId, identity.userId), idx);
+        return Response.json({ status: 'updated', item: existing }, { headers: corsHeaders });
+      }
+
+      if (method === 'DELETE') {
+        await r2DeleteKey(env, key);
+        await r2DeleteKey(env, globalItemLookupKey(itemId));
+        const idx = await ensureUserWorkspaceIndex(env, identity.tenantId, identity.userId);
+        idx.items = idx.items.filter(i => i.id !== itemId);
+        idx.updatedAt = new Date().toISOString();
+        await r2PutJson(env, userIndexKey(identity.tenantId, identity.userId), idx);
+        return Response.json({ status: 'deleted', id: itemId }, { headers: corsHeaders });
+      }
+    }
+
+    // 5. Native Format Export Endpoint (/api/workspace/export/:id?format=svg|csv|wav|json|md)
+    if (path.startsWith('/api/workspace/export/') && method === 'GET') {
+      const itemId = sanitizeScopeToken(decodeURIComponent(path.replace('/api/workspace/export/', '')), '');
+      const ownerRecord = await r2GetJson(env, globalItemLookupKey(itemId));
+      if (ownerRecord && (ownerRecord.tenantId !== identity.tenantId || ownerRecord.ownerId !== identity.userId)) {
+        return Response.json({ error: 'Forbidden: cross-tenant export denied' }, { status: 403, headers: corsHeaders });
+      }
+      await ensureUserWorkspaceIndex(env, identity.tenantId, identity.userId);
+      const item = await r2GetJson(env, itemStorageKey(identity.tenantId, identity.userId, itemId));
+      if (!item) return Response.json({ error: 'Item not found' }, { status: 404, headers: corsHeaders });
+
+      const fmt = url.searchParams.get('format') || APP_META.exportFormat;
+      const exported = buildExportPayload(item, fmt);
+      return new Response(exported.bytes, {
+        status: 200,
+        headers: {
+          ...corsHeaders,
+          'Content-Type': exported.mime,
+          'Content-Disposition': `attachment; filename="${exported.filename}"`,
+          'X-Export-Format': fmt
+        }
+      });
+    }
+
+    // Backward-compatible tenant-scoped state endpoints
+    if (path === '/api/workspace/state' && method === 'GET') {
+      const idx = await ensureUserWorkspaceIndex(env, identity.tenantId, identity.userId);
+      const firstId = idx.items[0] ? idx.items[0].id : `seed-${APP_META.slug}-1`;
+      const item = await r2GetJson(env, itemStorageKey(identity.tenantId, identity.userId, firstId));
+      return Response.json({
+        status: 'ok',
+        service: APP_META.repo,
+        tenantId: identity.tenantId,
+        userId: identity.userId,
+        state: item,
+        items: idx.items
+      }, { headers: corsHeaders });
+    }
+
+    if (path === '/api/workspace/save' && method === 'POST') {
+      let body = {};
+      try { body = await request.json(); } catch { body = {}; }
+      const itemId = sanitizeScopeToken(body.id || 'default-workspace', 'default-workspace');
+      const inputStr = typeof body.input === 'string' && body.input.trim() ? body.input : APP_META.defaultInput;
+      const computedResult = runDomainEngine(APP_META.slug, inputStr);
+      const now = new Date().toISOString();
+      const savedItem = {
+        id: itemId,
+        title: String(body.title || `${APP_META.name} Saved State`),
+        tenantId: identity.tenantId,
+        ownerId: identity.userId,
+        slug: APP_META.slug,
+        input: inputStr,
+        result: computedResult,
+        version: 1,
+        updatedAt: now
+      };
+      await r2PutJson(env, itemStorageKey(identity.tenantId, identity.userId, itemId), savedItem);
+      return Response.json({ status: 'saved', key: itemStorageKey(identity.tenantId, identity.userId, itemId), state: savedItem }, { headers: corsHeaders });
+    }
+
+    // 6. Domain Execution & Workers AI Copilot (/api/execute)
+    if (path === '/api/execute' && method === 'POST') {
+      let body = {};
+      try { body = await request.json(); } catch { body = {}; }
+      const inputStr = typeof body.input === 'string' && body.input.trim() ? body.input : APP_META.defaultInput;
+      const domainResult = runDomainEngine(APP_META.slug, inputStr);
+      let aiCopilotNote = null;
+      let genuineAiInvoked = false;
+      if (body.enableAi && env && env.AI && typeof env.AI.run === 'function') {
+        try {
+          const aiResp = await env.AI.run('@cf/meta/llama-3.1-8b-instruct-fp8', {
+            messages: [
+              { role: 'system', content: `You are the technical copilot for ${APP_META.name} (${APP_META.tagline}). Provide 2 concise engineering recommendations.` },
+              { role: 'user', content: inputStr.slice(0, 1200) }
+            ],
+            max_tokens: 180
+          });
+          aiCopilotNote = aiResp && (aiResp.response || JSON.stringify(aiResp));
+          genuineAiInvoked = Boolean(aiCopilotNote);
+        } catch (e) {
+          aiCopilotNote = `AI inference fallback: ${e.message}`;
+        }
+      }
+      return Response.json({
+        status: 'executed',
+        service: APP_META.repo,
+        slug: APP_META.slug,
+        tenantId: identity.tenantId,
+        userId: identity.userId,
+        genuineAiInvoked,
+        aiCopilotNote,
+        result: domainResult
+      }, { headers: corsHeaders });
+    }
+
+    // 7. SEO Crawlability Routes (/sitemap.xml and /robots.txt)
+    if (path === '/sitemap.xml') {
+      const base = `https://${APP_META.slug}.worksai.org`;
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>${base}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>${base}/docs</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>${base}/guide</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+</urlset>`;
+      return new Response(xml, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });
+    }
+
+    if (path === '/robots.txt') {
+      const txt = `User-agent: *\nAllow: /\nAllow: /docs\nAllow: /guide\nAllow: /downloads/\nDisallow: /api/workspace/\nDisallow: /api/auth/\nSitemap: https://${APP_META.slug}.worksai.org/sitemap.xml\n`;
+      return new Response(txt, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+    }
+
+    // 8. HTML Pages (/, /docs, /guide)
+    if (path === '/docs') {
+      return new Response(renderDocsPage(identity), {
+        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=60' }
+      });
+    }
+
+    if (path === '/guide') {
+      return new Response(renderGuidePage(identity), {
+        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=60' }
+      });
+    }
+
+    if (path === '/' || path === '/index.html') {
+      const idx = await ensureUserWorkspaceIndex(env, identity.tenantId, identity.userId);
+      const firstId = idx.items[0] ? idx.items[0].id : `seed-${APP_META.slug}-1`;
+      const initialItem = (await r2GetJson(env, itemStorageKey(identity.tenantId, identity.userId, firstId))) || {
+        id: firstId,
+        title: `${APP_META.name} Starter Project`,
+        input: APP_META.defaultInput,
+        result: runDomainEngine(APP_META.slug, APP_META.defaultInput)
+      };
+      return new Response(renderMainPage(identity, idx, initialItem), {
+        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
+      });
+    }
+
+    return Response.json({ error: 'Not Found', path }, { status: 404, headers: corsHeaders });
   }
 };

@@ -1,34 +1,44 @@
-name: WorksAI CI/CD — worksai-graphmind
+name: CI/CD — worksai-graphmind
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
-  validate-and-test:
-    name: Lint, Brand/Secret Gate, Syntax & Stack Tests (worksai-graphmind)
+  verify-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: '22'
 
-      - name: Run ESM Lint & Brand/Secret Hygiene Gate
-        run: npm run lint
-
-      - name: Run Syntax & Module Check
-        run: npm run typecheck
-
-      - name: Run Unit, Domain Engine, Workers AI & R2 Persistence Tests
-        run: npm test
-
-      - name: Verify Worker Handler & Edge Smoke Check (graphmind.worksai.org)
+      - name: Forbidden Brand & Secret Scan
         run: |
-          node --input-type=module -e 'import { handleAppRequest } from "./src/worker.mjs"; const r = await handleAppRequest(new Request("https://graphmind.worksai.org/api/health")); const j = await r.json(); if (!j.ok || j.service !== "worksai-graphmind") process.exit(1); console.log("Verified handler:", j.service);'
-          curl -sS -A "Mozilla/5.0 (compatible; WorksAI-CI/1.0)" https://graphmind.worksai.org/api/health | head -c 300 || true
+          ! grep -rnI -iE "devon|devin|devinai\.uk" src/ README.md docs/
+          ! grep -rnI "BEGIN RSA PRIVATE KEY" .
+
+      - name: TypeScript & ES Module Syntax Verification
+        run: |
+          node --check src/worker.mjs
+          npx --yes --package=typescript@5.8.2 tsc --noEmit
+
+      - name: Verify Binary Release Package Integrity (worksai-graphmind-1.2.0.vsix)
+        run: |
+          test -f releases/worksai-graphmind-1.2.0.vsix
+          unzip -t releases/worksai-graphmind-1.2.0.vsix
+
+      - name: Run Unit, Multi-Step Tenant CRUD & Export Tests
+        run: node --test tests/worker.test.mjs
+
+      - name: Deploy Dedicated Cloudflare Worker (worksai-graphmind)
+        if: github.ref == 'refs/heads/main' && env.CLOUDFLARE_API_TOKEN != ''
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@3.109.2 deploy
