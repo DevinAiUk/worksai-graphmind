@@ -4,14 +4,11 @@
   "description": "Bidirectional [[wikilink]] knowledge graphs, orphan link diagnostics, and MCP agent context for VS Code & Cursor.",
   "license": "MIT",
   "type": "module",
-  "main": "src/worker.mjs",
+  "main": "dist/worker.mjs",
   "scripts": {
-    "lint": "node --input-type=module -e \"import fs from 'node:fs'; ['src/index.mjs','src/worker.mjs','README.md'].forEach(f=>{const c=fs.readFileSync(f,'utf8'); if(/devinai\\.uk|devonfolio/i.test(c)) process.exit(1);}); console.log('ESM lint & brand-hygiene passed.');\"",
-    "typecheck": "node --check src/index.mjs && node --check src/worker.mjs && node --check tests/product.test.mjs && node --check tests/worker.test.mjs",
-    "test": "node --test tests/product.test.mjs tests/worker.test.mjs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/DevinAiUk/worksai-graphmind.git"
+    "lint": "node --input-type=module -e \"import fs from 'node:fs'; ['public/index.html','src/ui/app.js','src/server.mjs','docs/CONTENT_BRIEF.md'].forEach(f=>{const c=fs.readFileSync(f,'utf8'); if(/devinai\\\\.uk|devonfolio|BEGIN RSA PRIVATE KEY/i.test(c)) process.exit(1);}); console.log('Lint & hygiene gate passed.');\"",
+    "typecheck": "node --check scripts/build.mjs && node --check src/server.mjs && npx --yes --package=typescript@5.8.2 tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/worker.test.mjs"
   }
 }

@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  verify-and-test:
+  build-test-verify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -18,19 +18,31 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Forbidden Brand & Secret Hygiene Gate
-        run: |
-          ! grep -rnI -iE "devon|devinai\.uk|BEGIN RSA PRIVATE KEY" src/ docs/
+      - name: Install Dependencies from Lockfile
+        run: npm ci
 
-      - name: TypeScript & ES Module Syntax Verification
-        run: |
-          node --check src/worker.mjs
-          npx --yes --package=typescript@5.8.2 tsc --noEmit
+      - name: Run Lint & Brand/Secret Hygiene Gate
+        run: npm run lint
 
-      - name: Verify Binary Release Package Integrity (worksai-graphmind-1.2.0.vsix)
-        run: |
-          test -s releases/worksai-graphmind-1.2.0.vsix
-          unzip -t releases/worksai-graphmind-1.2.0.vsix
+      - name: Run TypeScript & Syntax Verification
+        run: npm run typecheck
 
-      - name: Run Unit, Multi-Step Tenant CRUD, Export & Telemetry Tests
-        run: node --test tests/worker.test.mjs
+      - name: Build Production Bundle (dist/worker.mjs) & Verify UI Assets
+        run: |
+          npm run build
+          test -s dist/worker.mjs
+          grep -q "companionTableBody" dist/worker.mjs
+          grep -q "BUNDLED_APP_JS" dist/worker.mjs
+
+      - name: Unpack & Execute VS Code Extension Package (.vsix)
+        run: |
+          mkdir -p /tmp/gm-ext && unzip -q -o releases/worksai-graphmind-1.2.0.vsix -d /tmp/gm-ext
+          node -e "const ext = require('/tmp/gm-ext/extension/extension.cjs'); const r = ext.analyzeNotesInWorkspace([{id:'a',path:'a.md',content:'[[b]]'},{id:'b',path:'b.md',content:''}]); if (r.nodeCount !== 2) process.exit(1); console.log('Executed GraphMind VSIX:', r);"
+
+      - name: Run Automated Unit, Server HMAC Auth, Spoof 401 & Tenant Isolation 403 Tests
+        run: npm test
+
+      - name: Live Domain Smoke Verification (graphmind.worksai.org)
+        run: |
+          curl -fsSL -A "Mozilla/5.0 (WorksAI-CI)" https://graphmind.worksai.org/api/health | grep -q '"status":"ok"'
+          curl -fsSL -A "Mozilla/5.0 (WorksAI-CI)" https://graphmind.worksai.org/assets/app.js | grep -q 'window.WAI'

@@ -1,14 +1,18 @@
 name = "worksai-graphmind"
-main = "src/worker.mjs"
-compatibility_date = "2025-11-01"
-
-[vars]
-APP_SLUG = "worksai-graphmind"
-APP_SUBDOMAIN = "graphmind.worksai.org"
-HUB_URL = "https://worksai.org"
-NEON_PROJECT_ID = "flat-art-36324621"
-NEON_SCHEMA = "worksai_hub"
+main = "dist/worker.mjs"
+compatibility_date = "2025-02-01"
 
 routes = [
-  { pattern = "graphmind.worksai.org/*", zone_name = "worksai.org" }
+  { pattern = "graphmind.worksai.org", custom_domain = true }
 ]
+
+[[r2_buckets]]
+binding = "DATALAKE_BUCKET"
+bucket_name = "worksai-datalake"
+
+[[r2_buckets]]
+binding = "PROOF_BUCKET"
+bucket_name = "worksai-datalake"
+
+[ai]
+binding = "AI"

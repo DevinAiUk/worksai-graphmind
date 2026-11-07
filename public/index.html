@@ -1,16 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WorksAi GraphMind — WorksAi.org MIT Derivative</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>WorksAi GraphMind — Vscode Markdown Wiki Link Graph And Orphan Note Detector Extension | WorksAI</title>
+  <meta name="description" content="WorksAi GraphMind is an MIT-licensed VS Code and Cursor IDE extension (`worksai-graphmind-1.2.0.vsix`) and companion web verifier that parses `[[wiki-links]]`"/>
+  <link rel="canonical" href="https://graphmind.worksai.org/"/>
+  <link rel="stylesheet" href="/assets/styles.css"/>
 </head>
-<body style="background:#090d14;color:#f5f7fa;font-family:system-ui,sans-serif;padding:2rem;">
-  <main style="max-width:860px;margin:0 auto;">
-    <p style="color:#00f0ff;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;">worksai-07 · C. Plugins or extensions</p>
-    <h1>WorksAi GraphMind</h1>
-    <p style="color:#b4bfd0;">Gives engineers and technical writers Obsidian-grade bidirectional wikilinks, backlink graphs, and AI agent MCP tools right inside VS Code and Cursor without Obsidian's $50/user/year commercial license + $96/year Sync fees.</p>
-    <p style="font-size:12px;color:#7e8b9f;">MIT Derivative of <a href="https://github.com/foambubble/foam" style="color:#c6ff34;">Foam</a> (@ <code>7a2e632</code>) · Copyright (c) 2026 Foam contributors</p>
+<body>
+  <header class="app-topbar" role="banner">
+    <div class="brand-cluster">
+      <a href="https://worksai.org" style="display:flex;align-items:center;gap:0.45rem;color:#F8FAFC;font-weight:700;text-decoration:none;">
+        <span style="display:inline-flex;width:26px;height:26px;">__WORKSAI_CREST_PLACEHOLDER__</span>
+        <span>WorksAI</span>
+      </a>
+      <span style="color:#475569;">/</span>
+      <a href="/" style="color:#38BDF8;font-weight:700;text-decoration:none;">WorksAi GraphMind</a>
+      <span class="badge-pill" style="background:#1E293B;color:#94A3B8;">v1.2.0</span>
+    </div>
+    <nav aria-label="Application Navigation" style="display:flex;align-items:center;gap:0.85rem;flex-wrap:wrap;font-size:0.84rem;">
+      <a href="/" style="color:#38BDF8;font-weight:700;">Download & Companion App</a>
+      <a href="/docs" style="color:#CBD5E1;">Documentation</a>
+      <a href="/guide" style="color:#CBD5E1;">Technical Guide &amp; FAQ</a>
+      <span id="authModeBadge" class="badge-pill badge-demo">DEMO SANDBOX</span>
+      <button type="button" id="authActionBtn" class="btn btn-ghost" style="padding:0.28rem 0.65rem;font-size:0.76rem;" onclick="window.WAI.openAuthModal()">Sign In to Workspace</button>
+    </nav>
+  </header>
+
+  <main class="workspace-shell" role="main">
+    <div id="statusBanner" class="toast-banner" role="status" aria-live="polite">
+      Ready • WorksAi GraphMind Interactive Environment Active
+    </div>
+    
+        <section class="panel-box" aria-label="Official Release Package Download and Checksum" style="border-color:#0284C7;margin-bottom:1rem;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;">
+            <div>
+              <span class="badge-pill" style="background:#0369A1;color:#E0F2FE;">SHA-256 CHECKSUM-VERIFIED RELEASE ARCHIVE v1.2.0</span>
+              <h1 style="margin:0.4rem 0 0.25rem;font-size:1.35rem;">WorksAi GraphMind — Category C — VS Code Extension & Browser Sandbox</h1>
+              <p style="margin:0;color:#94A3B8;font-size:0.86rem;">Compatibility: <strong style="color:#E2E8F0;">VS Code ^1.85.0, Cursor, VSCodium, Windsurf (Node 18+ / Webview Panel)</strong></p>
+            </div>
+            <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;">
+              <a href="/downloads/worksai-graphmind-1.2.0.vsix" class="btn btn-primary">Download worksai-graphmind-1.2.0.vsix (2687 B)</a>
+              <a href="/docs" class="btn btn-ghost">Installation &amp; API Docs</a>
+              <a href="/guide" class="btn btn-ghost">Architecture Guide &amp; FAQ</a>
+            </div>
+          </div>
+          <div style="margin-top:0.75rem;background:#060A11;border:1px solid #1E293B;border-radius:8px;padding:0.65rem;font-family:monospace;font-size:0.8rem;color:#38BDF8;overflow-x:auto;">
+            <div>$ curl -sSL https://graphmind.worksai.org/downloads/worksai-graphmind-1.2.0.vsix -o worksai-graphmind-1.2.0.vsix && code --install-extension worksai-graphmind-1.2.0.vsix</div>
+            <div style="color:#64748B;margin-top:0.25rem;">SHA-256 Checksum (unencrypted archive integrity): e91ba7f79b0c29edb236d8cfdd243794a572f0caf4c1e9454a9ff3904bcfcc37</div>
+          </div>
+          <div style="margin-top:0.5rem;font-size:0.78rem;color:#94A3B8;"><strong>Permissions &amp; Privacy:</strong> Local workspace Markdown file read access (`*.md`) to parse `[[WikiLinks]]`; zero background source-code telemetry.</div>
+        </section>
+        
+    
+      <div class="app-grid-2">
+        <aside class="panel-box" aria-label="Companion Workspace Projects and Presets">
+          <div style="background:#090E1A;border:1px solid #0284C7;border-radius:8px;padding:0.65rem;margin-bottom:0.85rem;font-size:0.78rem;color:#BAE6FD;">
+            <strong>Companion Web Utility:</strong> Use this browser workbench to test rules and export configurations, or install the standalone package above.
+          </div>
+          <h2 class="panel-title"><span>Saved Configs (R2)</span><button type="button" class="btn btn-ghost" onclick="window.WAI.newProject()">+ New</button></h2>
+          <div class="form-field"><label for="presetSelect">Load Sample Configuration</label><select id="presetSelect" class="input-ctrl" onchange="window.WAI.loadPreset(this.value)"></select></div>
+          <div class="form-field"><label for="fileImportInput">Import Local File</label><input id="fileImportInput" type="file" class="input-ctrl" onchange="window.WAI.importFile(event)"/></div>
+          <ul id="projectList" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.45rem;max-height:240px;overflow-y:auto;"></ul>
+        </aside>
+        <section class="panel-box" aria-label="Companion Markdown Vault Graph Visualizer & Orphan Note Inspector">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
+            <h2 class="panel-title" style="margin:0;"><span>Companion Markdown Vault Graph Visualizer & Orphan Note Inspector</span></h2>
+            <div style="display:flex;gap:0.4rem;">
+              <button type="button" class="btn btn-primary" onclick="window.WAI.renderCompanionView()">Analyze Vault Links</button>
+              <button type="button" class="btn btn-emerald" onclick="window.WAI.saveCurrentProject()">Save to R2</button>
+              <button type="button" class="btn btn-ghost" onclick="window.WAI.exportActiveProject('json')">Export .JSON</button>
+            </div>
+          </div>
+          <div style="overflow-x:auto;margin-bottom:0.85rem;">
+            <table class="data-table" aria-label="Companion Markdown Vault Graph Visualizer & Orphan Note Inspector Results">
+              <thead><tr><th>Note ID</th><th>Outbound WikiLinks</th><th>Incoming Backlinks</th><th>Graph Status</th></tr></thead>
+              <tbody id="companionTableBody"></tbody>
+            </table>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;">
+            <div>
+              <label for="workspaceInput" style="display:block;font-size:0.76rem;color:#94A3B8;margin-bottom:0.25rem;">Interactive Source / Policy Input</label>
+              <textarea id="workspaceInput" rows="5" class="input-ctrl" style="font-family:monospace;" oninput="window.WAI.renderCompanionView()"></textarea>
+            </div>
+            <div>
+              <label style="display:block;font-size:0.76rem;color:#94A3B8;margin-bottom:0.25rem;">Generated Artifact / Schema Output</label>
+              <pre id="companionArtifactBox" style="background:#060A11;border:1px solid #1E293B;border-radius:8px;padding:0.65rem;margin:0;font-size:0.76rem;color:#A7F3D0;max-height:130px;overflow:auto;"></pre>
+            </div>
+          </div>
+          <div id="aiCopilotBox" style="margin-top:0.6rem;font-size:0.79rem;color:#A7F3D0;"></div>
+        </section>
+      </div>
+    
   </main>
+
+  <!-- Server-Signed Authentication & Demo Sandbox Modal -->
+  <div id="authModalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+        <h2 id="authModalTitle" style="margin:0;font-size:1.05rem;">Workspace Authentication (HMAC-SHA256)</h2>
+        <button type="button" class="btn btn-ghost" onclick="window.WAI.closeAuthModal()">Close</button>
+      </div>
+      <p style="font-size:0.8rem;color:#94A3B8;margin:0 0 0.85rem;">
+        Workspace identity is cryptographically signed on the server via WebCrypto HMAC-SHA256. Unauthenticated client headers are never trusted.
+      </p>
+      <form onsubmit="return window.WAI.submitSignIn(event)">
+        <div class="form-field"><label for="authEmailInput">Engineer Email *</label><input id="authEmailInput" type="email" class="input-ctrl" value="engineer@worksai.org" required/></div>
+        <div class="form-field"><label for="authTenantInput">Tenant Workspace Slug *</label><input id="authTenantInput" class="input-ctrl" value="tenant-acme-prod" required/></div>
+        <div class="form-field"><label for="authPasscodeInput">Workspace Passcode (min 6 chars) *</label><input id="authPasscodeInput" type="password" class="input-ctrl" value="worksai-2026" required/></div>
+        <div style="display:flex;gap:0.5rem;margin-top:0.85rem;">
+          <button type="submit" class="btn btn-primary" style="flex:1;justify-content:center;">Sign In (Server Token)</button>
+          <button type="button" class="btn btn-ghost" onclick="window.WAI.startDemoSession()">Use Isolated Demo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    window.__WORKSAI_META__ = __WORKSAI_META_JSON__;
+    window.__WORKSAI_INITIAL__ = __WORKSAI_INITIAL_JSON__;
+  </script>
+  <script src="/assets/app.js"></script>
 </body>
 </html>
