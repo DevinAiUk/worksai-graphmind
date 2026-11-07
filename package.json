@@ -1,0 +1,16 @@
+{
+  "name": "@worksai/worksai-graphmind",
+  "version": "1.0.0",
+  "description": "Bidirectional [[wikilink]] knowledge graphs, orphan link diagnostics, and MCP agent context for VS Code & Cursor.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.mjs",
+  "scripts": {
+    "test": "node --test tests/product.test.mjs",
+    "lint": "node --check src/index.mjs && node --check tests/product.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevinAiUk/worksai-graphmind.git"
+  }
+}
