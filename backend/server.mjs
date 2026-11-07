@@ -3403,7 +3403,7 @@ function checkMcpRateLimit(rateKey) {
 function executeSpecificMcpTool(toolMeta, args, identity) {
   const tName = toolMeta.name;
   const rawInput = String(args.input || "").trim();
-  const baseRes = runDomainEngineBySlug(toolMeta.appSlug, tName, rawInput);
+  const baseRes = runDomainEngineBySlug(toolMeta.appSlug, rawInput, tName);
   const dom = (baseRes && baseRes.domainResult) ? baseRes.domainResult : (baseRes || {});
   const traceId = `mcp-tr-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
   const handle = `handoff:${toolMeta.sub}:${deterministicHash16(tName + ":" + rawInput)}`;
