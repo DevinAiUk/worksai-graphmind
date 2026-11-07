@@ -22,7 +22,7 @@ import {
 } from "../src/index.mjs";
 
 test("Gate 1 — MIT License, Upstream Attribution & Notice Verification", () => {
-  assert.equal(PRODUCT_METADATA.id, "worksai-03");
+  assert.equal(PRODUCT_METADATA.id, "worksai-07");
   assert.equal(PRODUCT_METADATA.upstream.license, "MIT");
   const licenseText = fs.readFileSync(path.resolve("LICENSE"), "utf8");
   assert.match(licenseText, /Permission is hereby granted, free of charge/);

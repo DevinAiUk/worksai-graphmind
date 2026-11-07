@@ -918,7 +918,7 @@ export async function runAppAiAnalysis(inputRaw, toolName = APP_META.mcpTools[0]
 
   let aiModelSynthesis = null;
   let genuineAiModelInvoked = false;
-  const aiModelId = "@cf/meta/llama-3.1-8b-instruct";
+  const aiModelId = "@cf/meta/llama-3.1-8b-instruct-fp8";
 
   if (env && env.AI && typeof env.AI.run === "function" && options.useLlm !== false) {
     try {
