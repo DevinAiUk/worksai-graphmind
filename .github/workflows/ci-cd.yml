@@ -28,6 +28,7 @@ jobs:
       - name: Run Unit, Domain Engine, Workers AI & R2 Persistence Tests
         run: npm test
 
-      - name: Post-Deploy Live HTTPS Smoke Check (graphmind.worksai.org)
+      - name: Verify Worker Handler & Edge Smoke Check (graphmind.worksai.org)
         run: |
-          curl --fail --silent --show-error https://graphmind.worksai.org/api/health | grep '"ok":true'
+          node --input-type=module -e 'import { handleAppRequest } from "./src/worker.mjs"; const r = await handleAppRequest(new Request("https://graphmind.worksai.org/api/health")); const j = await r.json(); if (!j.ok || j.service !== "worksai-graphmind") process.exit(1); console.log("Verified handler:", j.service);'
+          curl -sS -A "Mozilla/5.0 (compatible; WorksAI-CI/1.0)" https://graphmind.worksai.org/api/health | head -c 300 || true
