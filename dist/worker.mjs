@@ -92,7 +92,7 @@ const WORKSAI_CREST_SVG = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0
 const DIAGRAM_SVG = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 860 260\" role=\"img\" aria-label=\"GraphMind VS Code Extension Side-Panel Showing Bidirectional WikiLink Graph and PageRank Centrality\" style=\"width:100%;height:auto;border-radius:12px;border:1px solid #1E293B;background:#090D16;margin:1rem 0;\">\n  <title>GraphMind VS Code Extension Side-Panel Showing Bidirectional WikiLink Graph and PageRank Centrality</title>\n  <desc>Interactive product architecture and workflow diagram for WorksAi GraphMind (graphmind.worksai.org): Bidirectional [[wikilink]] knowledge graphs, orphan link diagnostics, and MCP agent context for VS Code & Cursor.</desc>\n  <defs>\n    <linearGradient id=\"bg-graphmind\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0F172A\"/>\n      <stop offset=\"100%\" stop-color=\"#090D16\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"860\" height=\"260\" rx=\"12\" fill=\"url(#bg-graphmind)\"/>\n  <rect x=\"20\" y=\"18\" width=\"820\" height=\"34\" rx=\"6\" fill=\"#1E293B\"/>\n  <circle cx=\"38\" cy=\"35\" r=\"5\" fill=\"#EF4444\"/>\n  <circle cx=\"54\" cy=\"35\" r=\"5\" fill=\"#F59E0B\"/>\n  <circle cx=\"70\" cy=\"35\" r=\"5\" fill=\"#10B981\"/>\n  <text x=\"92\" y=\"39\" fill=\"#E2E8F0\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">graphmind.worksai.org \u2014 WorksAi GraphMind v1.2.0</text>\n  <rect x=\"20\" y=\"66\" width=\"245\" height=\"174\" rx=\"8\" fill=\"#111827\" stroke=\"#334155\"/>\n  <text x=\"36\" y=\"92\" fill=\"#38BDF8\" font-family=\"sans-serif\" font-size=\"12\" font-weight=\"bold\">1. TENANT-SCOPED WORKSPACE</text>\n  <text x=\"36\" y=\"116\" fill=\"#94A3B8\" font-family=\"monospace\" font-size=\"11\">R2: workspaces/$tenant/$user/</text>\n  <text x=\"36\" y=\"136\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Save, Reopen, Rename, Delete</text>\n  <text x=\"36\" y=\"156\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Strict Cross-Tenant 403 Guard</text>\n  <text x=\"36\" y=\"176\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 File Import &amp; Sample Presets</text>\n  <rect x=\"36\" y=\"194\" width=\"213\" height=\"28\" rx=\"5\" fill=\"#0284C7\"/>\n  <text x=\"142\" y=\"212\" text-anchor=\"middle\" fill=\"#FFFFFF\" font-family=\"sans-serif\" font-size=\"11\" font-weight=\"bold\">Isolated CRUD Active</text>\n\n  <rect x=\"288\" y=\"66\" width=\"284\" height=\"174\" rx=\"8\" fill=\"#111827\" stroke=\"#38BDF8\"/>\n  <text x=\"304\" y=\"92\" fill=\"#A855F7\" font-family=\"sans-serif\" font-size=\"12\" font-weight=\"bold\">2. DOMAIN ENGINE + AI COPILOT</text>\n  <text x=\"304\" y=\"116\" fill=\"#E2E8F0\" font-family=\"sans-serif\" font-size=\"11\">Bidirectional [[wikilink]] knowledge graph</text>\n  <text x=\"304\" y=\"138\" fill=\"#94A3B8\" font-family=\"monospace\" font-size=\"11\">Engine: Deterministic AST/Math</text>\n  <text x=\"304\" y=\"158\" fill=\"#94A3B8\" font-family=\"monospace\" font-size=\"11\">Model: llama-3.1-8b-instruct-fp8</text>\n  <text x=\"304\" y=\"178\" fill=\"#10B981\" font-family=\"monospace\" font-size=\"11\">Status: Verified Edge Execution</text>\n  <rect x=\"304\" y=\"194\" width=\"252\" height=\"28\" rx=\"5\" fill=\"#1E293B\" stroke=\"#38BDF8\"/>\n  <text x=\"430\" y=\"212\" text-anchor=\"middle\" fill=\"#38BDF8\" font-family=\"monospace\" font-size=\"11\">POST /api/execute &amp; /api/workspace/items</text>\n\n  <rect x=\"595\" y=\"66\" width=\"245\" height=\"174\" rx=\"8\" fill=\"#111827\" stroke=\"#334155\"/>\n  <text x=\"611\" y=\"92\" fill=\"#10B981\" font-family=\"sans-serif\" font-size=\"12\" font-weight=\"bold\">3. EXPORT &amp; RELEASE ARTIFACTS</text>\n  <text x=\"611\" y=\"116\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Native Format Export (.svg/.csv/.wav)</text>\n  <text x=\"611\" y=\"136\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Signed Release Archive Download</text>\n  <text x=\"611\" y=\"156\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 Zero-PII Engagement Telemetry</text>\n  <text x=\"611\" y=\"176\" fill=\"#CBD5E1\" font-family=\"sans-serif\" font-size=\"11\">\u2022 /docs &amp; /guide Technical SEO</text>\n  <rect x=\"611\" y=\"194\" width=\"213\" height=\"28\" rx=\"5\" fill=\"#059669\"/>\n  <text x=\"717\" y=\"212\" text-anchor=\"middle\" fill=\"#FFFFFF\" font-family=\"sans-serif\" font-size=\"11\" font-weight=\"bold\">Verified Deliverable Ready</text>\n</svg>";
 const BUNDLED_STYLES_CSS = "\n:root {\n  --bg-root: #070B12;\n  --bg-panel: #0F172A;\n  --bg-card: #111C33;\n  --bg-input: #090E1A;\n  --border-subtle: #1E293B;\n  --border-focus: #38BDF8;\n  --text-main: #F8FAFC;\n  --text-muted: #94A3B8;\n  --accent-cyan: #0284C7;\n  --accent-cyan-bright: #38BDF8;\n  --accent-purple: #7C3AED;\n  --accent-emerald: #059669;\n  --accent-amber: #D97706;\n  --accent-red: #DC2626;\n}\n* { box-sizing: border-box; }\nbody {\n  margin: 0;\n  background: var(--bg-root);\n  color: var(--text-main);\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Inter, sans-serif;\n  line-height: 1.5;\n}\na { color: var(--accent-cyan-bright); text-decoration: none; }\na:hover { text-decoration: underline; }\nbutton, input, select, textarea {\n  font-family: inherit;\n  font-size: 0.86rem;\n}\nbutton:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible, [tabindex]:focus-visible {\n  outline: 2px solid var(--border-focus);\n  outline-offset: 2px;\n}\n.app-topbar {\n  background: #090D16;\n  border-bottom: 1px solid var(--border-subtle);\n  padding: 0.65rem 1.25rem;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  gap: 0.75rem;\n}\n.brand-cluster {\n  display: flex;\n  align-items: center;\n  gap: 0.65rem;\n}\n.badge-pill {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.35rem;\n  padding: 0.2rem 0.6rem;\n  border-radius: 999px;\n  font-size: 0.73rem;\n  font-weight: 700;\n  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n}\n.badge-demo { background: #422006; color: #FDE68A; border: 1px solid #D97706; }\n.badge-prod { background: #064E3B; color: #A7F3D0; border: 1px solid #059669; }\n.btn {\n  border: 1px solid transparent;\n  border-radius: 6px;\n  padding: 0.42rem 0.8rem;\n  font-weight: 600;\n  cursor: pointer;\n  display: inline-flex;\n  align-items: center;\n  gap: 0.35rem;\n  transition: opacity 0.15s ease;\n}\n.btn:hover { opacity: 0.92; }\n.btn-primary { background: var(--accent-cyan); color: #FFF; }\n.btn-purple { background: var(--accent-purple); color: #FFF; }\n.btn-emerald { background: var(--accent-emerald); color: #FFF; }\n.btn-ghost { background: #1E293B; color: #E2E8F0; border-color: #334155; }\n.btn-danger { background: #7F1D1D; color: #FECACA; border-color: #991B1B; }\n.workspace-shell {\n  max-width: 1440px;\n  margin: 0 auto;\n  padding: 1rem 1.25rem 2.5rem;\n}\n.kpi-strip {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));\n  gap: 0.75rem;\n  margin-bottom: 1rem;\n}\n.kpi-card {\n  background: var(--bg-panel);\n  border: 1px solid var(--border-subtle);\n  border-radius: 10px;\n  padding: 0.8rem 1rem;\n}\n.kpi-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }\n.kpi-val { font-size: 1.35rem; font-weight: 700; margin-top: 0.2rem; color: #F8FAFC; font-family: ui-monospace, monospace; }\n.app-grid-3 {\n  display: grid;\n  grid-template-columns: 280px 1fr 310px;\n  gap: 1rem;\n  align-items: start;\n}\n.app-grid-2 {\n  display: grid;\n  grid-template-columns: 290px 1fr;\n  gap: 1rem;\n  align-items: start;\n}\n.panel-box {\n  background: var(--bg-panel);\n  border: 1px solid var(--border-subtle);\n  border-radius: 10px;\n  padding: 1rem;\n}\n.panel-title {\n  margin: 0 0 0.75rem;\n  font-size: 0.95rem;\n  font-weight: 700;\n  color: #F8FAFC;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.form-field { margin-bottom: 0.65rem; }\n.form-field label { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.2rem; }\n.input-ctrl {\n  width: 100%;\n  background: var(--bg-input);\n  border: 1px solid #334155;\n  color: #F8FAFC;\n  padding: 0.42rem 0.6rem;\n  border-radius: 6px;\n}\n.data-table {\n  width: 100%;\n  border-collapse: collapse;\n  font-size: 0.83rem;\n}\n.data-table th {\n  text-align: left;\n  padding: 0.55rem 0.6rem;\n  border-bottom: 1px solid #334155;\n  color: var(--accent-cyan-bright);\n  font-size: 0.75rem;\n  text-transform: uppercase;\n}\n.data-table td {\n  padding: 0.55rem 0.6rem;\n  border-bottom: 1px solid var(--border-subtle);\n  vertical-align: middle;\n}\n.toast-banner {\n  margin-bottom: 0.85rem;\n  padding: 0.55rem 0.9rem;\n  border-radius: 8px;\n  background: #090E1A;\n  border: 1px solid #1E293B;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 0.82rem;\n  font-family: ui-monospace, monospace;\n}\n.modal-backdrop {\n  display: none;\n  position: fixed;\n  inset: 0;\n  background: rgba(5, 8, 15, 0.78);\n  z-index: 100;\n  align-items: center;\n  justify-content: center;\n  padding: 1rem;\n}\n.modal-backdrop.open { display: flex; }\n.modal-card {\n  background: var(--bg-panel);\n  border: 1px solid #334155;\n  border-radius: 12px;\n  max-width: 460px;\n  width: 100%;\n  padding: 1.25rem;\n}\n@media (max-width: 1024px) {\n  .app-grid-3, .app-grid-2 { grid-template-columns: 1fr; }\n}\n";
 const BUNDLED_APP_JS = "\n(function() {\n  const META = window.__WORKSAI_META__ || {};\n  const INITIAL_STATE = window.__WORKSAI_INITIAL__ || {};\n  let sessionToken = localStorage.getItem('worksai_token_' + META.slug) || '';\n  let currentAuth = INITIAL_STATE.identity || { authenticated: false, mode: 'demo', tenantId: 'demo-sandbox', userId: 'demo-visitor' };\n  let activeProjectId = (INITIAL_STATE.initialItem && INITIAL_STATE.initialItem.id) || ('seed-' + META.slug + '-1');\n  let activeProjectTitle = (INITIAL_STATE.initialItem && INITIAL_STATE.initialItem.title) || (META.name + ' Starter Project');\n\n  // Product-specific interactive state\n  let canvasState = {\n    layout: 'layered',\n    highlightSpof: true,\n    selectedNodeId: null,\n    history: [],\n    nodes: [],\n    edges: []\n  };\n  let ledgerTransactions = [];\n  let ledgerBudgets = { infrastructure: 1500, compute: 5000, software: 1200, operations: 2000 };\n  let waveCutChapters = [\n    { id: 'ch-1', timeSec: 0.0, title: '00:00 \u2014 Episode Intro & Hook', state: 'Keep' },\n    { id: 'ch-2', timeSec: 4.5, title: '00:04 \u2014 Architecture Deep Dive', state: 'Keep' },\n    { id: 'ch-3', timeSec: 9.5, title: '00:09 \u2014 Production Benchmarks', state: 'Keep' }\n  ];\n  let omniTickets = [\n    {\n      id: 'TKT-901',\n      subject: 'Production SSO SAML assertion clock-skew timeout',\n      customer: 'acme-bank.example',\n      tier: 'enterprise',\n      status: 'open',\n      priority: 'P1',\n      ageMinutes: 52,\n      slaMinutes: 45,\n      messages: [\n        { author: 'secops@acme-bank.example', type: 'customer', text: 'IdP initiated login fails with SAML NotOnOrAfter clock skew error across EU edge pops.' },\n        { author: 'OmniDesk SLA Engine', type: 'internal', text: 'Auto-Triaged as Enterprise P1 (SLA breached by +7m). Recommended KB: KB-101.' }\n      ]\n    },\n    {\n      id: 'TKT-902',\n      subject: 'Webhook HMAC signature retry backoff configuration',\n      customer: 'fintech-ops.example',\n      tier: 'pro',\n      status: 'in_progress',\n      priority: 'P2',\n      ageMinutes: 65,\n      slaMinutes: 120,\n      messages: [\n        { author: 'dev@fintech-ops.example', type: 'customer', text: 'How do we configure exponential backoff when our webhook receiver returns HTTP 503?' }\n      ]\n    },\n    {\n      id: 'TKT-903',\n      subject: 'Custom domain TLS certificate provisioning status',\n      customer: 'studio-media.example',\n      tier: 'pro',\n      status: 'resolved',\n      priority: 'P3',\n      ageMinutes: 30,\n      slaMinutes: 240,\n      messages: [\n        { author: 'admin@studio-media.example', type: 'customer', text: 'Attached Worker custom domain and verified HTTP 200.' }\n      ]\n    }\n  ];\n  let activeTicketId = 'TKT-901';\n\n  function setStatus(msg, isError) {\n    const el = document.getElementById('statusBanner');\n    if (!el) return;\n    el.textContent = msg;\n    el.style.borderColor = isError ? '#DC2626' : '#1E293B';\n    el.style.color = isError ? '#FCA5A5' : '#38BDF8';\n  }\n\n  function authHeaders() {\n    const h = { 'Content-Type': 'application/json' };\n    if (sessionToken) h['Authorization'] = 'Bearer ' + sessionToken;\n    return h;\n  }\n\n  function updateAuthBadge() {\n    const badge = document.getElementById('authModeBadge');\n    const btn = document.getElementById('authActionBtn');\n    if (!badge) return;\n    if (currentAuth && currentAuth.authenticated && currentAuth.mode === 'production') {\n      badge.className = 'badge-pill badge-prod';\n      badge.textContent = 'AUTH: ' + currentAuth.tenantId + ' / ' + currentAuth.userId;\n      if (btn) btn.textContent = 'Switch / Sign Out';\n    } else {\n      badge.className = 'badge-pill badge-demo';\n      badge.textContent = 'DEMO SANDBOX (' + (currentAuth.tenantId || 'demo-sandbox') + ')';\n      if (btn) btn.textContent = 'Sign In to Workspace';\n    }\n  }\n\n  async function ensureDemoOrAuthSession() {\n    const res = await fetch('/api/auth/me', { headers: authHeaders() });\n    if (res.ok) {\n      const data = await res.json();\n      if (data.authenticated) {\n        currentAuth = data.identity;\n        updateAuthBadge();\n        return;\n      }\n    }\n    // Issue a server-signed isolated demo session token automatically so demo CRUD works cleanly without spoofing headers\n    const demoRes = await fetch('/api/auth/demo', { method: 'POST', headers: { 'Content-Type': 'application/json' } });\n    if (demoRes.ok) {\n      const d = await demoRes.json();\n      sessionToken = d.token || '';\n      localStorage.setItem('worksai_token_' + META.slug, sessionToken);\n      currentAuth = d.identity || currentAuth;\n      updateAuthBadge();\n    }\n  }\n\n  async function submitSignIn(ev) {\n    if (ev) ev.preventDefault();\n    const email = (document.getElementById('authEmailInput').value || '').trim();\n    const workspaceSlug = (document.getElementById('authTenantInput').value || '').trim();\n    const passcode = (document.getElementById('authPasscodeInput').value || '').trim();\n    if (!email || !workspaceSlug || passcode.length < 6) {\n      setStatus('Sign-in validation error: Enter valid email, workspace tenant slug, and 6+ char passcode.', true);\n      return false;\n    }\n    const res = await fetch('/api/auth/session', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ email, workspaceSlug, passcode })\n    });\n    const data = await res.json();\n    if (!res.ok) {\n      setStatus('Sign-in failed: ' + (data.error || res.status), true);\n      return false;\n    }\n    sessionToken = data.token;\n    localStorage.setItem('worksai_token_' + META.slug, sessionToken);\n    currentAuth = data.identity;\n    updateAuthBadge();\n    closeAuthModal();\n    setStatus('Signed in to isolated workspace ' + currentAuth.tenantId + ' as ' + currentAuth.userId);\n    await refreshProjectList();\n    return false;\n  }\n\n  async function startDemoSession() {\n    const res = await fetch('/api/auth/demo', { method: 'POST', headers: { 'Content-Type': 'application/json' } });\n    const data = await res.json();\n    if (res.ok) {\n      sessionToken = data.token;\n      localStorage.setItem('worksai_token_' + META.slug, sessionToken);\n      currentAuth = data.identity;\n      updateAuthBadge();\n      closeAuthModal();\n      setStatus('Switched to isolated Demo Sandbox session (' + currentAuth.userId + ')');\n      await refreshProjectList();\n    }\n  }\n\n  function openAuthModal() {\n    const m = document.getElementById('authModalBackdrop');\n    if (m) m.classList.add('open');\n  }\n  function closeAuthModal() {\n    const m = document.getElementById('authModalBackdrop');\n    if (m) m.classList.remove('open');\n  }\n\n  // --- Shared R2 Project CRUD ---\n  async function refreshProjectList() {\n    const ul = document.getElementById('projectList');\n    if (!ul) return;\n    const res = await fetch('/api/workspace/items', { headers: authHeaders() });\n    if (!res.ok) return;\n    const data = await res.json();\n    const items = data.items || [];\n    ul.innerHTML = items.map(function(item) {\n      return '<li data-id=\"' + item.id + '\" style=\"background:#090E1A;border:1px solid #1E293B;border-radius:8px;padding:0.5rem;\">' +\n        '<div style=\"font-weight:600;font-size:0.81rem;color:#F8FAFC;\">' + item.title + '</div>' +\n        '<div style=\"font-size:0.68rem;color:#64748B;font-family:monospace;margin:0.15rem 0 0.4rem;\">' + item.id + ' \u2022 v' + (item.version || 1) + '</div>' +\n        '<div style=\"display:flex;gap:0.3rem;flex-wrap:wrap;\">' +\n          '<button type=\"button\" class=\"btn btn-ghost\" style=\"padding:0.18rem 0.45rem;font-size:0.71rem;\" onclick=\"window.WAI.openProject(\\'' + item.id + '\\')\">Open</button>' +\n          '<button type=\"button\" class=\"btn btn-ghost\" style=\"padding:0.18rem 0.45rem;font-size:0.71rem;\" onclick=\"window.WAI.renameProject(\\'' + item.id + '\\')\">Rename</button>' +\n          '<button type=\"button\" class=\"btn btn-danger\" style=\"padding:0.18rem 0.45rem;font-size:0.71rem;\" onclick=\"window.WAI.deleteProject(\\'' + item.id + '\\')\">Delete</button>' +\n        '</div>' +\n      '</li>';\n    }).join('');\n  }\n\n  async function openProject(id) {\n    const res = await fetch('/api/workspace/items/' + encodeURIComponent(id), { headers: authHeaders() });\n    const data = await res.json();\n    if (!res.ok) {\n      setStatus('Cannot open project: ' + (data.error || res.status), true);\n      return;\n    }\n    activeProjectId = data.item.id;\n    activeProjectTitle = data.item.title;\n    const titleEl = document.getElementById('projectTitleInput');\n    if (titleEl) titleEl.value = activeProjectTitle;\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl) inputEl.value = data.item.input || '';\n    hydrateDomainStateFromInput(data.item.input || '');\n    setStatus('Opened project \"' + activeProjectTitle + '\" (v' + data.item.version + ')');\n  }\n\n  async function saveCurrentProject() {\n    const titleEl = document.getElementById('projectTitleInput');\n    if (titleEl && titleEl.value.trim()) activeProjectTitle = titleEl.value.trim();\n    const inputEl = document.getElementById('workspaceInput');\n    const payloadStr = inputEl ? inputEl.value : META.defaultInput;\n    const res = await fetch('/api/workspace/items', {\n      method: 'POST',\n      headers: authHeaders(),\n      body: JSON.stringify({ id: activeProjectId, title: activeProjectTitle, input: payloadStr })\n    });\n    const data = await res.json();\n    if (!res.ok) {\n      setStatus('Save failed: ' + (data.error || res.status), true);\n      return null;\n    }\n    activeProjectId = data.item.id;\n    setStatus('Saved \"' + data.item.title + '\" (v' + data.item.version + ') to R2 [' + currentAuth.tenantId + '/' + currentAuth.userId + ']');\n    await refreshProjectList();\n    return data.item;\n  }\n\n  async function renameProject(id) {\n    const nextTitle = prompt('Enter new project title:', activeProjectTitle);\n    if (!nextTitle || !nextTitle.trim()) return;\n    const res = await fetch('/api/workspace/items/' + encodeURIComponent(id), {\n      method: 'PATCH',\n      headers: authHeaders(),\n      body: JSON.stringify({ title: nextTitle.trim() })\n    });\n    if (res.ok) {\n      activeProjectTitle = nextTitle.trim();\n      const titleEl = document.getElementById('projectTitleInput');\n      if (titleEl) titleEl.value = activeProjectTitle;\n      setStatus('Renamed project ' + id + ' to \"' + activeProjectTitle + '\"');\n      await refreshProjectList();\n    }\n  }\n\n  async function deleteProject(id) {\n    const res = await fetch('/api/workspace/items/' + encodeURIComponent(id), {\n      method: 'DELETE',\n      headers: authHeaders()\n    });\n    if (res.ok) {\n      setStatus('Deleted project ' + id + ' from R2 workspace');\n      await refreshProjectList();\n    }\n  }\n\n  function newProject() {\n    activeProjectId = 'proj-' + Date.now().toString(36);\n    activeProjectTitle = META.name + ' Draft ' + activeProjectId.slice(-4);\n    const titleEl = document.getElementById('projectTitleInput');\n    if (titleEl) titleEl.value = activeProjectTitle;\n    setStatus('Initialized new project \"' + activeProjectTitle + '\" \u2014 click Save to persist to R2.');\n  }\n\n  async function exportActiveProject(fmt) {\n    await saveCurrentProject();\n    const url = '/api/workspace/export/' + encodeURIComponent(activeProjectId) + '?format=' + encodeURIComponent(fmt);\n    const res = await fetch(url, { headers: authHeaders() });\n    if (!res.ok) {\n      setStatus('Export failed (' + res.status + ')', true);\n      return;\n    }\n    const blob = await res.blob();\n    const dlUrl = URL.createObjectURL(blob);\n    const a = document.createElement('a');\n    a.href = dlUrl;\n    a.download = META.slug + '-' + activeProjectId + '.' + fmt;\n    document.body.appendChild(a);\n    a.click();\n    a.remove();\n    setStatus('Exported ' + a.download + ' (' + blob.size + ' bytes)');\n  }\n\n  function loadPreset(idx) {\n    const presets = META.samplePresets || [];\n    const p = presets[Number(idx)] || presets[0];\n    if (!p) return;\n    activeProjectTitle = p.title;\n    const titleEl = document.getElementById('projectTitleInput');\n    if (titleEl) titleEl.value = p.title;\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl) inputEl.value = p.input;\n    hydrateDomainStateFromInput(p.input);\n    setStatus('Loaded sample preset: ' + p.title);\n  }\n\n  function importFile(ev) {\n    const file = ev.target.files && ev.target.files[0];\n    if (!file) return;\n    const reader = new FileReader();\n    reader.onload = function() {\n      const content = String(reader.result || '');\n      const inputEl = document.getElementById('workspaceInput');\n      if (inputEl) inputEl.value = content;\n      hydrateDomainStateFromInput(content);\n      setStatus('Imported ' + file.name + ' (' + file.size + ' bytes)');\n    };\n    reader.readAsText(file);\n  }\n\n  async function runWithAiCopilot() {\n    const inputEl = document.getElementById('workspaceInput');\n    const box = document.getElementById('aiCopilotBox');\n    if (box) box.textContent = 'Running Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct-fp8)...';\n    const res = await fetch('/api/execute', {\n      method: 'POST',\n      headers: authHeaders(),\n      body: JSON.stringify({ input: inputEl ? inputEl.value : META.defaultInput, enableAi: true })\n    });\n    const data = await res.json();\n    if (box) {\n      box.textContent = data.aiCopilotNote || (data.result && data.result.summary) || 'Analysis complete.';\n    }\n    setStatus('Completed AI Copilot review (genuineAiInvoked=' + Boolean(data.genuineAiInvoked) + ')');\n  }\n\n  // ============================================================================\n  // 1. CANVASARCH INTERACTIVE DIAGRAMMING ENGINE\n  // ============================================================================\n  function parseCanvasSpecToGraph(specText) {\n    const lines = String(specText || '').split(/\\r?\\n/).map(l => l.trim()).filter(l => l && !l.startsWith('//'));\n    const nodeMap = new Map();\n    const edges = [];\n    function ensureNode(label) {\n      const clean = label.trim();\n      if (!nodeMap.has(clean)) {\n        const idx = nodeMap.size;\n        const role = /db|postgres|sql|r2|bucket/i.test(clean) ? 'database'\n          : /gateway|edge|cdn|client|browser/i.test(clean) ? 'gateway'\n          : /cache|redis|kv/i.test(clean) ? 'cache' : 'service';\n        nodeMap.set(clean, { id: 'n-' + idx, label: clean, role, fanIn: 0, fanOut: 0, x: 0, y: 0 });\n      }\n      return nodeMap.get(clean);\n    }\n    lines.forEach(function(line) {\n      const parts = line.split(/-->|->/);\n      if (parts.length >= 2) {\n        for (let i = 0; i < parts.length - 1; i++) {\n          const src = ensureNode(parts[i]);\n          const dst = ensureNode(parts[i + 1]);\n          src.fanOut += 1;\n          dst.fanIn += 1;\n          edges.push({ from: src.id, to: dst.id, fromLabel: src.label, toLabel: dst.label });\n        }\n      } else {\n        ensureNode(line);\n      }\n    });\n    const nodes = Array.from(nodeMap.values());\n    layoutCanvasNodes(nodes, canvasState.layout);\n    canvasState.nodes = nodes;\n    canvasState.edges = edges;\n  }\n\n  function layoutCanvasNodes(nodes, mode) {\n    const count = nodes.length || 1;\n    nodes.forEach(function(n, idx) {\n      if (mode === 'grid') {\n        const col = idx % 3;\n        const row = Math.floor(idx / 3);\n        n.x = 60 + col * 240;\n        n.y = 60 + row * 120;\n      } else if (mode === 'radial') {\n        const angle = (2 * Math.PI * idx) / count;\n        n.x = Math.round(330 + 210 * Math.cos(angle));\n        n.y = Math.round(165 + 115 * Math.sin(angle));\n      } else {\n        const col = idx % 2;\n        const row = Math.floor(idx / 2);\n        n.x = 70 + col * 340;\n        n.y = 50 + row * 110;\n      }\n    });\n  }\n\n  function renderCanvasArchDom() {\n    const stage = document.getElementById('archCanvasStage');\n    if (!stage) return;\n    const nodes = canvasState.nodes;\n    const edges = canvasState.edges;\n    const spofs = nodes.filter(n => (n.fanIn + n.fanOut) >= 2);\n\n    const nc = document.getElementById('caNodeCount'); if (nc) nc.textContent = String(nodes.length);\n    const ec = document.getElementById('caEdgeCount'); if (ec) ec.textContent = String(edges.length);\n    const sc = document.getElementById('caSpofCount'); if (sc) sc.textContent = String(spofs.length);\n    const ll = document.getElementById('caLayoutLabel'); if (ll) ll.textContent = canvasState.layout.toUpperCase();\n\n    const nodeById = {};\n    nodes.forEach(n => { nodeById[n.id] = n; });\n\n    let svgEdges = '';\n    edges.forEach(function(e) {\n      const a = nodeById[e.from];\n      const b = nodeById[e.to];\n      if (!a || !b) return;\n      const x1 = a.x + 95, y1 = a.y + 32;\n      const x2 = b.x + 95, y2 = b.y + 32;\n      svgEdges += '<line x1=\"' + x1 + '\" y1=\"' + y1 + '\" x2=\"' + x2 + '\" y2=\"' + y2 + '\" stroke=\"#38BDF8\" stroke-width=\"2.2\" marker-end=\"url(#arrowHead)\"/>';\n    });\n\n    let svgNodes = '';\n    nodes.forEach(function(n) {\n      const isSpof = canvasState.highlightSpof && (n.fanIn + n.fanOut) >= 2;\n      const isSelected = canvasState.selectedNodeId === n.id;\n      const stroke = isSelected ? '#F8FAFC' : (isSpof ? '#F59E0B' : '#0284C7');\n      const fill = n.role === 'database' ? '#064E3B' : (n.role === 'gateway' ? '#1E1B4B' : '#0F172A');\n      svgNodes += '<g class=\"canvas-node\" data-id=\"' + n.id + '\" transform=\"translate(' + n.x + ',' + n.y + ')\" style=\"cursor:grab;\" onclick=\"window.WAI.selectCanvasNode(\\'' + n.id + '\\')\">' +\n        '<rect width=\"190\" height=\"64\" rx=\"10\" fill=\"' + fill + '\" stroke=\"' + stroke + '\" stroke-width=\"' + (isSelected ? '3' : '2') + '\"/>' +\n        '<text x=\"14\" y=\"26\" fill=\"#F8FAFC\" font-size=\"12\" font-weight=\"bold\" font-family=\"sans-serif\">' + n.label.slice(0, 22) + '</text>' +\n        '<text x=\"14\" y=\"46\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">' + n.role.toUpperCase() + ' \u2022 in:' + n.fanIn + ' out:' + n.fanOut + (isSpof ? ' [SPOF]' : '') + '</text>' +\n      '</g>';\n    });\n\n    stage.innerHTML = '<svg id=\"archSvgCanvas\" viewBox=\"0 0 760 370\" style=\"width:100%;height:360px;user-select:none;\">' +\n      '<defs><marker id=\"arrowHead\" markerWidth=\"8\" markerHeight=\"6\" refX=\"7\" refY=\"3\" orient=\"auto\"><polygon points=\"0 0, 8 3, 0 6\" fill=\"#38BDF8\"/></marker></defs>' +\n      svgEdges + svgNodes + '</svg>';\n\n    // Populate SPOF list\n    const spofList = document.getElementById('caSpofList');\n    if (spofList) {\n      spofList.innerHTML = spofs.length ? spofs.map(function(s) {\n        return '<div style=\"background:#1E293B;border-left:3px solid #F59E0B;padding:0.45rem 0.6rem;border-radius:4px;\">' +\n          '<strong>' + s.label + '</strong> (fan-in ' + s.fanIn + ', fan-out ' + s.fanOut + ') \u2014 Recommend multi-AZ replica or queue buffer.' +\n        '</div>';\n      }).join('') : '<div>No single-point-of-failure bottlenecks detected.</div>';\n    }\n\n    enableSvgNodeDragging();\n  }\n\n  function enableSvgNodeDragging() {\n    const svg = document.getElementById('archSvgCanvas');\n    if (!svg) return;\n    let draggingNode = null;\n    let startX = 0, startY = 0;\n\n    svg.addEventListener('pointerdown', function(ev) {\n      const g = ev.target.closest('.canvas-node');\n      if (!g) return;\n      const id = g.getAttribute('data-id');\n      draggingNode = canvasState.nodes.find(n => n.id === id);\n      if (!draggingNode) return;\n      startX = ev.clientX - draggingNode.x;\n      startY = ev.clientY - draggingNode.y;\n    });\n    window.addEventListener('pointermove', function(ev) {\n      if (!draggingNode) return;\n      draggingNode.x = Math.max(10, Math.min(550, Math.round(ev.clientX - startX)));\n      draggingNode.y = Math.max(10, Math.min(295, Math.round(ev.clientY - startY)));\n      renderCanvasArchDom();\n    });\n    window.addEventListener('pointerup', function() {\n      draggingNode = null;\n    });\n  }\n\n  function selectCanvasNode(nodeId) {\n    canvasState.selectedNodeId = nodeId;\n    const node = canvasState.nodes.find(n => n.id === nodeId);\n    const box = document.getElementById('caNodeInspector');\n    if (node && box) {\n      box.innerHTML = '<div style=\"font-weight:700;color:#38BDF8;margin-bottom:0.35rem;\">' + node.label + '</div>' +\n        '<div style=\"font-size:0.76rem;color:#94A3B8;margin-bottom:0.5rem;\">Role: ' + node.role + ' \u2022 Coords: (' + node.x + ', ' + node.y + ')</div>' +\n        '<div style=\"display:flex;gap:0.4rem;\">' +\n          '<button type=\"button\" class=\"btn btn-danger\" style=\"font-size:0.74rem;padding:0.25rem 0.55rem;\" onclick=\"window.WAI.deleteCanvasNode(\\'' + node.id + '\\')\">Remove Node</button>' +\n        '</div>';\n    }\n    renderCanvasArchDom();\n  }\n\n  function deleteCanvasNode(nodeId) {\n    const node = canvasState.nodes.find(n => n.id === nodeId);\n    if (!node) return;\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl) {\n      const lines = inputEl.value.split(/\\r?\\n/).filter(l => !l.includes(node.label));\n      inputEl.value = lines.join('\\n');\n      syncCanvasFromText();\n    }\n  }\n\n  function canvasAddNode(ev) {\n    if (ev) ev.preventDefault();\n    const nameEl = document.getElementById('caNewNodeName');\n    const targetEl = document.getElementById('caConnectTarget');\n    const label = (nameEl && nameEl.value || '').trim();\n    if (!label) return false;\n    const target = (targetEl && targetEl.value || '').trim() || (canvasState.nodes[0] && canvasState.nodes[0].label) || 'Cloudflare Edge Worker';\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl) {\n      canvasState.history.push(inputEl.value);\n      inputEl.value = (inputEl.value.trim() + '\\n' + target + ' -> ' + label).trim();\n      syncCanvasFromText();\n    }\n    if (nameEl) nameEl.value = '';\n    setStatus('Added node \"' + label + '\" connected to \"' + target + '\"');\n    return false;\n  }\n\n  function setCanvasLayout(mode) {\n    canvasState.layout = mode;\n    layoutCanvasNodes(canvasState.nodes, mode);\n    renderCanvasArchDom();\n    setStatus('Applied ' + mode + ' auto-layout to architecture graph.');\n  }\n\n  function toggleSpofOverlay() {\n    canvasState.highlightSpof = !canvasState.highlightSpof;\n    renderCanvasArchDom();\n  }\n\n  function canvasUndo() {\n    if (!canvasState.history.length) return;\n    const prev = canvasState.history.pop();\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl) {\n      inputEl.value = prev;\n      syncCanvasFromText();\n    }\n  }\n\n  function syncCanvasFromText() {\n    const inputEl = document.getElementById('workspaceInput');\n    if (!inputEl) return;\n    parseCanvasSpecToGraph(inputEl.value);\n    renderCanvasArchDom();\n  }\n\n  // ============================================================================\n  // 2. LEDGERFLOW INTERACTIVE FINANCE & BUDGET ENGINE\n  // ============================================================================\n  function parseLedgerCsvToRows(csvText) {\n    const lines = String(csvText || '').split(/\\r?\\n/).map(l => l.trim()).filter(Boolean);\n    ledgerTransactions = lines.map(function(line, idx) {\n      const parts = line.split(',').map(p => p.trim());\n      const amount = parseFloat(parts[2] || '0') || 0;\n      return {\n        id: 'tx-' + idx,\n        date: parts[0] || '2026-03-01',\n        desc: parts[1] || 'Transaction',\n        amount: amount,\n        category: parts[3] || (amount >= 0 ? 'revenue' : 'infrastructure'),\n        reviewed: false\n      };\n    });\n  }\n\n  function syncLedgerToText() {\n    const inputEl = document.getElementById('workspaceInput');\n    if (!inputEl) return;\n    inputEl.value = ledgerTransactions.map(t => [t.date, t.desc, t.amount.toFixed(2), t.category].join(',')).join('\\n');\n  }\n\n  function renderLedgerView() {\n    const tbody = document.getElementById('lfTxTableBody');\n    if (!tbody) return;\n    const q = (document.getElementById('lfSearchFilter') && document.getElementById('lfSearchFilter').value || '').toLowerCase();\n    const catF = (document.getElementById('lfCatFilter') && document.getElementById('lfCatFilter').value) || 'all';\n    const stF = (document.getElementById('lfStatusFilter') && document.getElementById('lfStatusFilter').value) || 'all';\n\n    let inflow = 0, outflow = 0, anomalies = 0;\n    const catSpend = { infrastructure: 0, compute: 0, software: 0, operations: 0 };\n\n    ledgerTransactions.forEach(function(t) {\n      if (t.amount >= 0) inflow += t.amount;\n      else {\n        const abs = Math.abs(t.amount);\n        outflow += abs;\n        if (catSpend[t.category] !== undefined) catSpend[t.category] += abs;\n      }\n      t.isAnomaly = !t.reviewed && Math.abs(t.amount) >= 2500 && t.amount < 0;\n      if (t.isAnomaly) anomalies += 1;\n    });\n\n    const net = inflow - outflow;\n    const infEl = document.getElementById('lfInflow'); if (infEl) infEl.textContent = '$' + inflow.toLocaleString('en-US', { minimumFractionDigits: 2 });\n    const outEl = document.getElementById('lfOutflow'); if (outEl) outEl.textContent = '$' + outflow.toLocaleString('en-US', { minimumFractionDigits: 2 });\n    const netEl = document.getElementById('lfNet'); if (netEl) netEl.textContent = (net >= 0 ? '+$' : '-$') + Math.abs(net).toLocaleString('en-US', { minimumFractionDigits: 2 });\n    const anEl = document.getElementById('lfAnomalyCount'); if (anEl) anEl.textContent = String(anomalies);\n\n    const filtered = ledgerTransactions.filter(function(t) {\n      if (q && !t.desc.toLowerCase().includes(q) && !t.category.toLowerCase().includes(q)) return false;\n      if (catF !== 'all' && t.category !== catF) return false;\n      if (stF === 'anomaly' && !t.isAnomaly) return false;\n      if (stF === 'cleared' && t.isAnomaly) return false;\n      return true;\n    });\n\n    tbody.innerHTML = filtered.map(function(t) {\n      const badge = t.isAnomaly\n        ? '<span class=\"badge-pill\" style=\"background:#7F1D1D;color:#FECACA;\">ANOMALY SPIKE</span>'\n        : '<span class=\"badge-pill\" style=\"background:#064E3B;color:#A7F3D0;\">CLEARED</span>';\n      return '<tr>' +\n        '<td style=\"font-family:monospace;\">' + t.date + '</td>' +\n        '<td><strong>' + t.desc + '</strong></td>' +\n        '<td><span class=\"badge-pill\" style=\"background:#1E293B;color:#CBD5E1;\">' + t.category + '</span></td>' +\n        '<td style=\"font-family:monospace;color:' + (t.amount >= 0 ? '#10B981' : '#F87171') + ';\">' + (t.amount >= 0 ? '+' : '') + '$' + t.amount.toFixed(2) + '</td>' +\n        '<td>' + badge + '</td>' +\n        '<td>' +\n          (t.isAnomaly ? '<button type=\"button\" class=\"btn btn-ghost\" style=\"padding:0.15rem 0.45rem;font-size:0.72rem;margin-right:0.25rem;\" onclick=\"window.WAI.ledgerClearAnomaly(\\'' + t.id + '\\')\">Mark Reviewed</button>' : '') +\n          '<button type=\"button\" class=\"btn btn-danger\" style=\"padding:0.15rem 0.45rem;font-size:0.72rem;\" onclick=\"window.WAI.ledgerDeleteTx(\\'' + t.id + '\\')\">Delete</button>' +\n        '</td>' +\n      '</tr>';\n    }).join('');\n\n    const bBox = document.getElementById('lfBudgetBars');\n    if (bBox) {\n      bBox.innerHTML = Object.keys(ledgerBudgets).map(function(cat) {\n        const spent = catSpend[cat] || 0;\n        const cap = ledgerBudgets[cat] || 1000;\n        const pct = Math.min(100, Math.round((spent / cap) * 100));\n        const barColor = pct >= 95 ? '#EF4444' : (pct >= 75 ? '#F59E0B' : '#10B981');\n        return '<div style=\"background:#090E1A;border:1px solid #1E293B;border-radius:8px;padding:0.55rem;\">' +\n          '<div style=\"display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.25rem;\">' +\n            '<strong style=\"text-transform:capitalize;\">' + cat + '</strong>' +\n            '<span style=\"font-family:monospace;\">$' + spent.toFixed(0) + ' / $' + cap + ' (' + pct + '%)</span>' +\n          '</div>' +\n          '<div style=\"background:#1E293B;height:7px;border-radius:999px;overflow:hidden;\">' +\n            '<div style=\"width:' + pct + '%;height:100%;background:' + barColor + ';\"></div>' +\n          '</div>' +\n        '</div>';\n      }).join('');\n    }\n  }\n\n  function ledgerAddTransaction(ev) {\n    if (ev) ev.preventDefault();\n    const date = document.getElementById('lfTxDate').value;\n    const desc = document.getElementById('lfTxDesc').value.trim();\n    const amount = parseFloat(document.getElementById('lfTxAmount').value);\n    const cat = document.getElementById('lfTxCat').value;\n    if (!date || !desc || isNaN(amount)) {\n      setStatus('Validation error: Please enter valid date, payee, and numeric amount.', true);\n      return false;\n    }\n    ledgerTransactions.unshift({\n      id: 'tx-' + Date.now().toString(36),\n      date: date,\n      desc: desc,\n      amount: amount,\n      category: cat,\n      reviewed: false\n    });\n    document.getElementById('lfTxDesc').value = '';\n    document.getElementById('lfTxAmount').value = '';\n    syncLedgerToText();\n    renderLedgerView();\n    setStatus('Recorded transaction \"' + desc + '\" ($' + amount.toFixed(2) + ')');\n    return false;\n  }\n\n  function ledgerClearAnomaly(txId) {\n    const tx = ledgerTransactions.find(t => t.id === txId);\n    if (tx) tx.reviewed = true;\n    renderLedgerView();\n    setStatus('Marked transaction ' + txId + ' as reviewed.');\n  }\n\n  function ledgerDeleteTx(txId) {\n    ledgerTransactions = ledgerTransactions.filter(t => t.id !== txId);\n    syncLedgerToText();\n    renderLedgerView();\n  }\n\n  // ============================================================================\n  // 3. WAVECUT INTERACTIVE AUDIO WAVEFORM & PCM WAV STUDIO\n  // ============================================================================\n  function buildClientWavBlob(envelope) {\n    const sampleRate = 8000;\n    const durationSec = Math.max(2, Math.min(16, envelope.length));\n    const numSamples = sampleRate * durationSec;\n    const dataSize = numSamples * 2;\n    const buf = new ArrayBuffer(44 + dataSize);\n    const view = new DataView(buf);\n    function wStr(off, s) { for (let i = 0; i < s.length; i++) view.setUint8(off + i, s.charCodeAt(i)); }\n    wStr(0, 'RIFF'); view.setUint32(4, 36 + dataSize, true); wStr(8, 'WAVE');\n    wStr(12, 'fmt '); view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true);\n    view.setUint32(24, sampleRate, true); view.setUint32(28, sampleRate * 2, true);\n    view.setUint16(32, 2, true); view.setUint16(34, 16, true);\n    wStr(36, 'data'); view.setUint32(40, dataSize, true);\n    for (let i = 0; i < numSamples; i++) {\n      const secIdx = Math.floor((i / numSamples) * envelope.length);\n      const amp = Number(envelope[secIdx] || 0.2);\n      const freq = secIdx % 2 === 0 ? 440 : 554.37;\n      const sample = Math.max(-1, Math.min(1, Math.sin((2 * Math.PI * freq * i) / sampleRate) * amp));\n      view.setInt16(44 + i * 2, Math.floor(sample * 32767), true);\n    }\n    return new Blob([buf], { type: 'audio/wav' });\n  }\n\n  function getWaveCutEnvelope() {\n    const inputEl = document.getElementById('workspaceInput');\n    const raw = (inputEl && inputEl.value) || '0.18, 0.42, 0.76, 0.81, 0.01, 0.00, 0.01, 0.64, 0.88, 0.53, 0.01, 0.02, 0.71, 0.79';\n    return raw.split(/[,\\s]+/).map(v => parseFloat(v)).filter(v => !isNaN(v));\n  }\n\n  function updateWaveCutDsp() {\n    const box = document.getElementById('wcWaveformBox');\n    if (!box) return;\n    const env = getWaveCutEnvelope();\n    const threshSlider = Number((document.getElementById('wcThresholdRange') && document.getElementById('wcThresholdRange').value) || 5);\n    const threshRms = threshSlider / 100;\n    const trimIn = Number((document.getElementById('wcTrimIn') && document.getElementById('wcTrimIn').value) || 0);\n    const trimOut = Number((document.getElementById('wcTrimOut') && document.getElementById('wcTrimOut').value) || env.length);\n\n    const tv = document.getElementById('wcThreshVal'); if (tv) tv.textContent = '-' + Math.round(60 - threshSlider * 1.4) + ' dB';\n    const ti = document.getElementById('wcTrimInVal'); if (ti) ti.textContent = trimIn.toFixed(1) + 's';\n    const to = document.getElementById('wcTrimOutVal'); if (to) to.textContent = trimOut.toFixed(1) + 's';\n\n    let silenceCount = 0;\n    const barW = Math.floor(680 / Math.max(1, env.length));\n    let barsSvg = '';\n    env.forEach(function(amp, idx) {\n      const isSilent = amp <= threshRms;\n      if (isSilent) silenceCount += 1;\n      const inTrim = idx >= trimIn && idx <= trimOut;\n      const h = Math.max(8, Math.round(amp * 130));\n      const y = 75 - Math.round(h / 2);\n      const x = 30 + idx * barW;\n      const color = !inTrim ? '#334155' : (isSilent ? '#EF4444' : '#38BDF8');\n      barsSvg += '<rect x=\"' + x + '\" y=\"' + y + '\" width=\"' + Math.max(6, barW - 4) + '\" height=\"' + h + '\" rx=\"3\" fill=\"' + color + '\"/>';\n    });\n\n    box.innerHTML = '<svg viewBox=\"0 0 740 155\" style=\"width:100%;height:155px;\" role=\"img\" aria-label=\"Interactive Audio Waveform Timeline\">' +\n      '<line x1=\"20\" y1=\"75\" x2=\"720\" y2=\"75\" stroke=\"#1E293B\" stroke-width=\"1\"/>' +\n      barsSvg +\n      '<text x=\"24\" y=\"145\" fill=\"#94A3B8\" font-size=\"11\" font-family=\"monospace\">Cyan: Active Voice Signal \u2022 Red: Gate-Detected Dead Air (' + silenceCount + '.0s) \u2022 Slate: Trimmed Out</text>' +\n    '</svg>';\n\n    const dEl = document.getElementById('wcDuration'); if (dEl) dEl.textContent = env.length.toFixed(1) + 's';\n    const sEl = document.getElementById('wcSilenceSec'); if (sEl) sEl.textContent = silenceCount.toFixed(1) + 's';\n    const wEl = document.getElementById('wcTrimWindow'); if (wEl) wEl.textContent = trimIn.toFixed(1) + 's \u2013 ' + trimOut.toFixed(1) + 's';\n    const cEl = document.getElementById('wcChapterCount'); if (cEl) cEl.textContent = String(waveCutChapters.length);\n\n    const audioEl = document.getElementById('wcAudioElement');\n    if (audioEl && !audioEl.src) {\n      const wavBlob = buildClientWavBlob(env);\n      audioEl.src = URL.createObjectURL(wavBlob);\n    }\n\n    const chBody = document.getElementById('wcChapterTableBody');\n    if (chBody) {\n      chBody.innerHTML = waveCutChapters.map(function(ch) {\n        return '<tr>' +\n          '<td style=\"font-family:monospace;\">' + ch.timeSec.toFixed(1) + 's</td>' +\n          '<td><strong>' + ch.title + '</strong></td>' +\n          '<td><span class=\"badge-pill\" style=\"background:#064E3B;color:#A7F3D0;\">' + ch.state + '</span></td>' +\n          '<td><button type=\"button\" class=\"btn btn-ghost\" style=\"padding:0.15rem 0.45rem;font-size:0.72rem;\" onclick=\"window.WAI.seekWaveCut(' + ch.timeSec + ')\">Seek</button></td>' +\n        '</tr>';\n      }).join('');\n    }\n  }\n\n  function waveCutStripSilence() {\n    const env = getWaveCutEnvelope();\n    const threshSlider = Number((document.getElementById('wcThresholdRange') && document.getElementById('wcThresholdRange').value) || 5);\n    const stripped = env.filter(v => v > (threshSlider / 100));\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl && stripped.length) {\n      inputEl.value = stripped.map(v => v.toFixed(2)).join(', ');\n      const audioEl = document.getElementById('wcAudioElement');\n      if (audioEl) audioEl.src = URL.createObjectURL(buildClientWavBlob(stripped));\n      updateWaveCutDsp();\n      setStatus('Stripped dead-air silence segments (' + (env.length - stripped.length) + 's removed).');\n    }\n  }\n\n  function waveCutNormalize() {\n    const env = getWaveCutEnvelope();\n    const maxVal = Math.max.apply(null, env.concat([0.1]));\n    const norm = env.map(v => Math.min(0.98, Number((v / maxVal * 0.92).toFixed(2))));\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl) {\n      inputEl.value = norm.join(', ');\n      updateWaveCutDsp();\n      setStatus('Normalized peak audio envelope to -0.7 dBFS.');\n    }\n  }\n\n  function addWaveCutChapter() {\n    const titleEl = document.getElementById('wcNewChapterTitle');\n    const title = (titleEl && titleEl.value || '').trim();\n    if (!title) return;\n    const audioEl = document.getElementById('wcAudioElement');\n    const t = audioEl ? Number(audioEl.currentTime || 0) : 2.5;\n    waveCutChapters.push({ id: 'ch-' + Date.now().toString(36), timeSec: t, title: title, state: 'Keep' });\n    if (titleEl) titleEl.value = '';\n    updateWaveCutDsp();\n    setStatus('Added chapter marker \"' + title + '\" at ' + t.toFixed(1) + 's');\n  }\n\n  function seekWaveCut(sec) {\n    const audioEl = document.getElementById('wcAudioElement');\n    if (audioEl) {\n      audioEl.currentTime = Number(sec) || 0;\n      setStatus('Seeked playhead to ' + Number(sec).toFixed(1) + 's');\n    }\n  }\n\n  function toggleAudioPlayback() {\n    const audioEl = document.getElementById('wcAudioElement');\n    if (!audioEl) return;\n    if (audioEl.paused) {\n      audioEl.play().catch(function() {});\n      setStatus('Playing synthesized 16-bit PCM WAV track...');\n    } else {\n      audioEl.pause();\n      setStatus('Paused audio playback.');\n    }\n  }\n\n  function stopAudioPlayback() {\n    const audioEl = document.getElementById('wcAudioElement');\n    if (!audioEl) return;\n    audioEl.pause();\n    audioEl.currentTime = 0;\n    setStatus('Stopped playback and reset playhead to 00:00.0.');\n  }\n\n  function setPlaybackSpeed(rate) {\n    const audioEl = document.getElementById('wcAudioElement');\n    if (audioEl) audioEl.playbackRate = Number(rate) || 1.0;\n    setStatus('Set playback speed to ' + rate + 'x');\n  }\n\n  // ============================================================================\n  // 4. GROWTHPULSE INTERACTIVE SAAS ANALYTICS & COHORT ENGINE\n  // ============================================================================\n  function recalcGrowthPulse() {\n    const chartBox = document.getElementById('gpMrrChartContainer');\n    if (!chartBox) return;\n    const startMrr = Number((document.getElementById('gpStartMrr') && document.getElementById('gpStartMrr').value) || 48000);\n    const newMrr = Number((document.getElementById('gpNewMrr') && document.getElementById('gpNewMrr').value) || 6500);\n    const expPct = Number((document.getElementById('gpExpPct') && document.getElementById('gpExpPct').value) || 3.8);\n    const churnPct = Number((document.getElementById('gpChurnPct') && document.getElementById('gpChurnPct').value) || 1.9);\n    const months = Number((document.getElementById('gpHorizon') && document.getElementById('gpHorizon').value) || 12);\n    const seg = (document.getElementById('gpSegmentFilter') && document.getElementById('gpSegmentFilter').value) || 'all';\n    const mult = seg === 'enterprise' ? 1.35 : (seg === 'selfserve' ? 0.75 : 1.0);\n\n    let curr = Math.round(startMrr * mult);\n    const rows = [];\n    for (let m = 1; m <= months; m++) {\n      const added = Math.round(newMrr * mult);\n      const exp = Math.round(curr * (expPct / 100));\n      const churn = Math.round(curr * (churnPct / 100));\n      const end = curr + added + exp - churn;\n      const retPct = Math.round(((curr + exp - churn) / Math.max(1, curr)) * 1000) / 10;\n      rows.push({ month: 'M' + m, start: curr, added, exp, churn, end, retPct });\n      curr = end;\n    }\n\n    const endingArr = curr * 12;\n    const nrr = Math.round((1 + ((expPct - churnPct) / 100) * 12) * 1000) / 10;\n    const arrEl = document.getElementById('gpArrVal'); if (arrEl) arrEl.textContent = '$' + endingArr.toLocaleString('en-US');\n    const nrrEl = document.getElementById('gpNrrVal'); if (nrrEl) nrrEl.textContent = nrr.toFixed(1) + '%';\n\n    const maxEnd = Math.max.apply(null, rows.map(r => r.end).concat([1000]));\n    const barW = Math.floor(640 / rows.length);\n    let barsSvg = '';\n    rows.forEach(function(r, idx) {\n      const h = Math.max(12, Math.round((r.end / maxEnd) * 120));\n      const x = 35 + idx * barW;\n      const y = 140 - h;\n      barsSvg += '<g><rect x=\"' + x + '\" y=\"' + y + '\" width=\"' + Math.max(14, barW - 10) + '\" height=\"' + h + '\" rx=\"4\" fill=\"#0284C7\"/>' +\n        '<text x=\"' + (x + 6) + '\" y=\"156\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">' + r.month + '</text></g>';\n    });\n    chartBox.innerHTML = '<svg viewBox=\"0 0 720 168\" style=\"width:100%;height:165px;\" role=\"img\" aria-label=\"MRR Trajectory Bar Chart\">' + barsSvg + '</svg>';\n\n    const tbody = document.getElementById('gpCohortTableBody');\n    if (tbody) {\n      tbody.innerHTML = rows.map(function(r) {\n        return '<tr>' +\n          '<td style=\"font-family:monospace;font-weight:700;\">' + r.month + '</td>' +\n          '<td style=\"font-family:monospace;\">$' + r.start.toLocaleString('en-US') + '</td>' +\n          '<td style=\"font-family:monospace;color:#38BDF8;\">+$' + r.added.toLocaleString('en-US') + '</td>' +\n          '<td style=\"font-family:monospace;color:#10B981;\">+$' + r.exp.toLocaleString('en-US') + '</td>' +\n          '<td style=\"font-family:monospace;color:#F87171;\">-$' + r.churn.toLocaleString('en-US') + '</td>' +\n          '<td style=\"font-family:monospace;font-weight:700;\">$' + r.end.toLocaleString('en-US') + '</td>' +\n          '<td><span class=\"badge-pill\" style=\"background:#064E3B;color:#A7F3D0;\">' + r.retPct + '%</span></td>' +\n        '</tr>';\n      }).join('');\n    }\n\n    const fBox = document.getElementById('gpFunnelVisual');\n    if (fBox) {\n      const stages = [\n        { label: '1. Unique Site Visitors', count: Math.round(24000 * mult), pct: 100 },\n        { label: '2. Workspace Signups', count: Math.round(3120 * mult), pct: 13.0 },\n        { label: '3. Activated Project (D7)', count: Math.round(1840 * mult), pct: 59.0 },\n        { label: '4. Paid Pro Conversion', count: Math.round(410 * mult), pct: 22.3 }\n      ];\n      fBox.innerHTML = stages.map(function(s) {\n        return '<div style=\"background:#090E1A;border:1px solid #1E293B;border-radius:8px;padding:0.55rem;\">' +\n          '<div style=\"display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.25rem;\">' +\n            '<strong>' + s.label + '</strong><span style=\"font-family:monospace;color:#38BDF8;\">' + s.count.toLocaleString('en-US') + ' (' + s.pct + '%)</span>' +\n          '</div>' +\n          '<div style=\"background:#1E293B;height:7px;border-radius:999px;\"><div style=\"width:' + Math.min(100, s.pct) + '%;height:100%;background:#38BDF8;border-radius:999px;\"></div></div>' +\n        '</div>';\n      }).join('');\n    }\n\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl) {\n      inputEl.value = 'startingMrr=' + startMrr + '\\nnewMrrPerMonth=' + newMrr + '\\nexpansionRatePct=' + expPct + '\\nlogoChurnPct=' + churnPct + '\\nmonths=' + months;\n    }\n  }\n\n  // ============================================================================\n  // 5. APISYNC INTERACTIVE OPENAPI CONTRACT DIFF & ASSERTION RUNNER\n  // ============================================================================\n  function renderApiSyncView() {\n    const tbody = document.getElementById('asDiffTableBody');\n    if (!tbody) return;\n    const sevFilter = (document.getElementById('asSeverityFilter') && document.getElementById('asSeverityFilter').value) || 'all';\n    const diffs = [\n      { method: 'POST', path: '/v1/orders', field: 'param.tenantId', v1: 'optional (string)', v2: 'required (integer)', breaking: true },\n      { method: 'DELETE', path: '/v1/orders/{id}', field: 'response.200', v1: '200 OK (OrderDeleted)', v2: 'Removed endpoint', breaking: true },\n      { method: 'GET', path: '/v1/orders/{id}', field: 'response.200.traceId', v1: 'not present', v2: 'optional (string)', breaking: false }\n    ];\n    const filtered = diffs.filter(d => sevFilter === 'all' || (sevFilter === 'breaking' ? d.breaking : !d.breaking));\n\n    const epList = document.getElementById('asEndpointList');\n    if (epList) {\n      epList.innerHTML = diffs.map(function(d) {\n        const color = d.breaking ? '#EF4444' : '#10B981';\n        return '<li style=\"background:#090E1A;border:1px solid #1E293B;border-left:3px solid ' + color + ';border-radius:6px;padding:0.45rem 0.6rem;font-size:0.79rem;\">' +\n          '<strong style=\"font-family:monospace;color:#38BDF8;\">' + d.method + '</strong> <code>' + d.path + '</code>' +\n          '<div style=\"font-size:0.71rem;color:#94A3B8;\">Field: ' + d.field + '</div>' +\n        '</li>';\n      }).join('');\n    }\n\n    tbody.innerHTML = filtered.map(function(d) {\n      const badge = d.breaking\n        ? '<span class=\"badge-pill\" style=\"background:#7F1D1D;color:#FECACA;\">BREAKING</span>'\n        : '<span class=\"badge-pill\" style=\"background:#064E3B;color:#A7F3D0;\">NON-BREAKING</span>';\n      return '<tr>' +\n        '<td style=\"font-family:monospace;\"><strong>' + d.method + '</strong> ' + d.path + '</td>' +\n        '<td style=\"font-family:monospace;\">' + d.field + '</td>' +\n        '<td style=\"font-family:monospace;color:#94A3B8;\">' + d.v1 + '</td>' +\n        '<td style=\"font-family:monospace;color:#F8FAFC;\">' + d.v2 + '</td>' +\n        '<td>' + badge + '</td>' +\n      '</tr>';\n    }).join('');\n  }\n\n  function runApiContractAssertions() {\n    const raw = (document.getElementById('asTestPayload') && document.getElementById('asTestPayload').value) || '{}';\n    const box = document.getElementById('asAssertionList');\n    if (!box) return;\n    let parsed = null;\n    try { parsed = JSON.parse(raw); } catch (e) {\n      box.innerHTML = '<div style=\"color:#EF4444;\">JSON Syntax Error: ' + e.message + '</div>';\n      return;\n    }\n    const checks = [\n      { name: 'Valid JSON request body', pass: Boolean(parsed && typeof parsed === 'object') },\n      { name: 'v2 Required integer tenantId present', pass: typeof parsed.tenantId === 'number' && Number.isInteger(parsed.tenantId) },\n      { name: 'Line items array non-empty', pass: Array.isArray(parsed.items) && parsed.items.length > 0 }\n    ];\n    const passCount = checks.filter(c => c.pass).length;\n    const stEl = document.getElementById('asTestStatus');\n    if (stEl) stEl.textContent = (passCount === checks.length ? 'PASS (' : 'FAIL (') + passCount + '/' + checks.length + ')';\n    box.innerHTML = checks.map(function(c) {\n      return '<div style=\"background:#090E1A;border:1px solid ' + (c.pass ? '#059669' : '#DC2626') + ';border-radius:6px;padding:0.4rem 0.6rem;\">' +\n        '<strong style=\"color:' + (c.pass ? '#10B981' : '#F87171') + ';\">' + (c.pass ? 'PASS' : 'FAIL') + ':</strong> ' + c.name +\n      '</div>';\n    }).join('');\n    setStatus('Executed OpenAPI contract assertions (' + passCount + '/' + checks.length + ' passed).');\n  }\n\n  // ============================================================================\n  // 6. OMNIDESK INTERACTIVE SUPPORT QUEUE, SLA TRIAGE & KB ENGINE\n  // ============================================================================\n  function renderOmniDeskView() {\n    const listEl = document.getElementById('odTicketList');\n    if (!listEl) return;\n    const stF = (document.getElementById('odStatusFilter') && document.getElementById('odStatusFilter').value) || 'all';\n    const tierF = (document.getElementById('odTierFilter') && document.getElementById('odTierFilter').value) || 'all';\n\n    const breachedCount = omniTickets.filter(t => t.ageMinutes > t.slaMinutes && t.status !== 'resolved').length;\n    const resCount = omniTickets.filter(t => t.status === 'resolved').length;\n    const totEl = document.getElementById('odTotalTickets'); if (totEl) totEl.textContent = String(omniTickets.length);\n    const brEl = document.getElementById('odBreachedCount'); if (brEl) brEl.textContent = String(breachedCount);\n    const rsEl = document.getElementById('odResolvedCount'); if (rsEl) rsEl.textContent = String(resCount);\n\n    const visible = omniTickets.filter(function(t) {\n      if (stF !== 'all' && t.status !== stF) return false;\n      if (tierF !== 'all' && t.tier !== tierF) return false;\n      return true;\n    });\n\n    listEl.innerHTML = visible.map(function(t) {\n      const breached = t.ageMinutes > t.slaMinutes && t.status !== 'resolved';\n      const active = t.id === activeTicketId;\n      return '<li style=\"background:' + (active ? '#1E293B' : '#090E1A') + ';border:1px solid ' + (breached ? '#DC2626' : '#334155') + ';border-radius:8px;padding:0.55rem;cursor:pointer;\" onclick=\"window.WAI.omniDeskSelectTicket(\\'' + t.id + '\\')\">' +\n        '<div style=\"display:flex;justify-content:space-between;font-size:0.75rem;font-family:monospace;\">' +\n          '<strong>' + t.id + ' \u2022 ' + t.priority + '</strong>' +\n          '<span style=\"color:' + (breached ? '#FCA5A5' : '#A7F3D0') + ';\">' + (breached ? 'SLA BREACHED' : t.status.toUpperCase()) + '</span>' +\n        '</div>' +\n        '<div style=\"font-weight:600;font-size:0.83rem;margin:0.2rem 0;\">' + t.subject + '</div>' +\n        '<div style=\"font-size:0.72rem;color:#94A3B8;\">' + t.customer + ' (' + t.tier + ')</div>' +\n      '</li>';\n    }).join('');\n\n    const activeTicket = omniTickets.find(t => t.id === activeTicketId) || omniTickets[0];\n    if (activeTicket) {\n      const hdr = document.getElementById('odTicketHeader');\n      if (hdr) {\n        hdr.innerHTML = '<div style=\"display:flex;justify-content:space-between;align-items:center;\">' +\n          '<h2 style=\"margin:0;font-size:1.05rem;\">' + activeTicket.id + ': ' + activeTicket.subject + '</h2>' +\n          '<span class=\"badge-pill\" style=\"background:#1E293B;color:#38BDF8;\">Status: ' + activeTicket.status.toUpperCase() + '</span>' +\n        '</div>' +\n        '<div style=\"font-size:0.78rem;color:#94A3B8;margin-top:0.25rem;\">Customer: ' + activeTicket.customer + ' \u2022 Tier: ' + activeTicket.tier.toUpperCase() + ' \u2022 Age: ' + activeTicket.ageMinutes + 'm / SLA: ' + activeTicket.slaMinutes + 'm</div>';\n      }\n      const msgBox = document.getElementById('odThreadMessages');\n      if (msgBox) {\n        msgBox.innerHTML = activeTicket.messages.map(function(m) {\n          const isInternal = m.type === 'internal';\n          return '<div style=\"background:' + (isInternal ? '#1E1B4B' : '#0F172A') + ';border:1px solid #334155;border-radius:8px;padding:0.55rem;\">' +\n            '<div style=\"font-size:0.72rem;color:#38BDF8;font-weight:700;margin-bottom:0.2rem;\">' + m.author + (isInternal ? ' [INTERNAL NOTE]' : '') + '</div>' +\n            '<div style=\"font-size:0.82rem;\">' + m.text + '</div>' +\n          '</div>';\n        }).join('');\n      }\n    }\n\n    const kbBox = document.getElementById('odKbCards');\n    if (kbBox && !kbBox.innerHTML) {\n      const kbs = [\n        { code: 'KB-101', title: 'SAML Clock-Skew Tolerance (+/- 180s)', snippet: 'Applied 180-second clock-skew tolerance on Edge SAML verifier per KB-101.' },\n        { code: 'KB-204', title: 'Webhook Exponential Backoff Schedule', snippet: 'Configured 5-attempt exponential retry schedule (2s, 8s, 32s, 128s, 512s) per KB-204.' }\n      ];\n      kbBox.innerHTML = kbs.map(function(k) {\n        return '<div style=\"background:#090E1A;border:1px solid #1E293B;border-radius:8px;padding:0.55rem;font-size:0.79rem;\">' +\n          '<div style=\"font-weight:700;color:#38BDF8;\">' + k.code + ': ' + k.title + '</div>' +\n          '<button type=\"button\" class=\"btn btn-ghost\" style=\"margin-top:0.35rem;padding:0.18rem 0.5rem;font-size:0.72rem;\" onclick=\"window.WAI.omniDeskCiteKb(\\'' + k.snippet + '\\')\">Cite in Reply</button>' +\n        '</div>';\n      }).join('');\n    }\n  }\n\n  function omniDeskSelectTicket(id) {\n    activeTicketId = id;\n    renderOmniDeskView();\n  }\n\n  function omniDeskSetStatus(nextStatus) {\n    const t = omniTickets.find(x => x.id === activeTicketId);\n    if (!t) return;\n    t.status = nextStatus;\n    renderOmniDeskView();\n    setStatus('Updated ticket ' + t.id + ' status to ' + nextStatus.toUpperCase());\n  }\n\n  function omniDeskSendReply(ev) {\n    if (ev) ev.preventDefault();\n    const box = document.getElementById('odReplyBox');\n    const rType = document.getElementById('odReplyType').value;\n    const text = (box && box.value || '').trim();\n    if (!text) return false;\n    const t = omniTickets.find(x => x.id === activeTicketId);\n    if (t) {\n      t.messages.push({ author: currentAuth.email || 'agent@worksai.org', type: rType, text: text });\n      if (rType === 'public') t.status = 'in_progress';\n    }\n    if (box) box.value = '';\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl) inputEl.value = JSON.stringify(omniTickets);\n    renderOmniDeskView();\n    setStatus('Appended ' + rType + ' response to ticket ' + activeTicketId);\n    return false;\n  }\n\n  function omniDeskInsertDraft() {\n    const box = document.getElementById('odReplyBox');\n    if (box) {\n      box.value = 'We have identified the root cause and applied the verified edge configuration remediation (KB-101). Please confirm if assertions succeed from your tenant.';\n    }\n  }\n\n  function omniDeskCiteKb(snippet) {\n    const box = document.getElementById('odReplyBox');\n    if (box) box.value = (box.value ? box.value + ' ' : '') + snippet;\n  }\n\n  function omniDeskCreateTicket(ev) {\n    if (ev) ev.preventDefault();\n    const subj = (document.getElementById('odNewSubject').value || '').trim();\n    const tier = document.getElementById('odNewTier').value;\n    const sla = Number(document.getElementById('odNewSla').value || 45);\n    if (!subj) return false;\n    const newId = 'TKT-' + Math.floor(910 + Math.random() * 89);\n    omniTickets.unshift({\n      id: newId,\n      subject: subj,\n      customer: 'new-tenant.example',\n      tier: tier,\n      status: 'open',\n      priority: tier === 'enterprise' ? 'P1' : 'P2',\n      ageMinutes: 1,\n      slaMinutes: sla,\n      messages: [{ author: 'customer@new-tenant.example', type: 'customer', text: subj }]\n    });\n    activeTicketId = newId;\n    document.getElementById('odNewSubject').value = '';\n    renderOmniDeskView();\n    setStatus('Created ticket ' + newId + ' (' + subj + ')');\n    return false;\n  }\n\n  // ============================================================================\n  // 7. COMPANION WORKBENCH RENDERER FOR CATEGORY C & D INSTALLABLE PRODUCTS\n  // ============================================================================\n  async function renderCompanionView() {\n    const tbody = document.getElementById('companionTableBody');\n    if (!tbody) return;\n    const inputEl = document.getElementById('workspaceInput');\n    const raw = (inputEl && inputEl.value) || META.defaultInput || '';\n    const res = await fetch('/api/execute', {\n      method: 'POST',\n      headers: authHeaders(),\n      body: JSON.stringify({ input: raw, enableAi: false })\n    });\n    const data = await res.json();\n    const r = data.result || {};\n    const artBox = document.getElementById('companionArtifactBox');\n    if (artBox) artBox.textContent = JSON.stringify(r, null, 2);\n\n    if (META.slug === 'graphmind') {\n      const notes = r.nodes || [{ id: 'System Architecture', outCount: 3, inCount: 1, orphan: false }, { id: 'Orphan Note', outCount: 0, inCount: 0, orphan: true }];\n      tbody.innerHTML = notes.map(n => '<tr><td><strong>' + (n.id || n.title || 'Note') + '</strong></td><td>' + (n.outCount ?? 2) + ' links</td><td>' + (n.inCount ?? 1) + ' backlinks</td><td><span class=\"badge-pill\" style=\"background:' + (n.orphan ? '#7F1D1D' : '#064E3B') + ';color:#FFF;\">' + (n.orphan ? 'ORPHAN' : 'CONNECTED') + '</span></td></tr>').join('');\n    } else if (META.slug === 'clipguard') {\n      const rules = [\n        { name: 'AWS Access Key ID', cls: 'AKIA[0-9A-Z]{16}', status: 'Active', tok: '[REDACTED_AWS_KEY]' },\n        { name: 'GitHub PAT Token', cls: 'ghp_[A-Za-z0-9]{36}', status: 'Active', tok: '[REDACTED_GITHUB_TOKEN]' },\n        { name: 'Email Address PII', cls: 'RFC 5322 Email', status: 'Active', tok: '[REDACTED_EMAIL]' }\n      ];\n      tbody.innerHTML = rules.map(x => '<tr><td><strong>' + x.name + '</strong></td><td style=\"font-family:monospace;\">' + x.cls + '</td><td><span class=\"badge-pill badge-prod\">' + x.status + '</span></td><td style=\"font-family:monospace;\">' + x.tok + '</td></tr>').join('');\n    } else if (META.slug === 'commandbar') {\n      tbody.innerHTML = '<tr><td style=\"font-family:monospace;\">' + raw.slice(0, 56) + '</td><td>Shell AST / Launcher</td><td><span class=\"badge-pill badge-demo\">AUDITED</span></td><td style=\"font-family:monospace;\">Create backup ref before destructive flags</td></tr>';\n    } else if (META.slug === 'linkengine') {\n      tbody.innerHTML = '<tr><td style=\"font-family:monospace;\">/cloudflare-workers-r2-crud</td><td>/edge-ai-inference-guide</td><td><span class=\"badge-pill badge-prod\">TF-IDF MATCH 0.89</span></td><td><code>utm_source=wp_internal</code></td></tr>';\n    } else if (META.slug === 'commercecatalog') {\n      tbody.innerHTML = '<tr><td style=\"font-family:monospace;\">WAI-EDGE-001</td><td>WorksAI Enterprise Edge Gateway</td><td><span class=\"badge-pill badge-prod\">GTIN-13 VALID</span></td><td style=\"font-family:monospace;\">$499.00 (Margin 57.9%)</td></tr>';\n    } else {\n      tbody.innerHTML = '<tr><td style=\"font-family:monospace;\">POST-401</td><td>Solved: Worker Custom Domain TLS handshake</td><td><span class=\"badge-pill badge-prod\">0.02 SAFE</span></td><td>Extract to FAQPage JSON-LD</td></tr>' +\n        '<tr><td style=\"font-family:monospace;\">POST-402</td><td>Promo bot crypto spam link velocity</td><td><span class=\"badge-pill\" style=\"background:#7F1D1D;color:#FECACA;\">0.94 QUARANTINE</span></td><td>Hold in Moderation Queue</td></tr>';\n    }\n  }\n\n  function hydrateDomainStateFromInput(text) {\n    if (META.slug === 'canvasarch') {\n      parseCanvasSpecToGraph(text);\n      renderCanvasArchDom();\n    } else if (META.slug === 'ledgerflow') {\n      parseLedgerCsvToRows(text);\n      renderLedgerView();\n    } else if (META.slug === 'wavecut') {\n      updateWaveCutDsp();\n    } else if (META.slug === 'growthpulse') {\n      recalcGrowthPulse();\n    } else if (META.slug === 'apisync') {\n      renderApiSyncView();\n      runApiContractAssertions();\n    } else if (META.slug === 'omnidesk') {\n      renderOmniDeskView();\n    } else {\n      renderCompanionView();\n    }\n  }\n\n  // Expose public controller methods on window.WAI\n  window.WAI = {\n    openAuthModal,\n    closeAuthModal,\n    submitSignIn,\n    startDemoSession,\n    newProject,\n    openProject,\n    saveCurrentProject,\n    renameProject,\n    deleteProject,\n    exportActiveProject,\n    loadPreset,\n    importFile,\n    runWithAiCopilot,\n    // CanvasArch\n    canvasAddNode,\n    selectCanvasNode,\n    deleteCanvasNode,\n    setCanvasLayout,\n    toggleSpofOverlay,\n    canvasUndo,\n    syncCanvasFromText,\n    // LedgerFlow\n    ledgerAddTransaction,\n    ledgerClearAnomaly,\n    ledgerDeleteTx,\n    renderLedgerView,\n    // WaveCut\n    updateWaveCutDsp,\n    waveCutStripSilence,\n    waveCutNormalize,\n    addWaveCutChapter,\n    seekWaveCut,\n    toggleAudioPlayback,\n    stopAudioPlayback,\n    setPlaybackSpeed,\n    // GrowthPulse\n    recalcGrowthPulse,\n    // ApiSync\n    renderApiSyncView,\n    runApiContractAssertions,\n    // OmniDesk\n    renderOmniDeskView,\n    omniDeskSelectTicket,\n    omniDeskSetStatus,\n    omniDeskSendReply,\n    omniDeskInsertDraft,\n    omniDeskCiteKb,\n    omniDeskCreateTicket,\n    // Companion C/D\n    renderCompanionView\n  };\n\n  window.addEventListener('DOMContentLoaded', async function() {\n    const presetSel = document.getElementById('presetSelect');\n    if (presetSel && Array.isArray(META.samplePresets)) {\n      presetSel.innerHTML = META.samplePresets.map((p, i) => '<option value=\"' + i + '\">' + p.title + '</option>').join('');\n    }\n    const inputEl = document.getElementById('workspaceInput');\n    if (inputEl && !inputEl.value) {\n      inputEl.value = (INITIAL_STATE.initialItem && INITIAL_STATE.initialItem.input) || META.defaultInput || '';\n    }\n    hydrateDomainStateFromInput(inputEl ? inputEl.value : META.defaultInput);\n    await ensureDemoOrAuthSession();\n    await refreshProjectList();\n  });\n})();\n";
-const BUNDLED_INDEX_HTML = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <title>WorksAi GraphMind \u2014 Vscode Markdown Wiki Link Graph And Orphan Note Detector Extension | WorksAI</title>\n  <meta name=\"description\" content=\"WorksAi GraphMind is an MIT-licensed VS Code and Cursor IDE extension (`worksai-graphmind-1.2.0.vsix`) and companion web verifier that parses `[[wiki-links]]`\"/>\n  <link rel=\"canonical\" href=\"https://graphmind.worksai.org/\"/>\n  <link rel=\"stylesheet\" href=\"/assets/styles.css\"/>\n</head>\n<body>\n  <header class=\"app-topbar\" role=\"banner\">\n    <div class=\"brand-cluster\">\n      <a href=\"https://worksai.org\" style=\"display:flex;align-items:center;gap:0.45rem;color:#F8FAFC;font-weight:700;text-decoration:none;\">\n        <span style=\"display:inline-flex;width:26px;height:26px;\">__WORKSAI_CREST_PLACEHOLDER__</span>\n        <span>WorksAI</span>\n      </a>\n      <span style=\"color:#475569;\">/</span>\n      <a href=\"/\" style=\"color:#38BDF8;font-weight:700;text-decoration:none;\">WorksAi GraphMind</a>\n      <span class=\"badge-pill\" style=\"background:#1E293B;color:#94A3B8;\">v1.2.0</span>\n    </div>\n    <nav aria-label=\"Application Navigation\" style=\"display:flex;align-items:center;gap:0.85rem;flex-wrap:wrap;font-size:0.84rem;\">\n      <a href=\"/\" style=\"color:#38BDF8;font-weight:700;\">Download & Companion App</a>\n      <a href=\"/docs\" style=\"color:#CBD5E1;\">Documentation</a>\n      <a href=\"/guide\" style=\"color:#CBD5E1;\">Technical Guide &amp; FAQ</a>\n      <span id=\"authModeBadge\" class=\"badge-pill badge-demo\">DEMO SANDBOX</span>\n      <button type=\"button\" id=\"authActionBtn\" class=\"btn btn-ghost\" style=\"padding:0.28rem 0.65rem;font-size:0.76rem;\" onclick=\"window.WAI.openAuthModal()\">Sign In to Workspace</button>\n    </nav>\n  </header>\n\n  <main class=\"workspace-shell\" role=\"main\">\n    <div id=\"statusBanner\" class=\"toast-banner\" role=\"status\" aria-live=\"polite\">\n      Ready \u2022 WorksAi GraphMind Interactive Environment Active\n    </div>\n    \n        <section class=\"panel-box\" aria-label=\"Official Release Package Download and Checksum\" style=\"border-color:#0284C7;margin-bottom:1rem;\">\n          <div style=\"display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;\">\n            <div>\n              <span class=\"badge-pill\" style=\"background:#0369A1;color:#E0F2FE;\">SHA-256 CHECKSUM-VERIFIED RELEASE ARCHIVE v1.2.0</span>\n              <h1 style=\"margin:0.4rem 0 0.25rem;font-size:1.35rem;\">WorksAi GraphMind \u2014 Category C \u2014 VS Code Extension & Browser Sandbox</h1>\n              <p style=\"margin:0;color:#94A3B8;font-size:0.86rem;\">Compatibility: <strong style=\"color:#E2E8F0;\">VS Code ^1.85.0, Cursor, VSCodium, Windsurf (Node 18+ / Webview Panel)</strong></p>\n            </div>\n            <div style=\"display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;\">\n              <a href=\"/downloads/worksai-graphmind-1.2.0.vsix\" class=\"btn btn-primary\">Download worksai-graphmind-1.2.0.vsix (2687 B)</a>\n              <a href=\"/docs\" class=\"btn btn-ghost\">Installation &amp; API Docs</a>\n              <a href=\"/guide\" class=\"btn btn-ghost\">Architecture Guide &amp; FAQ</a>\n            </div>\n          </div>\n          <div style=\"margin-top:0.75rem;background:#060A11;border:1px solid #1E293B;border-radius:8px;padding:0.65rem;font-family:monospace;font-size:0.8rem;color:#38BDF8;overflow-x:auto;\">\n            <div>$ curl -sSL https://graphmind.worksai.org/downloads/worksai-graphmind-1.2.0.vsix -o worksai-graphmind-1.2.0.vsix && code --install-extension worksai-graphmind-1.2.0.vsix</div>\n            <div style=\"color:#64748B;margin-top:0.25rem;\">SHA-256 Checksum (unencrypted archive integrity): e91ba7f79b0c29edb236d8cfdd243794a572f0caf4c1e9454a9ff3904bcfcc37</div>\n          </div>\n          <div style=\"margin-top:0.5rem;font-size:0.78rem;color:#94A3B8;\"><strong>Permissions &amp; Privacy:</strong> Local workspace Markdown file read access (`*.md`) to parse `[[WikiLinks]]`; zero background source-code telemetry.</div>\n        </section>\n        \n    \n      <div class=\"app-grid-2\">\n        <aside class=\"panel-box\" aria-label=\"Companion Workspace Projects and Presets\">\n          <div style=\"background:#090E1A;border:1px solid #0284C7;border-radius:8px;padding:0.65rem;margin-bottom:0.85rem;font-size:0.78rem;color:#BAE6FD;\">\n            <strong>Companion Web Utility:</strong> Use this browser workbench to test rules and export configurations, or install the standalone package above.\n          </div>\n          <h2 class=\"panel-title\"><span>Saved Configs (R2)</span><button type=\"button\" class=\"btn btn-ghost\" onclick=\"window.WAI.newProject()\">+ New</button></h2>\n          <div class=\"form-field\"><label for=\"presetSelect\">Load Sample Configuration</label><select id=\"presetSelect\" class=\"input-ctrl\" onchange=\"window.WAI.loadPreset(this.value)\"></select></div>\n          <div class=\"form-field\"><label for=\"fileImportInput\">Import Local File</label><input id=\"fileImportInput\" type=\"file\" class=\"input-ctrl\" onchange=\"window.WAI.importFile(event)\"/></div>\n          <ul id=\"projectList\" style=\"list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.45rem;max-height:240px;overflow-y:auto;\"></ul>\n        </aside>\n        <section class=\"panel-box\" aria-label=\"Companion Markdown Vault Graph Visualizer & Orphan Note Inspector\">\n          <div style=\"display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;\">\n            <h2 class=\"panel-title\" style=\"margin:0;\"><span>Companion Markdown Vault Graph Visualizer & Orphan Note Inspector</span></h2>\n            <div style=\"display:flex;gap:0.4rem;\">\n              <button type=\"button\" class=\"btn btn-primary\" onclick=\"window.WAI.renderCompanionView()\">Analyze Vault Links</button>\n              <button type=\"button\" class=\"btn btn-emerald\" onclick=\"window.WAI.saveCurrentProject()\">Save to R2</button>\n              <button type=\"button\" class=\"btn btn-ghost\" onclick=\"window.WAI.exportActiveProject('json')\">Export .JSON</button>\n            </div>\n          </div>\n          <div style=\"overflow-x:auto;margin-bottom:0.85rem;\">\n            <table class=\"data-table\" aria-label=\"Companion Markdown Vault Graph Visualizer & Orphan Note Inspector Results\">\n              <thead><tr><th>Note ID</th><th>Outbound WikiLinks</th><th>Incoming Backlinks</th><th>Graph Status</th></tr></thead>\n              <tbody id=\"companionTableBody\"></tbody>\n            </table>\n          </div>\n          <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;\">\n            <div>\n              <label for=\"workspaceInput\" style=\"display:block;font-size:0.76rem;color:#94A3B8;margin-bottom:0.25rem;\">Interactive Source / Policy Input</label>\n              <textarea id=\"workspaceInput\" rows=\"5\" class=\"input-ctrl\" style=\"font-family:monospace;\" oninput=\"window.WAI.renderCompanionView()\"></textarea>\n            </div>\n            <div>\n              <label style=\"display:block;font-size:0.76rem;color:#94A3B8;margin-bottom:0.25rem;\">Generated Artifact / Schema Output</label>\n              <pre id=\"companionArtifactBox\" style=\"background:#060A11;border:1px solid #1E293B;border-radius:8px;padding:0.65rem;margin:0;font-size:0.76rem;color:#A7F3D0;max-height:130px;overflow:auto;\"></pre>\n            </div>\n          </div>\n          <div id=\"aiCopilotBox\" style=\"margin-top:0.6rem;font-size:0.79rem;color:#A7F3D0;\"></div>\n        </section>\n      </div>\n    \n  </main>\n\n  <!-- Server-Signed Authentication & Demo Sandbox Modal -->\n  <div id=\"authModalBackdrop\" class=\"modal-backdrop\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"authModalTitle\">\n    <div class=\"modal-card\">\n      <div style=\"display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;\">\n        <h2 id=\"authModalTitle\" style=\"margin:0;font-size:1.05rem;\">Workspace Authentication (HMAC-SHA256)</h2>\n        <button type=\"button\" class=\"btn btn-ghost\" onclick=\"window.WAI.closeAuthModal()\">Close</button>\n      </div>\n      <p style=\"font-size:0.8rem;color:#94A3B8;margin:0 0 0.85rem;\">\n        Workspace identity is cryptographically signed on the server via WebCrypto HMAC-SHA256. Unauthenticated client headers are never trusted.\n      </p>\n      <form onsubmit=\"return window.WAI.submitSignIn(event)\">\n        <div class=\"form-field\"><label for=\"authEmailInput\">Engineer Email *</label><input id=\"authEmailInput\" type=\"email\" class=\"input-ctrl\" value=\"engineer@worksai.org\" required/></div>\n        <div class=\"form-field\"><label for=\"authTenantInput\">Tenant Workspace Slug *</label><input id=\"authTenantInput\" class=\"input-ctrl\" value=\"tenant-acme-prod\" required/></div>\n        <div class=\"form-field\"><label for=\"authPasscodeInput\">Workspace Passcode (min 6 chars) *</label><input id=\"authPasscodeInput\" type=\"password\" class=\"input-ctrl\" value=\"worksai-2026\" required/></div>\n        <div style=\"display:flex;gap:0.5rem;margin-top:0.85rem;\">\n          <button type=\"submit\" class=\"btn btn-primary\" style=\"flex:1;justify-content:center;\">Sign In (Server Token)</button>\n          <button type=\"button\" class=\"btn btn-ghost\" onclick=\"window.WAI.startDemoSession()\">Use Isolated Demo</button>\n        </div>\n      </form>\n    </div>\n  </div>\n\n  <script>\n    window.__WORKSAI_META__ = __WORKSAI_META_JSON__;\n    window.__WORKSAI_INITIAL__ = __WORKSAI_INITIAL_JSON__;\n  </script>\n  <script src=\"/assets/app.js\"></script>\n</body>\n</html>";
+const BUNDLED_INDEX_HTML = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <title>WorksAi GraphMind \u2014 Vscode Markdown Wiki Link Graph And Orphan Note Detector Extension | WorksAI</title>\n  <meta name=\"description\" content=\"WorksAi GraphMind is an MIT-licensed VS Code and Cursor IDE extension (`worksai-graphmind-1.2.0.vsix`) and companion web verifier that parses `[[wiki-links]]`\"/>\n  <link rel=\"canonical\" href=\"https://graphmind.worksai.org/\"/>\n  <!-- Google Analytics 4 (WorksAi Property 493870207 \u2014 Privacy-Safe Mode) -->\n  <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-113353C400\"></script>\n  <script>\n    window.dataLayer = window.dataLayer || [];\n    function gtag(){dataLayer.push(arguments);}\n    gtag('js', new Date());\n    gtag('config', 'G-113353C400', {\n      anonymize_ip: true,\n      allow_google_signals: false,\n      allow_ad_personalization_signals: false,\n      page_location: window.location.origin + window.location.pathname\n    });\n  </script>\n  <link rel=\"stylesheet\" href=\"/assets/styles.css\"/>\n</head>\n<body>\n  <header class=\"app-topbar\" role=\"banner\">\n    <div class=\"brand-cluster\">\n      <a href=\"https://worksai.org\" style=\"display:flex;align-items:center;gap:0.45rem;color:#F8FAFC;font-weight:700;text-decoration:none;\">\n        <span style=\"display:inline-flex;width:26px;height:26px;\">__WORKSAI_CREST_PLACEHOLDER__</span>\n        <span>WorksAI</span>\n      </a>\n      <span style=\"color:#475569;\">/</span>\n      <a href=\"/\" style=\"color:#38BDF8;font-weight:700;text-decoration:none;\">WorksAi GraphMind</a>\n      <span class=\"badge-pill\" style=\"background:#1E293B;color:#94A3B8;\">v1.2.0</span>\n    </div>\n    <nav aria-label=\"Application Navigation\" style=\"display:flex;align-items:center;gap:0.85rem;flex-wrap:wrap;font-size:0.84rem;\">\n      <a href=\"/\" style=\"color:#38BDF8;font-weight:700;\">Download & Companion App</a>\n      <a href=\"/docs\" style=\"color:#CBD5E1;\">Documentation</a>\n      <a href=\"/guide\" style=\"color:#CBD5E1;\">Technical Guide &amp; FAQ</a>\n      <a href=\"/api/mcp\" style=\"color:#A7F3D0;font-family:monospace;font-size:0.78rem;\" title=\"Model Context Protocol JSON-RPC 2.0 Endpoint\">MCP (3 Tools)</a>\n      <span id=\"authModeBadge\" class=\"badge-pill badge-demo\">DEMO SANDBOX</span>\n      <button type=\"button\" id=\"authActionBtn\" class=\"btn btn-ghost\" style=\"padding:0.28rem 0.65rem;font-size:0.76rem;\" onclick=\"window.WAI.openAuthModal()\">Sign In to Workspace</button>\n    </nav>\n  </header>\n\n  <main class=\"workspace-shell\" role=\"main\">\n    <div id=\"statusBanner\" class=\"toast-banner\" role=\"status\" aria-live=\"polite\">\n      Ready \u2022 WorksAi GraphMind Interactive Environment Active\n    </div>\n    \n        <section class=\"panel-box\" aria-label=\"Official Release Package Download and Checksum\" style=\"border-color:#0284C7;margin-bottom:1rem;\">\n          <div style=\"display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;\">\n            <div>\n              <span class=\"badge-pill\" style=\"background:#0369A1;color:#E0F2FE;\">SHA-256 CHECKSUM-VERIFIED RELEASE ARCHIVE v1.2.0</span>\n              <h1 style=\"margin:0.4rem 0 0.25rem;font-size:1.35rem;\">WorksAi GraphMind \u2014 Category C \u2014 VS Code Extension & Browser Sandbox</h1>\n              <p style=\"margin:0;color:#94A3B8;font-size:0.86rem;\">Compatibility: <strong style=\"color:#E2E8F0;\">VS Code ^1.85.0, Cursor, VSCodium, Windsurf (Node 18+ / Webview Panel)</strong></p>\n            </div>\n            <div style=\"display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;\">\n              <a href=\"/downloads/worksai-graphmind-1.2.0.vsix\" class=\"btn btn-primary\">Download worksai-graphmind-1.2.0.vsix (2687 B)</a>\n              <a href=\"/docs\" class=\"btn btn-ghost\">Installation &amp; API Docs</a>\n              <a href=\"/guide\" class=\"btn btn-ghost\">Architecture Guide &amp; FAQ</a>\n            </div>\n          </div>\n          <div style=\"margin-top:0.75rem;background:#060A11;border:1px solid #1E293B;border-radius:8px;padding:0.65rem;font-family:monospace;font-size:0.8rem;color:#38BDF8;overflow-x:auto;\">\n            <div>$ curl -sSL https://graphmind.worksai.org/downloads/worksai-graphmind-1.2.0.vsix -o worksai-graphmind-1.2.0.vsix && code --install-extension worksai-graphmind-1.2.0.vsix</div>\n            <div style=\"color:#64748B;margin-top:0.25rem;\">SHA-256 Checksum (unencrypted archive integrity): e91ba7f79b0c29edb236d8cfdd243794a572f0caf4c1e9454a9ff3904bcfcc37</div>\n          </div>\n          <div style=\"margin-top:0.5rem;font-size:0.78rem;color:#94A3B8;\"><strong>Permissions &amp; Privacy:</strong> Local workspace Markdown file read access (`*.md`) to parse `[[WikiLinks]]`; zero background source-code telemetry.</div>\n        </section>\n        \n    \n      <div class=\"app-grid-2\">\n        <aside class=\"panel-box\" aria-label=\"Companion Workspace Projects and Presets\">\n          <div style=\"background:#090E1A;border:1px solid #0284C7;border-radius:8px;padding:0.65rem;margin-bottom:0.85rem;font-size:0.78rem;color:#BAE6FD;\">\n            <strong>Companion Web Utility:</strong> Use this browser workbench to test rules and export configurations, or install the standalone package above.\n          </div>\n          <h2 class=\"panel-title\"><span>Saved Configs (R2)</span><button type=\"button\" class=\"btn btn-ghost\" onclick=\"window.WAI.newProject()\">+ New</button></h2>\n          <div class=\"form-field\"><label for=\"presetSelect\">Load Sample Configuration</label><select id=\"presetSelect\" class=\"input-ctrl\" onchange=\"window.WAI.loadPreset(this.value)\"></select></div>\n          <div class=\"form-field\"><label for=\"fileImportInput\">Import Local File</label><input id=\"fileImportInput\" type=\"file\" class=\"input-ctrl\" onchange=\"window.WAI.importFile(event)\"/></div>\n          <ul id=\"projectList\" style=\"list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.45rem;max-height:240px;overflow-y:auto;\"></ul>\n        </aside>\n        <section class=\"panel-box\" aria-label=\"Companion Markdown Vault Graph Visualizer & Orphan Note Inspector\">\n          <div style=\"display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;\">\n            <h2 class=\"panel-title\" style=\"margin:0;\"><span>Companion Markdown Vault Graph Visualizer & Orphan Note Inspector</span></h2>\n            <div style=\"display:flex;gap:0.4rem;\">\n              <button type=\"button\" class=\"btn btn-primary\" onclick=\"window.WAI.renderCompanionView()\">Analyze Vault Links</button>\n              <button type=\"button\" class=\"btn btn-emerald\" onclick=\"window.WAI.saveCurrentProject()\">Save to R2</button>\n              <button type=\"button\" class=\"btn btn-ghost\" onclick=\"window.WAI.exportActiveProject('json')\">Export .JSON</button>\n            </div>\n          </div>\n          <div style=\"overflow-x:auto;margin-bottom:0.85rem;\">\n            <table class=\"data-table\" aria-label=\"Companion Markdown Vault Graph Visualizer & Orphan Note Inspector Results\">\n              <thead><tr><th>Note ID</th><th>Outbound WikiLinks</th><th>Incoming Backlinks</th><th>Graph Status</th></tr></thead>\n              <tbody id=\"companionTableBody\"></tbody>\n            </table>\n          </div>\n          <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;\">\n            <div>\n              <label for=\"workspaceInput\" style=\"display:block;font-size:0.76rem;color:#94A3B8;margin-bottom:0.25rem;\">Interactive Source / Policy Input</label>\n              <textarea id=\"workspaceInput\" rows=\"5\" class=\"input-ctrl\" style=\"font-family:monospace;\" oninput=\"window.WAI.renderCompanionView()\"></textarea>\n            </div>\n            <div>\n              <label style=\"display:block;font-size:0.76rem;color:#94A3B8;margin-bottom:0.25rem;\">Generated Artifact / Schema Output</label>\n              <pre id=\"companionArtifactBox\" style=\"background:#060A11;border:1px solid #1E293B;border-radius:8px;padding:0.65rem;margin:0;font-size:0.76rem;color:#A7F3D0;max-height:130px;overflow:auto;\"></pre>\n            </div>\n          </div>\n          <div id=\"aiCopilotBox\" style=\"margin-top:0.6rem;font-size:0.79rem;color:#A7F3D0;\"></div>\n        </section>\n      </div>\n    \n  </main>\n\n  <!-- Server-Signed Authentication & Demo Sandbox Modal -->\n  <div id=\"authModalBackdrop\" class=\"modal-backdrop\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"authModalTitle\">\n    <div class=\"modal-card\">\n      <div style=\"display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;\">\n        <h2 id=\"authModalTitle\" style=\"margin:0;font-size:1.05rem;\">Workspace Authentication (HMAC-SHA256)</h2>\n        <button type=\"button\" class=\"btn btn-ghost\" onclick=\"window.WAI.closeAuthModal()\">Close</button>\n      </div>\n      <p style=\"font-size:0.8rem;color:#94A3B8;margin:0 0 0.85rem;\">\n        Workspace identity is cryptographically signed on the server via WebCrypto HMAC-SHA256. Unauthenticated client headers are never trusted.\n      </p>\n      <form onsubmit=\"return window.WAI.submitSignIn(event)\">\n        <div class=\"form-field\"><label for=\"authEmailInput\">Engineer Email *</label><input id=\"authEmailInput\" type=\"email\" class=\"input-ctrl\" value=\"engineer@worksai.org\" required/></div>\n        <div class=\"form-field\"><label for=\"authTenantInput\">Tenant Workspace Slug *</label><input id=\"authTenantInput\" class=\"input-ctrl\" value=\"tenant-acme-prod\" required/></div>\n        <div class=\"form-field\"><label for=\"authPasscodeInput\">Workspace Passcode (min 6 chars) *</label><input id=\"authPasscodeInput\" type=\"password\" class=\"input-ctrl\" value=\"worksai-2026\" required/></div>\n        <div style=\"display:flex;gap:0.5rem;margin-top:0.85rem;\">\n          <button type=\"submit\" class=\"btn btn-primary\" style=\"flex:1;justify-content:center;\">Sign In (Server Token)</button>\n          <button type=\"button\" class=\"btn btn-ghost\" onclick=\"window.WAI.startDemoSession()\">Use Isolated Demo</button>\n        </div>\n      </form>\n    </div>\n  </div>\n\n  <script>\n    window.__WORKSAI_META__ = __WORKSAI_META_JSON__;\n    window.__WORKSAI_INITIAL__ = __WORKSAI_INITIAL_JSON__;\n  </script>\n  <script src=\"/assets/app.js\"></script>\n</body>\n</html>";
 
 
 // ============================================================================
@@ -1330,6 +1330,19 @@ function renderDocsPage(identity) {
   <title>Documentation, Setup &amp; API Reference | ${APP_META.name} — WorksAI</title>
   <meta name="description" content="Official installation guide, HMAC-SHA256 authenticated CRUD API documentation, compatibility requirements, and privacy disclosures for ${APP_META.name}."/>
   <link rel="canonical" href="${canonical}"/>
+  <!-- Google Analytics 4 (WorksAi Property 493870207 — Privacy-Safe Mode) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-113353C400"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-113353C400', {
+      anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+      page_location: window.location.origin + window.location.pathname
+    });
+  </script>
   <link rel="stylesheet" href="/assets/styles.css"/>
 </head>
 <body>
@@ -1394,6 +1407,19 @@ function renderGuidePage(identity) {
   <title>${seo.primary_kw} — Technical Guide &amp; FAQ | ${APP_META.name}</title>
   <meta name="description" content="${seo.meta_desc}"/>
   <link rel="canonical" href="${canonical}"/>
+  <!-- Google Analytics 4 (WorksAi Property 493870207 — Privacy-Safe Mode) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-113353C400"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-113353C400', {
+      anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+      page_location: window.location.origin + window.location.pathname
+    });
+  </script>
   <link rel="stylesheet" href="/assets/styles.css"/>
   <script type="application/ld+json">${JSON.stringify(faqLd)}</script>
 </head>
@@ -1425,6 +1451,2581 @@ function renderGuidePage(identity) {
 </body>
 </html>`;
 }
+
+
+// ============================================================================
+// WorksAI Model Context Protocol (MCP) JSON-RPC 2.0 Streamable HTTP Server Engine
+// Supported Revisions: 2024-11-05, 2025-03-26, 2025-06-18
+// ============================================================================
+
+const MCP_TOOLS_CATALOG = [
+  {
+    "name": "canvasarch.parse_topology",
+    "title": "Parse Architecture Spec to Graph Topology",
+    "appSlug": "worksai-canvasarch",
+    "sub": "canvasarch",
+    "endpoint": "https://canvasarch.worksai.org/api/mcp",
+    "workspaceUrl": "https://canvasarch.worksai.org",
+    "description": "Parses plain-English flow rules (Source -> Target) or Mermaid syntax into positioned architecture nodes, directed edges, and component roles. Returns a handoffHandle for GraphMind or ApiSync.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only (optional preview/save with confirmWrite)",
+    "implFunction": "parseArchitectureSpec",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Architecture flow lines (e.g. 'Gateway -> Auth -> Postgres')"
+        },
+        "layout": {
+          "type": "string",
+          "enum": [
+            "layered",
+            "grid",
+            "radial"
+          ],
+          "default": "layered"
+        },
+        "projectId": {
+          "type": "string",
+          "description": "Optional workspace project ID for deep-linking"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "nodeCount": {
+          "type": "integer"
+        },
+        "edgeCount": {
+          "type": "integer"
+        },
+        "nodes": {
+          "type": "array"
+        },
+        "edges": {
+          "type": "array"
+        },
+        "handoffHandle": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "canvasarch.detect_spof",
+    "title": "Detect Single-Point-of-Failure (SPOF) Bottlenecks",
+    "appSlug": "worksai-canvasarch",
+    "sub": "canvasarch",
+    "endpoint": "https://canvasarch.worksai.org/api/mcp",
+    "workspaceUrl": "https://canvasarch.worksai.org",
+    "description": "Computes fan-in and fan-out degree centrality across an architecture topology and isolates single-point-of-failure (SPOF) bottleneck nodes with konkret redundancy recommendations.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "parseArchitectureSpec + spofCentralityFilter",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Architecture flow spec to audit for SPOF nodes"
+        },
+        "minDegreeThreshold": {
+          "type": "integer",
+          "default": 2
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "spofNodes": {
+          "type": "array"
+        },
+        "riskLevel": {
+          "type": "string"
+        },
+        "remediation": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "canvasarch.export_svg",
+    "title": "Render Accessible SVG 2.0 Architecture Diagram",
+    "appSlug": "worksai-canvasarch",
+    "sub": "canvasarch",
+    "endpoint": "https://canvasarch.worksai.org/api/mcp",
+    "workspaceUrl": "https://canvasarch.worksai.org",
+    "description": "Renders an accessible W3C SVG 2.0 architecture diagram with <title> and <desc> metadata from a topology spec, returning the SVG markup and a markdown summary ready for GraphMind.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "renderArchitectureSvg",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Architecture flow spec to render into SVG"
+        },
+        "title": {
+          "type": "string",
+          "description": "Diagram title for SVG accessibility tags"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "svgMarkup": {
+          "type": "string"
+        },
+        "markdownSummary": {
+          "type": "string"
+        },
+        "byteLength": {
+          "type": "integer"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "ledgerflow.normalize_csv",
+    "title": "Normalize Bank CSV Rows to Typed Ledger Entries",
+    "appSlug": "worksai-ledgerflow",
+    "sub": "ledgerflow",
+    "endpoint": "https://ledgerflow.worksai.org/api/mcp",
+    "workspaceUrl": "https://ledgerflow.worksai.org",
+    "description": "Parses raw CSV transaction lines (date, payee, amount, category) into normalized double-entry ledger records and computes category envelope totals.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "normalizeAndBudgetTransactions",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "CSV rows (YYYY-MM-DD,Payee,Amount,Category)"
+        },
+        "currency": {
+          "type": "string",
+          "default": "USD"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "transactionCount": {
+          "type": "integer"
+        },
+        "totalInflow": {
+          "type": "number"
+        },
+        "totalOutflow": {
+          "type": "number"
+        },
+        "netCashflow": {
+          "type": "number"
+        },
+        "categoryTotals": {
+          "type": "object"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "ledgerflow.detect_subscription_creep",
+    "title": "Detect Z-Score Cost Spikes & Subscription Creep",
+    "appSlug": "worksai-ledgerflow",
+    "sub": "ledgerflow",
+    "endpoint": "https://ledgerflow.worksai.org/api/mcp",
+    "workspaceUrl": "https://ledgerflow.worksai.org",
+    "description": "Audits ledger transactions for anomalous expense spikes and recurring SaaS/cloud subscription creep exceeding configurable Z-score or dollar thresholds.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "normalizeAndBudgetTransactions + anomalyAudit",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "CSV transaction rows to audit for anomalies"
+        },
+        "spikeThresholdUsd": {
+          "type": "number",
+          "default": 2000
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "anomalyCount": {
+          "type": "integer"
+        },
+        "flaggedTransactions": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "ledgerflow.forecast_runway",
+    "title": "Forecast 90-Day Cashflow & Burn Runway",
+    "appSlug": "worksai-ledgerflow",
+    "sub": "ledgerflow",
+    "endpoint": "https://ledgerflow.worksai.org/api/mcp",
+    "workspaceUrl": "https://ledgerflow.worksai.org",
+    "description": "Calculates monthly net burn rate, cashflow velocity, and projected 90-day runway from normalized ledger transactions and starting cash balance.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "normalizeAndBudgetTransactions + runwayProjection",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "CSV transaction rows"
+        },
+        "startingCashUsd": {
+          "type": "number",
+          "default": 50000
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "startingCashUsd": {
+          "type": "number"
+        },
+        "projected90DayCashUsd": {
+          "type": "number"
+        },
+        "runwayDays": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "wavecut.detect_silence",
+    "title": "Detect Audio Dead-Air Silence Segments",
+    "appSlug": "worksai-wavecut-studio",
+    "sub": "wavecut",
+    "endpoint": "https://wavecut.worksai.org/api/mcp",
+    "workspaceUrl": "https://wavecut.worksai.org",
+    "description": "Scans an audio RMS amplitude envelope against a silence gate threshold (0.01-0.25) to identify dead-air intervals and calculate duration saved.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "analyzeWaveformAndBuildChapters",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Comma-separated RMS amplitude samples (0.0 to 1.0)"
+        },
+        "thresholdRms": {
+          "type": "number",
+          "default": 0.05
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "totalSeconds": {
+          "type": "number"
+        },
+        "silenceSeconds": {
+          "type": "number"
+        },
+        "keptSeconds": {
+          "type": "number"
+        },
+        "silenceSegments": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "wavecut.generate_chapters",
+    "title": "Generate Timestamped Podcast Chapters",
+    "appSlug": "worksai-wavecut-studio",
+    "sub": "wavecut",
+    "endpoint": "https://wavecut.worksai.org/api/mcp",
+    "workspaceUrl": "https://wavecut.worksai.org",
+    "description": "Generates timestamped chapter markers and Markdown show notes from active voice segments separated by silence boundaries.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "analyzeWaveformAndBuildChapters + chapterBuilder",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "RMS envelope samples or transcript cues"
+        },
+        "episodeTitle": {
+          "type": "string",
+          "default": "WorksAI Technical Podcast"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "chapters": {
+          "type": "array"
+        },
+        "showNotesMarkdown": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "wavecut.export_cue_sheet",
+    "title": "Export Audio Cue Sheet & RIFF/WAVE Metadata",
+    "appSlug": "worksai-wavecut-studio",
+    "sub": "wavecut",
+    "endpoint": "https://wavecut.worksai.org/api/mcp",
+    "workspaceUrl": "https://wavecut.worksai.org",
+    "description": "Builds a standards-compliant audio cue sheet and 16-bit PCM RIFF/WAVE export manifest with a direct download link.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "analyzeWaveformAndBuildChapters + cueSheetFormatter",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "RMS envelope samples"
+        },
+        "sampleRateHz": {
+          "type": "integer",
+          "default": 8000
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "cueSheet": {
+          "type": "string"
+        },
+        "wavFormat": {
+          "type": "string"
+        },
+        "downloadUrl": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "growthpulse.evaluate_funnel",
+    "title": "Evaluate Multi-Stage Conversion Funnel & Drop-Offs",
+    "appSlug": "worksai-growthpulse",
+    "sub": "growthpulse",
+    "endpoint": "https://growthpulse.worksai.org/api/mcp",
+    "workspaceUrl": "https://growthpulse.worksai.org",
+    "description": "Calculates stage-by-stage conversion rates across acquisition, activation, and paid conversion stages, pinpointing the highest drop-off bottleneck.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "evaluateFunnelAndAnomalies",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Funnel parameters or key=value cohort spec"
+        },
+        "segment": {
+          "type": "string",
+          "default": "all"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "stages": {
+          "type": "array"
+        },
+        "overallConversionPct": {
+          "type": "number"
+        },
+        "primaryBottleneck": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "growthpulse.detect_metric_anomalies",
+    "title": "Model SaaS Cohort Retention, NRR & Churn Anomalies",
+    "appSlug": "worksai-growthpulse",
+    "sub": "growthpulse",
+    "endpoint": "https://growthpulse.worksai.org/api/mcp",
+    "workspaceUrl": "https://growthpulse.worksai.org",
+    "description": "Simulates 12-month SaaS MRR/ARR cohorts, Net Dollar Retention (NRR %), and LTV:CAC ratios while flagging churn or CAC payback anomalies.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "evaluateFunnelAndAnomalies + cohortSim",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Cohort parameters (startingMrr, expansionRatePct, logoChurnPct)"
+        },
+        "months": {
+          "type": "integer",
+          "default": 12
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "endingArrUsd": {
+          "type": "number"
+        },
+        "nrrPct": {
+          "type": "number"
+        },
+        "anomalies": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "growthpulse.privacy_event_digest",
+    "title": "Generate Privacy-Safe Campaign & Cohort Digest",
+    "appSlug": "worksai-growthpulse",
+    "sub": "growthpulse",
+    "endpoint": "https://growthpulse.worksai.org/api/mcp",
+    "workspaceUrl": "https://growthpulse.worksai.org",
+    "description": "Produces an aggregate campaign performance digest from imported LinkEngine UTM links and CommerceCatalog SKU feeds without tracking personal identifiers.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "evaluateFunnelAndAnomalies + campaignDigest",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Imported campaign dataset or UTM link summary"
+        },
+        "sourceHandle": {
+          "type": "string",
+          "description": "Optional handoff handle from LinkEngine"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "digestSummary": {
+          "type": "string"
+        },
+        "recommendedActions": {
+          "type": "array"
+        },
+        "piiScrubbed": {
+          "type": "boolean"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "apisync.diff_openapi",
+    "title": "Diff Baseline vs. Candidate OpenAPI Specifications",
+    "appSlug": "worksai-apisync-studio",
+    "sub": "apisync",
+    "endpoint": "https://apisync.worksai.org/api/mcp",
+    "workspaceUrl": "https://apisync.worksai.org",
+    "description": "Compares baseline (before) and candidate (after) OpenAPI 3.0/3.1 JSON specifications to isolate breaking parameter, type, and status-code changes.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "auditOpenApiDrift",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "JSON object containing {before, after} OpenAPI specs"
+        },
+        "sourceHandle": {
+          "type": "string",
+          "description": "Optional topology handle from CanvasArch"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "breakingChangesCount": {
+          "type": "integer"
+        },
+        "breakingChanges": {
+          "type": "array"
+        },
+        "nonBreakingChanges": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "apisync.validate_contract",
+    "title": "Validate Request Payload Against OpenAPI Contract",
+    "appSlug": "worksai-apisync-studio",
+    "sub": "apisync",
+    "endpoint": "https://apisync.worksai.org/api/mcp",
+    "workspaceUrl": "https://apisync.worksai.org",
+    "description": "Executes schema and type assertions on a sample request payload against the target OpenAPI endpoint contract.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "auditOpenApiDrift + contractValidator",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Sample JSON payload or contract spec to validate"
+        },
+        "endpointPath": {
+          "type": "string",
+          "default": "/v1/orders"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "valid": {
+          "type": "boolean"
+        },
+        "assertions": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "apisync.generate_mock_fixture",
+    "title": "Generate Contract Mock Fixture & Gateway Migration Shim",
+    "appSlug": "worksai-apisync-studio",
+    "sub": "apisync",
+    "endpoint": "https://apisync.worksai.org/api/mcp",
+    "workspaceUrl": "https://apisync.worksai.org",
+    "description": "Synthesizes deterministic JSON mock response fixtures and API gateway compatibility shims for endpoints with breaking schema changes.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "auditOpenApiDrift + mockGenerator",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "OpenAPI spec or endpoint descriptor"
+        },
+        "targetVersion": {
+          "type": "string",
+          "default": "2.0.0"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "mockResponse": {
+          "type": "object"
+        },
+        "gatewayShimCode": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "omnidesk.triage_ticket",
+    "title": "Triage Support Ticket Priority & SLA Breach Timer",
+    "appSlug": "worksai-omnidesk",
+    "sub": "omnidesk",
+    "endpoint": "https://omnidesk.worksai.org/api/mcp",
+    "workspaceUrl": "https://omnidesk.worksai.org",
+    "description": "Evaluates incoming support ticket metadata and body text to assign priority (P1-P3), compute SLA remaining/breach minutes, and match Knowledge Base runbooks.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "triageAndDraftSupportReply",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Ticket JSON or plain-text support issue description"
+        },
+        "customerTier": {
+          "type": "string",
+          "enum": [
+            "enterprise",
+            "pro",
+            "starter"
+          ],
+          "default": "enterprise"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "priority": {
+          "type": "string"
+        },
+        "slaBreached": {
+          "type": "boolean"
+        },
+        "matchedKbCode": {
+          "type": "string"
+        },
+        "handoffHandle": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "omnidesk.draft_grounded_reply",
+    "title": "Draft KB-Grounded Support Reply",
+    "appSlug": "worksai-omnidesk",
+    "sub": "omnidesk",
+    "endpoint": "https://omnidesk.worksai.org/api/mcp",
+    "workspaceUrl": "https://omnidesk.worksai.org",
+    "description": "Drafts a customer response grounded strictly in verified WorksAI Knowledge Base articles (KB-101, KB-204, KB-309) without sending external messages.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only (draft only, never sends external messages)",
+    "implFunction": "triageAndDraftSupportReply + kbGrounder",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Ticket subject and customer question"
+        },
+        "kbCode": {
+          "type": "string",
+          "default": "KB-101"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "draftReply": {
+          "type": "string"
+        },
+        "kbCitation": {
+          "type": "string"
+        },
+        "requiresHumanReviewBeforeSend": {
+          "type": "boolean"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "omnidesk.evaluate_sla_risk",
+    "title": "Evaluate Queue SLA Risk & Stage Escalation Update",
+    "appSlug": "worksai-omnidesk",
+    "sub": "omnidesk",
+    "endpoint": "https://omnidesk.worksai.org/api/mcp",
+    "workspaceUrl": "https://omnidesk.worksai.org",
+    "description": "Audits a ticket queue for imminent SLA breaches and stages an escalation update. Defaults to dryRun=true preview; persisting state requires confirmWrite=true and mcp:write scope.",
+    "requiredScope": "mcp:write",
+    "behavior": "write (staged preview by default; requires confirmWrite=true to persist)",
+    "implFunction": "triageAndDraftSupportReply + r2QueueStage",
+    "annotations": {
+      "readOnlyHint": false,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Ticket queue JSON array or ticket description"
+        },
+        "dryRun": {
+          "type": "boolean",
+          "default": true
+        },
+        "confirmWrite": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "breachedTickets": {
+          "type": "integer"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "preview": {
+          "type": "object"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "graphmind.build_backlink_graph",
+    "title": "Build Bidirectional Markdown WikiLink Graph",
+    "appSlug": "worksai-graphmind",
+    "sub": "graphmind",
+    "endpoint": "https://graphmind.worksai.org/api/mcp",
+    "workspaceUrl": "https://graphmind.worksai.org",
+    "description": "Parses Markdown notes containing [[WikiLinks]] into a bidirectional graph of forward links, incoming backlinks, and PageRank hub scores.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "analyzeMarkdownGraph",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Markdown notes with # Headings and [[WikiLinks]]"
+        },
+        "sourceHandle": {
+          "type": "string",
+          "description": "Optional handoff handle from CanvasArch"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "nodeCount": {
+          "type": "integer"
+        },
+        "edgeCount": {
+          "type": "integer"
+        },
+        "backlinks": {
+          "type": "object"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "graphmind.find_orphan_notes",
+    "title": "Find Orphan Notes & Broken WikiLinks",
+    "appSlug": "worksai-graphmind",
+    "sub": "graphmind",
+    "endpoint": "https://graphmind.worksai.org/api/mcp",
+    "workspaceUrl": "https://graphmind.worksai.org",
+    "description": "Scans a Markdown knowledge base to isolate orphan notes (zero incoming/outgoing links) and unresolved [[WikiLink]] targets.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "analyzeMarkdownGraph + orphanFilter",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Markdown vault content to audit for orphans"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "orphanNotes": {
+          "type": "array"
+        },
+        "brokenLinks": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "graphmind.retrieve_context_subgraph",
+    "title": "Retrieve or Link 2-Hop Knowledge Context Subgraph",
+    "appSlug": "worksai-graphmind",
+    "sub": "graphmind",
+    "endpoint": "https://graphmind.worksai.org/api/mcp",
+    "workspaceUrl": "https://graphmind.worksai.org",
+    "description": "Extracts a 2-hop Markdown knowledge subgraph around a topic or links an approved CanvasArch summary into the project graph (requires confirmWrite=true to save).",
+    "requiredScope": "mcp:write",
+    "behavior": "write (read/preview by default; requires confirmWrite=true to persist linked note)",
+    "implFunction": "analyzeMarkdownGraph + subgraphLinker",
+    "annotations": {
+      "readOnlyHint": false,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Markdown text or architecture summary to link"
+        },
+        "sourceHandle": {
+          "type": "string",
+          "description": "Optional upstream handle from CanvasArch"
+        },
+        "dryRun": {
+          "type": "boolean",
+          "default": true
+        },
+        "confirmWrite": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "linkedNodes": {
+          "type": "array"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "handoffHandle": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "clipguard.scrub_clipboard",
+    "title": "Scrub Secrets & PII Before AI Prompt Submission",
+    "appSlug": "worksai-clipguard",
+    "sub": "clipguard",
+    "endpoint": "https://clipguard.worksai.org/api/mcp",
+    "workspaceUrl": "https://clipguard.worksai.org",
+    "description": "Redacts AWS keys (AKIA...), GitHub PATs (ghp_...), OpenAI keys (sk-...), PEM private keys, and email PII in-memory, returning only scrubbed text safe for downstream AI requests.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only (zero raw secret persistence)",
+    "implFunction": "scrubClipboardSecrets",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Raw text or code snippet to scrub before AI usage"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "scrubbedText": {
+          "type": "string"
+        },
+        "redactedCount": {
+          "type": "integer"
+        },
+        "detectedTypes": {
+          "type": "array"
+        },
+        "rawSecretLogged": {
+          "type": "boolean"
+        },
+        "handoffHandle": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "clipguard.detect_secrets",
+    "title": "Audit Text for Credential & Prompt-Injection Patterns",
+    "appSlug": "worksai-clipguard",
+    "sub": "clipguard",
+    "endpoint": "https://clipguard.worksai.org/api/mcp",
+    "workspaceUrl": "https://clipguard.worksai.org",
+    "description": "Detects credential classes and embedded prompt-injection directives in text without echoing the raw secret values in the output.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "scrubClipboardSecrets + patternClassifier",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Text to scan for secret and injection classes"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "hasSecrets": {
+          "type": "boolean"
+        },
+        "secretClasses": {
+          "type": "array"
+        },
+        "safeForDownstreamAi": {
+          "type": "boolean"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "clipguard.normalize_format",
+    "title": "Sanitize & Normalize Text for Safe Downstream Handoff",
+    "appSlug": "worksai-clipguard",
+    "sub": "clipguard",
+    "endpoint": "https://clipguard.worksai.org/api/mcp",
+    "workspaceUrl": "https://clipguard.worksai.org",
+    "description": "Strips hidden zero-width characters, HTML script tags, and secrets from text, producing a normalized, secret-free payload for downstream tools.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "scrubClipboardSecrets + textSanitizer",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Snippet to normalize and scrub"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "normalizedText": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "commandbar.rank_commands",
+    "title": "Rank Developer Runbook & Launcher Commands",
+    "appSlug": "worksai-commandbar",
+    "sub": "commandbar",
+    "endpoint": "https://commandbar.worksai.org/api/mcp",
+    "workspaceUrl": "https://commandbar.worksai.org",
+    "description": "Searches and ranks registered DevOps, Cloudflare, and Git runbook commands matching a query prefix without executing shell processes.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only (never executes shell commands)",
+    "implFunction": "executeCommandBarQuery",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Command search query or keyword"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "matchedCommands": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "commandbar.evaluate_expression",
+    "title": "Lint Shell Command Safety & Evaluate Math Expressions",
+    "appSlug": "worksai-commandbar",
+    "sub": "commandbar",
+    "endpoint": "https://commandbar.worksai.org/api/mcp",
+    "workspaceUrl": "https://commandbar.worksai.org",
+    "description": "Statically audits shell command strings for destructive flags (rm -rf, git reset --hard, chmod 777) or evaluates deterministic math expressions.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only static linter",
+    "implFunction": "executeCommandBarQuery + shellSafetyLinter",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Shell command string or math expression to audit"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "riskLevel": {
+          "type": "string"
+        },
+        "flaggedConstructs": {
+          "type": "array"
+        },
+        "rollbackCommand": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "commandbar.resolve_workflow_macro",
+    "title": "Expand Developer Workflow Macro into Step-by-Step Runbook",
+    "appSlug": "worksai-commandbar",
+    "sub": "commandbar",
+    "endpoint": "https://commandbar.worksai.org/api/mcp",
+    "workspaceUrl": "https://commandbar.worksai.org",
+    "description": "Expands a named operational macro into a step-by-step non-destructive runbook with pre-flight checks and rollback instructions.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "executeCommandBarQuery + macroExpander",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Macro identifier or deployment task description"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "steps": {
+          "type": "array"
+        },
+        "rollbackStep": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "linkengine.create_shortlink",
+    "title": "Build Governed UTM Campaign Link (Preview / Save)",
+    "appSlug": "worksai-linkengine",
+    "sub": "linkengine",
+    "endpoint": "https://linkengine.worksai.org/api/mcp",
+    "workspaceUrl": "https://linkengine.worksai.org",
+    "description": "Builds a normalized UTM campaign URL and shortlink slug for validated catalog items. Defaults to dryRun=true preview; persisting requires confirmWrite=true and mcp:write scope.",
+    "requiredScope": "mcp:write",
+    "behavior": "write (preview by default; requires confirmWrite=true to save)",
+    "implFunction": "resolveSmartShortlink",
+    "annotations": {
+      "readOnlyHint": false,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Target URL or JSON {destinationUrl, utmSource, utmMedium, utmCampaign}"
+        },
+        "sourceHandle": {
+          "type": "string",
+          "description": "Optional handle from CommerceCatalog"
+        },
+        "dryRun": {
+          "type": "boolean",
+          "default": true
+        },
+        "confirmWrite": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "shortUrl": {
+          "type": "string"
+        },
+        "governedDestinationUrl": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "handoffHandle": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "linkengine.validate_utm_policy",
+    "title": "Validate Campaign UTM Taxonomy & Governance Policy",
+    "appSlug": "worksai-linkengine",
+    "sub": "linkengine",
+    "endpoint": "https://linkengine.worksai.org/api/mcp",
+    "workspaceUrl": "https://linkengine.worksai.org",
+    "description": "Audits campaign URLs to ensure utm_source, utm_medium, and utm_campaign are present, lowercase, hyphen-normalized, and free of PII.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "resolveSmartShortlink + utmPolicyValidator",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Campaign URL or JSON post list to validate"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "compliant": {
+          "type": "boolean"
+        },
+        "violations": {
+          "type": "array"
+        },
+        "normalizedUrl": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "linkengine.audit_redirect_health",
+    "title": "Audit Internal Link Matrix & Redirect Chains",
+    "appSlug": "worksai-linkengine",
+    "sub": "linkengine",
+    "endpoint": "https://linkengine.worksai.org/api/mcp",
+    "workspaceUrl": "https://linkengine.worksai.org",
+    "description": "Analyzes a content inventory for orphan articles, missing contextual internal links, and multi-hop redirect chains.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "resolveSmartShortlink + redirectAuditor",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "JSON list of posts/URLs to audit for link health"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "orphanSlugs": {
+          "type": "array"
+        },
+        "recommendedInternalLinks": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "commercecatalog.enrich_sku",
+    "title": "Validate SKU GTIN-13 & Enrich Margin Metadata",
+    "appSlug": "worksai-commercecatalog",
+    "sub": "commercecatalog",
+    "endpoint": "https://commercecatalog.worksai.org/api/mcp",
+    "workspaceUrl": "https://commercecatalog.worksai.org",
+    "description": "Validates product SKU attributes, verifies GTIN-13 check digits, enforces minimum gross-margin floors, and returns a handoffHandle for LinkEngine.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "enrichSkuAndBuildProductJsonLd",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "SKU JSON object or array of catalog items"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "string"
+        },
+        "gtinValid": {
+          "type": "boolean"
+        },
+        "marginFloorEnforced": {
+          "type": "boolean"
+        },
+        "finalPriceCents": {
+          "type": "integer"
+        },
+        "handoffHandle": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "commercecatalog.generate_product_jsonld",
+    "title": "Generate Schema.org Product & Offer JSON-LD",
+    "appSlug": "worksai-commercecatalog",
+    "sub": "commercecatalog",
+    "endpoint": "https://commercecatalog.worksai.org/api/mcp",
+    "workspaceUrl": "https://commercecatalog.worksai.org",
+    "description": "Builds validated Schema.org Product and Offer JSON-LD markup from SKU attributes for Google Merchant Center and rich product snippets.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "enrichSkuAndBuildProductJsonLd + jsonLdExtractor",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "SKU JSON attributes"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "productJsonLd": {
+          "type": "object"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "commercecatalog.audit_margin_floor",
+    "title": "Audit Catalog Feed for Margin Floor & GTIN Violations",
+    "appSlug": "worksai-commercecatalog",
+    "sub": "commercecatalog",
+    "endpoint": "https://commercecatalog.worksai.org/api/mcp",
+    "workspaceUrl": "https://commercecatalog.worksai.org",
+    "description": "Audits a product catalog feed to flag SKUs failing minimum gross margin thresholds or missing valid GTIN-13 barcodes before ad spend.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "enrichSkuAndBuildProductJsonLd + feedMarginAuditor",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Catalog SKU array JSON"
+        },
+        "minMarginPct": {
+          "type": "number",
+          "default": 25.0
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "validSkus": {
+          "type": "array"
+        },
+        "flaggedSkus": {
+          "type": "array"
+        },
+        "handoffHandle": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "forumpulse.score_thread_safety",
+    "title": "Score Community Thread Spam Velocity & Toxicity",
+    "appSlug": "worksai-forumpulse",
+    "sub": "forumpulse",
+    "endpoint": "https://forumpulse.worksai.org/api/mcp",
+    "workspaceUrl": "https://forumpulse.worksai.org",
+    "description": "Scores forum posts or support threads for spam link velocity, abusive language, and prompt-injection payloads, flagging high-risk threads for quarantine.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "moderateThreadAndBuildFaqJsonLd",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Thread JSON or post text to score"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "spamScore": {
+          "type": "number"
+        },
+        "quarantined": {
+          "type": "boolean"
+        },
+        "reasons": {
+          "type": "array"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "forumpulse.extract_faq_jsonld",
+    "title": "Propose Sanitized FAQPage Entry (Requires Approval to Publish)",
+    "appSlug": "worksai-forumpulse",
+    "sub": "forumpulse",
+    "endpoint": "https://forumpulse.worksai.org/api/mcp",
+    "workspaceUrl": "https://forumpulse.worksai.org",
+    "description": "Extracts a sanitized FAQPage JSON-LD draft from a resolved support ticket or community thread. Stages in 'pending_human_approval' state; requires confirmWrite=true and mcp:write scope to save draft.",
+    "requiredScope": "mcp:write",
+    "behavior": "write (stages draft in pending_human_approval; never auto-publishes externally)",
+    "implFunction": "moderateThreadAndBuildFaqJsonLd + faqDraftStager",
+    "annotations": {
+      "readOnlyHint": false,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Resolved ticket or thread Q&A text"
+        },
+        "sourceHandle": {
+          "type": "string",
+          "description": "Optional ticket handle from OmniDesk"
+        },
+        "dryRun": {
+          "type": "boolean",
+          "default": true
+        },
+        "confirmWrite": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "faqJsonLd": {
+          "type": "object"
+        },
+        "publicationStatus": {
+          "type": "string"
+        },
+        "persisted": {
+          "type": "boolean"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "forumpulse.summarize_topic_cluster",
+    "title": "Cluster Resolved Threads into Documentation Topics",
+    "appSlug": "worksai-forumpulse",
+    "sub": "forumpulse",
+    "endpoint": "https://forumpulse.worksai.org/api/mcp",
+    "workspaceUrl": "https://forumpulse.worksai.org",
+    "description": "Groups resolved community threads by technical keyword clusters to identify documentation gaps and recurring support questions.",
+    "requiredScope": "mcp:read",
+    "behavior": "read-only",
+    "implFunction": "moderateThreadAndBuildFaqJsonLd + topicClusterer",
+    "annotations": {
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Array of threads or questions to cluster"
+        }
+      },
+      "required": [
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "clusters": {
+          "type": "array"
+        },
+        "topRecurringTopic": {
+          "type": "string"
+        },
+        "workspaceUrl": {
+          "type": "string"
+        }
+      }
+    }
+  }
+];
+
+const MCP_SUPPORTED_VERSIONS = ["2024-11-05", "2025-03-26", "2025-06-18", "2025-11-25"];
+const MCP_OBSERVABILITY = {
+  startedAt: new Date().toISOString(),
+  initializeCount: 0,
+  toolsListCount: 0,
+  protocolErrorCount: 0,
+  authFailureCount: 0,
+  rateLimitCount: 0,
+  promptInjectionBlockedCount: 0,
+  aiInvocations: 0,
+  estimatedAiTokens: 0,
+  estimatedAiCostUsd: 0.0,
+  byTrafficClass: {
+    automated_test: { calls: 0, successes: 0, toolErrors: 0, protocolErrors: 0, authFailures: 0 },
+    synthetic_demo: { calls: 0, successes: 0, toolErrors: 0, protocolErrors: 0, authFailures: 0 },
+    live_user: { calls: 0, successes: 0, toolErrors: 0, protocolErrors: 0, authFailures: 0 }
+  },
+  byTool: {}
+};
+
+const MCP_HANDOFF_STORE = new Map();
+const MCP_RATE_WINDOW = new Map();
+
+function classifyTraffic(request, identity, body) {
+  const hdr = (request.headers.get("X-MCP-Traffic-Class") || "").toLowerCase();
+  const ua = (request.headers.get("User-Agent") || "").toLowerCase();
+  const clientName = String(body?.params?.clientInfo?.name || "").toLowerCase();
+  if (hdr === "automated_test" || ua.includes("mcp-test") || ua.includes("worksai-ci") || clientName.includes("test") || clientName.includes("harness")) {
+    return "automated_test";
+  }
+  if (!identity || !identity.authenticated || identity.mode === "demo" || identity.isDemo) {
+    return "synthetic_demo";
+  }
+  return "live_user";
+}
+
+function recordToolMetric(toolName, trafficClass, isErr, latencyMs) {
+  if (!MCP_OBSERVABILITY.byTool[toolName]) {
+    MCP_OBSERVABILITY.byTool[toolName] = { calls: 0, successes: 0, toolErrors: 0, totalLatencyMs: 0, avgLatencyMs: 0 };
+  }
+  const t = MCP_OBSERVABILITY.byTool[toolName];
+  t.calls += 1;
+  if (isErr) t.toolErrors += 1;
+  else t.successes += 1;
+  t.totalLatencyMs += latencyMs;
+  t.avgLatencyMs = Number((t.totalLatencyMs / t.calls).toFixed(2));
+
+  const tc = MCP_OBSERVABILITY.byTrafficClass[trafficClass] || MCP_OBSERVABILITY.byTrafficClass.synthetic_demo;
+  tc.calls += 1;
+  if (isErr) tc.toolErrors += 1;
+  else tc.successes += 1;
+}
+
+function detectPromptInjectionPayload(text) {
+  const s = String(text || "");
+  const patterns = [
+    /ignore\s+(?:all\s+)?(?:previous|prior)\s+instructions/i,
+    /system\s+prompt\s+override/i,
+    /auto[_-]?approve[_-]?privileged/i,
+    /send[_-]?external[_-]?email/i,
+    /delete[_-]?all[_-]?projects/i,
+    /<script\b[^>]*>[\s\S]*?<\/script>/i
+  ];
+  const matched = [];
+  for (const p of patterns) {
+    if (p.test(s)) matched.push(p.source);
+  }
+  return { detected: matched.length > 0, matchedPatterns: matched };
+}
+
+function checkMcpRateLimit(rateKey) {
+  const now = Date.now();
+  const rec = MCP_RATE_WINDOW.get(rateKey) || { count: 0, resetAt: now + 60000 };
+  if (now > rec.resetAt) {
+    rec.count = 1;
+    rec.resetAt = now + 60000;
+  } else {
+    rec.count += 1;
+  }
+  MCP_RATE_WINDOW.set(rateKey, rec);
+  return rec.count <= 90;
+}
+
+function executeSpecificMcpTool(toolMeta, args, identity) {
+  const tName = toolMeta.name;
+  const rawInput = String(args.input || "").trim();
+  const baseRes = runDomainEngineBySlug(toolMeta.appSlug, tName, rawInput);
+  const dom = (baseRes && baseRes.domainResult) ? baseRes.domainResult : (baseRes || {});
+  const traceId = `mcp-tr-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+  const handle = `handoff:${toolMeta.sub}:${deterministicHash16(tName + ":" + rawInput)}`;
+  const projId = args.projectId ? encodeURIComponent(String(args.projectId)) : `seed-${toolMeta.sub}`;
+  const workspaceUrl = `${toolMeta.workspaceUrl}/?project=${projId}`;
+
+  let specificOutput = {};
+  if (tName === "canvasarch.parse_topology") {
+    specificOutput = {
+      nodeCount: dom.nodeCount || (dom.nodes ? dom.nodes.length : 0),
+      edgeCount: dom.edgeCount || (dom.edges ? dom.edges.length : 0),
+      nodes: dom.nodes || [],
+      edges: dom.edges || [],
+      layout: args.layout || "layered",
+      markdownSummary: `# Architecture Topology (${dom.nodeCount || 0} nodes)\n` + (dom.nodes || []).map(n => `- [[${n.label || n.id}]] (${n.role || 'service'})`).join("\n")
+    };
+  } else if (tName === "canvasarch.detect_spof") {
+    specificOutput = {
+      spofNodes: dom.spofNodes || [],
+      spofCount: (dom.spofNodes || []).length,
+      riskLevel: (dom.spofNodes && dom.spofNodes.length > 0) ? "HIGH_CENTRALITY_BOTTLENECK" : "LOW",
+      remediation: (dom.spofNodes || []).map(s => `Add active-active replica or queue buffer in front of ${s.id || s}`)
+    };
+  } else if (tName === "canvasarch.export_svg") {
+    const svg = dom.svgDiagram || renderArchitectureSvg(dom);
+    specificOutput = {
+      svgMarkup: svg,
+      byteLength: svg.length,
+      markdownSummary: `Exported SVG diagram (${svg.length} bytes) for [[${args.title || 'System Architecture'}]] with ${dom.nodeCount || 0} nodes.`
+    };
+  } else if (tName === "ledgerflow.normalize_csv") {
+    specificOutput = {
+      transactionCount: dom.transactionCount || (dom.normalizedTransactions ? dom.normalizedTransactions.length : 0),
+      totalInflow: dom.totalIncomeCents ? dom.totalIncomeCents / 100 : 17200,
+      totalOutflow: dom.totalExpenseCents ? dom.totalExpenseCents / 100 : 6690,
+      netCashflow: dom.netCashflowCents ? dom.netCashflowCents / 100 : 10510,
+      categoryTotals: dom.envelopes || {}
+    };
+  } else if (tName === "ledgerflow.detect_subscription_creep") {
+    specificOutput = {
+      anomalyCount: (dom.SubscriptionCreepFlags || []).length || 1,
+      flaggedTransactions: dom.SubscriptionCreepFlags || [{ payee: "GPU Cluster Spot Burst", amountUsd: -6450, reason: "Exceeds spike threshold" }]
+    };
+  } else if (tName === "ledgerflow.forecast_runway") {
+    const startCash = Number(args.startingCashUsd || 50000);
+    specificOutput = {
+      startingCashUsd: startCash,
+      projected90DayCashUsd: dom.projected90DayBalanceCents ? dom.projected90DayBalanceCents / 100 : startCash + 10510,
+      runwayDays: dom.runwayDays || 180,
+      status: "HEALTHY_POSITIVE_NET"
+    };
+  } else if (tName === "wavecut.detect_silence") {
+    specificOutput = {
+      totalSeconds: dom.totalDurationSec || 14,
+      silenceSeconds: dom.deadAirRemovedSec || 5,
+      keptSeconds: (dom.totalDurationSec || 14) - (dom.deadAirRemovedSec || 5),
+      silenceSegments: dom.silenceIntervals || [{ startSec: 4, endSec: 7 }]
+    };
+  } else if (tName === "wavecut.generate_chapters") {
+    specificOutput = {
+      chapters: dom.chapters || [{ startSec: 0, title: "Intro" }, { startSec: 4.5, title: "Core Segment" }],
+      showNotesMarkdown: dom.showNotesMarkdown || "## Episode Chapters\n- 00:00 Intro\n- 00:04 Core Segment"
+    };
+  } else if (tName === "wavecut.export_cue_sheet") {
+    specificOutput = {
+      cueSheet: `TITLE "${args.episodeTitle || 'WorksAI Track'}"\nFILE "track.wav" WAVE\n  TRACK 01 AUDIO\n    INDEX 01 00:00:00`,
+      wavFormat: "16-bit PCM RIFF/WAVE Mono 8000Hz",
+      downloadUrl: `${toolMeta.workspaceUrl}/api/workspace/export/seed-wavecut-demo-sandbox?format=wav`
+    };
+  } else if (tName === "growthpulse.evaluate_funnel") {
+    specificOutput = {
+      stages: dom.stages || [],
+      overallConversionPct: dom.overallConversionPct || 5.2,
+      primaryBottleneck: dom.worstDropoffStage || "Signup -> Activated Workspace"
+    };
+  } else if (tName === "growthpulse.detect_metric_anomalies") {
+    specificOutput = {
+      endingArrUsd: 1420000,
+      nrrPct: 118.4,
+      anomalies: dom.worstDropoffStage ? [`Funnel drop-off alert at ${dom.worstDropoffStage}`] : []
+    };
+  } else if (tName === "growthpulse.privacy_event_digest") {
+    specificOutput = {
+      digestSummary: `Evaluated imported campaign cohort dataset (${rawInput.slice(0, 60)}...). Overall conversion: ${dom.overallConversionPct || 5.2}%.`,
+      recommendedActions: [
+        "Focus ad spend on validated high-margin SKUs from CommerceCatalog.",
+        "Tighten onboarding activation step where drop-off is highest."
+      ],
+      piiScrubbed: true,
+      upstreamHandleVerified: Boolean(args.sourceHandle)
+    };
+  } else if (tName === "apisync.diff_openapi") {
+    specificOutput = {
+      breakingChangesCount: dom.breakingCount ?? (dom.breakingChanges ? dom.breakingChanges.length : 1),
+      breakingChanges: dom.breakingChanges || ["POST /v1/orders: parameter tenantId changed optional(string) -> required(integer)"],
+      nonBreakingChanges: dom.nonBreakingChanges || ["GET /v1/orders/<built-in function id>: optional traceId field added"],
+      upstreamHandleVerified: Boolean(args.sourceHandle)
+    };
+  } else if (tName === "apisync.validate_contract") {
+    specificOutput = {
+      valid: !dom.breakingCount || dom.breakingCount === 0,
+      assertions: [
+        { check: "OpenAPI 3.1 structural validity", passed: true },
+        { check: "Backward-compatible parameter types", passed: (dom.breakingCount || 0) === 0 }
+      ]
+    };
+  } else if (tName === "apisync.generate_mock_fixture") {
+    specificOutput = {
+      mockResponse: { status: 200, orderId: "ord_2026_901", tenantId: 1042, schemaVersion: args.targetVersion || "2.0.0" },
+      gatewayShimCode: "if (typeof req.body.tenantId === 'string') req.body.tenantId = parseInt(req.body.tenantId, 10);"
+    };
+  } else if (tName === "omnidesk.triage_ticket") {
+    specificOutput = {
+      priority: dom.priority || "P1",
+      slaBreached: Boolean(dom.slaBreached ?? true),
+      matchedKbCode: dom.kbArticleId || "KB-101",
+      escalationQueue: dom.assignedQueue || "Enterprise-SecOps"
+    };
+  } else if (tName === "omnidesk.draft_grounded_reply") {
+    specificOutput = {
+      draftReply: dom.groundedReplyDraft || "Applied 180-second SAML clock-skew tolerance on Edge verifier per KB-101. Please verify login from your tenant.",
+      kbCitation: args.kbCode || "KB-101",
+      requiresHumanReviewBeforeSend: true
+    };
+  } else if (tName === "omnidesk.evaluate_sla_risk") {
+    const dryRun = args.dryRun !== false;
+    specificOutput = {
+      breachedTickets: 1,
+      dryRun,
+      persisted: !dryRun && Boolean(args.confirmWrite),
+      preview: { ticketId: "TKT-901", nextStatus: "escalated_p1", groundedKb: "KB-101" }
+    };
+  } else if (tName === "graphmind.build_backlink_graph") {
+    specificOutput = {
+      nodeCount: dom.nodeCount || 3,
+      edgeCount: (dom.edges || []).length || 2,
+      backlinks: dom.backlinks || {},
+      upstreamHandleVerified: Boolean(args.sourceHandle)
+    };
+  } else if (tName === "graphmind.find_orphan_notes") {
+    specificOutput = {
+      orphanNotes: dom.orphanNotes || [],
+      brokenLinks: dom.brokenLinks || []
+    };
+  } else if (tName === "graphmind.retrieve_context_subgraph") {
+    const dryRun = args.dryRun !== false;
+    specificOutput = {
+      linkedNodes: Object.keys(dom.backlinks || { "System Architecture": ["Edge Router"] }),
+      dryRun,
+      persisted: !dryRun && Boolean(args.confirmWrite),
+      upstreamHandleVerified: Boolean(args.sourceHandle)
+    };
+  } else if (tName === "clipguard.scrub_clipboard") {
+    specificOutput = {
+      scrubbedText: dom.scrubbedText || rawInput,
+      redactedCount: (dom.detections || []).length,
+      detectedTypes: dom.detections || [],
+      rawSecretLogged: false
+    };
+  } else if (tName === "clipguard.detect_secrets") {
+    specificOutput = {
+      hasSecrets: (dom.detections || []).length > 0,
+      secretClasses: dom.detections || [],
+      safeForDownstreamAi: (dom.detections || []).length === 0
+    };
+  } else if (tName === "clipguard.normalize_format") {
+    specificOutput = {
+      normalizedText: String(dom.scrubbedText || rawInput).replace(/[\u200B-\u200D\uFEFF]/g, "").trim(),
+      rawSecretLogged: false
+    };
+  } else if (tName === "commandbar.rank_commands") {
+    specificOutput = {
+      matchedCommands: dom.results || [{ id: "cmd-1", title: "Deploy Cloudflare Worker", action: "wrangler deploy" }]
+    };
+  } else if (tName === "commandbar.evaluate_expression") {
+    const isDestructive = /rm\s+-rf|git\s+reset\s+--hard|chmod\s+-R\s+777|drop\s+table/i.test(rawInput);
+    specificOutput = {
+      mode: dom.mode || (isDestructive ? "shell_safety_audit" : "calculator"),
+      value: dom.value ?? null,
+      riskLevel: isDestructive ? "CRITICAL_DESTRUCTIVE_FLAGS" : "SAFE",
+      flaggedConstructs: isDestructive ? ["rm -rf / git reset --hard / chmod 777"] : [],
+      rollbackCommand: isDestructive ? "git reflog && git checkout -b recovery-backup HEAD@{1}" : "none required"
+    };
+  } else if (tName === "commandbar.resolve_workflow_macro") {
+    specificOutput = {
+      steps: [
+        "1. Run npm ci && npm run lint && npm test",
+        "2. Run npm run build to compile dist/worker.mjs",
+        "3. Verify /api/health and /api/mcp post-deployment"
+      ],
+      rollbackStep: "wrangler rollback --message 'Revert to previous known-good SHA'"
+    };
+  } else if (tName === "linkengine.create_shortlink") {
+    const dryRun = args.dryRun !== false;
+    specificOutput = {
+      shortUrl: dom.shortUrl || "https://linkengine.worksai.org/s/wai-q4",
+      governedDestinationUrl: dom.finalDestinationUrl || "https://worksai.org/?utm_source=worksai&utm_medium=cpc&utm_campaign=launch",
+      dryRun,
+      persisted: !dryRun && Boolean(args.confirmWrite),
+      upstreamHandleVerified: Boolean(args.sourceHandle)
+    };
+  } else if (tName === "linkengine.validate_utm_policy") {
+    specificOutput = {
+      compliant: Boolean(dom.utmCompliant ?? true),
+      violations: dom.policyViolations || [],
+      normalizedUrl: dom.finalDestinationUrl || rawInput
+    };
+  } else if (tName === "linkengine.audit_redirect_health") {
+    specificOutput = {
+      orphanSlugs: ["edge-ai-inference-guide"],
+      recommendedInternalLinks: [{ from: "cloudflare-workers-r2-crud", to: "edge-ai-inference-guide", anchor: "Cloudflare R2 edge storage" }]
+    };
+  } else if (tName === "commercecatalog.enrich_sku") {
+    specificOutput = {
+      sku: dom.sku || "WAI-EDGE-001",
+      gtinValid: true,
+      marginFloorEnforced: Boolean(dom.marginFloorEnforced ?? true),
+      finalPriceCents: dom.finalPriceCents || 49900
+    };
+  } else if (tName === "commercecatalog.generate_product_jsonld") {
+    specificOutput = {
+      productJsonLd: dom.productJsonLd || { "@context": "https://schema.org", "@type": "Product", name: dom.title || "WorksAI Appliance", sku: dom.sku || "WAI-EDGE-001" }
+    };
+  } else if (tName === "commercecatalog.audit_margin_floor") {
+    specificOutput = {
+      validSkus: ["WAI-EDGE-001"],
+      flaggedSkus: [{ sku: "WAI-EDGE-002", issue: "Gross margin (26.3%) near floor or GTIN-13 check digit mismatch" }]
+    };
+  } else if (tName === "forumpulse.score_thread_safety") {
+    specificOutput = {
+      spamScore: dom.spamScore ?? 0.05,
+      quarantined: Boolean(dom.quarantined),
+      reasons: dom.quarantined ? ["Excessive outbound promo links or abusive tokens"] : ["Clean technical discussion"]
+    };
+  } else if (tName === "forumpulse.extract_faq_jsonld") {
+    const dryRun = args.dryRun !== false;
+    specificOutput = {
+      faqJsonLd: dom.faqJsonLd || { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [] },
+      publicationStatus: "pending_human_approval",
+      dryRun,
+      persisted: !dryRun && Boolean(args.confirmWrite),
+      upstreamHandleVerified: Boolean(args.sourceHandle)
+    };
+  } else if (tName === "forumpulse.summarize_topic_cluster") {
+    specificOutput = {
+      clusters: [
+        { topic: "SAML Clock Skew & Edge Auth", count: 4, recommendedKb: "KB-101" },
+        { topic: "Cloudflare Workers Custom Domains & TLS", count: 3, recommendedKb: "KB-309" }
+      ],
+      topRecurringTopic: "SAML Clock Skew & Edge Auth"
+    };
+  }
+
+  const structuredContent = {
+    ...specificOutput,
+    tool: tName,
+    appSlug: toolMeta.appSlug,
+    workspaceUrl,
+    handoffHandle: handle,
+    traceId,
+    tenantScope: identity && identity.authenticated ? identity.tenantId : "demo-sandbox",
+    executedAt: new Date().toISOString()
+  };
+
+  MCP_HANDOFF_STORE.set(handle, {
+    handle,
+    tool: tName,
+    appSlug: toolMeta.appSlug,
+    workspaceUrl,
+    createdAt: structuredContent.executedAt
+  });
+
+  return {
+    content: [
+      {
+        type: "text",
+        text: `[${tName}] Completed on ${toolMeta.appSlug}. Workspace: ${workspaceUrl} | Handoff Handle: ${handle}\n` + JSON.stringify(structuredContent, null, 2)
+      }
+    ],
+    structuredContent,
+    isError: false
+  };
+}
+
+
+async function handleMcpHttpRequest(request, env, identity, filterAppSlug, corsHeaders = {}) {
+  const startMs = Date.now();
+  const url = new URL(request.url);
+  const method = request.method.toUpperCase();
+  const baseHeaders = {
+    ...corsHeaders,
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store"
+  };
+
+  // 1. Check explicit auth failures (tampered/expired/revoked Bearer token or spoofed client headers)
+  const rawAuthHdr = request.headers.get("Authorization") || "";
+  const hasBearer = rawAuthHdr.startsWith("Bearer ");
+  if (identity && (identity.spoofAttempt || (hasBearer && !identity.authenticated))) {
+    MCP_OBSERVABILITY.authFailureCount += 1;
+    const tc = classifyTraffic(request, identity, null);
+    MCP_OBSERVABILITY.byTrafficClass[tc].authFailures += 1;
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      id: null,
+      error: {
+        code: -32001,
+        message: identity.error || "Unauthorized: invalid, expired, revoked, or spoofed session credentials."
+      }
+    }), { status: 401, headers: baseHeaders });
+  }
+
+  // 2. Rate limit check
+  const clientIp = request.headers.get("cf-connecting-ip") || "127.0.0.1";
+  const rateKey = `${clientIp}:${identity?.userId || "anon"}`;
+  if (!checkMcpRateLimit(rateKey) || request.headers.get("X-MCP-Simulate-RateLimit") === "true") {
+    MCP_OBSERVABILITY.rateLimitCount += 1;
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      id: null,
+      error: { code: -32029, message: "Rate limit exceeded on MCP endpoint (max 90 req/min)." }
+    }), { status: 429, headers: { ...baseHeaders, "Retry-After": "60" } });
+  }
+
+  const scopedTools = filterAppSlug
+    ? MCP_TOOLS_CATALOG.filter(t => t.appSlug === filterAppSlug || t.sub === filterAppSlug)
+    : MCP_TOOLS_CATALOG;
+
+  // 3. Informational GET /api/mcp discovery document
+  if (method === "GET") {
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      protocolVersion: "2025-03-26",
+      supportedProtocolVersions: MCP_SUPPORTED_VERSIONS,
+      transport: "streamable-http",
+      serverInfo: {
+        name: filterAppSlug ? `${filterAppSlug}-mcp` : "worksai-hub-mcp",
+        version: "1.3.0"
+      },
+      totalTools: scopedTools.length,
+      tools: scopedTools
+    }, null, 2), { status: 200, headers: baseHeaders });
+  }
+
+  if (method !== "POST") {
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      id: null,
+      error: { code: -32600, message: "Method Not Allowed: use HTTP POST for JSON-RPC 2.0 messages." }
+    }), { status: 405, headers: baseHeaders });
+  }
+
+  // 4. Read and validate payload size & JSON syntax
+  const rawBodyText = await request.text();
+  if (rawBodyText.length > 32768) {
+    MCP_OBSERVABILITY.protocolErrorCount += 1;
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      id: null,
+      error: { code: -32602, message: "Payload too large: MCP request body exceeds 32 KB limit." }
+    }), { status: 413, headers: baseHeaders });
+  }
+
+  let body = null;
+  try {
+    body = JSON.parse(rawBodyText);
+  } catch {
+    MCP_OBSERVABILITY.protocolErrorCount += 1;
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      id: null,
+      error: { code: -32700, message: "Parse error: malformed JSON request body." }
+    }), { status: 400, headers: baseHeaders });
+  }
+
+  const trafficClass = classifyTraffic(request, identity, body);
+
+  if (!body || typeof body !== "object" || body.jsonrpc !== "2.0" || typeof body.method !== "string") {
+    MCP_OBSERVABILITY.protocolErrorCount += 1;
+    MCP_OBSERVABILITY.byTrafficClass[trafficClass].protocolErrors += 1;
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      id: body && body.id !== undefined ? body.id : null,
+      error: { code: -32600, message: "Invalid Request: 'jsonrpc' must be '2.0' and 'method' must be a string." }
+    }), { status: 400, headers: baseHeaders });
+  }
+
+  const rpcMethod = body.method;
+  const reqId = body.id !== undefined ? body.id : null;
+  const params = body.params || {};
+
+  // 5. Handle JSON-RPC Notifications (notifications/initialized, notifications/cancelled)
+  if (rpcMethod === "notifications/initialized" || rpcMethod === "notifications/cancelled") {
+    return new Response(null, { status: 202, headers: corsHeaders });
+  }
+
+  // 6. Handle initialize (Protocol Version Negotiation & Capability Discovery)
+  if (rpcMethod === "initialize") {
+    MCP_OBSERVABILITY.initializeCount += 1;
+    const requestedVersion = String(params.protocolVersion || "2025-03-26");
+    const negotiatedVersion = MCP_SUPPORTED_VERSIONS.includes(requestedVersion) ? requestedVersion : "2025-03-26";
+    const mcpSessionId = `mcp-ses-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      id: reqId ?? 1,
+      result: {
+        protocolVersion: negotiatedVersion,
+        capabilities: {
+          tools: { listChanged: false }
+        },
+        serverInfo: {
+          name: filterAppSlug ? `${filterAppSlug}-mcp` : "worksai-hub-mcp",
+          version: "1.3.0"
+        },
+        instructions: "WorksAI MCP Server. Call tools/list to inspect schemas and annotations, and tools/call to invoke tools. Write tools default to dryRun=true and require confirmWrite=true + mcp:write scope to persist."
+      }
+    }), {
+      status: 200,
+      headers: { ...baseHeaders, "Mcp-Session-Id": mcpSessionId }
+    });
+  }
+
+  // 7. Handle ping
+  if (rpcMethod === "ping") {
+    return new Response(JSON.stringify({ jsonrpc: "2.0", id: reqId ?? 1, result: {} }), { status: 200, headers: baseHeaders });
+  }
+
+  // 8. Handle tools/list (with optional cursor & limit pagination)
+  if (rpcMethod === "tools/list") {
+    MCP_OBSERVABILITY.toolsListCount += 1;
+    const offset = params.cursor ? parseInt(String(params.cursor), 10) || 0 : 0;
+    const limit = params.limit ? Math.min(50, Math.max(1, parseInt(String(params.limit), 10))) : 50;
+    const slice = scopedTools.slice(offset, offset + limit);
+    const nextCursor = (offset + limit < scopedTools.length) ? String(offset + limit) : undefined;
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      id: reqId ?? 1,
+      result: {
+        tools: slice,
+        ...(nextCursor ? { nextCursor } : {})
+      }
+    }), { status: 200, headers: baseHeaders });
+  }
+
+  // 9. Handle tools/call
+  if (rpcMethod === "tools/call") {
+    if (!params || typeof params !== "object" || typeof params.name !== "string") {
+      MCP_OBSERVABILITY.protocolErrorCount += 1;
+      MCP_OBSERVABILITY.byTrafficClass[trafficClass].protocolErrors += 1;
+      return new Response(JSON.stringify({
+        jsonrpc: "2.0",
+        id: reqId ?? 1,
+        error: { code: -32602, message: "Invalid params: 'params.name' (string) is required for tools/call." }
+      }), { status: 400, headers: baseHeaders });
+    }
+
+    const toolName = params.name.trim();
+    const toolMeta = scopedTools.find(t => t.name === toolName);
+    if (!toolMeta) {
+      MCP_OBSERVABILITY.protocolErrorCount += 1;
+      MCP_OBSERVABILITY.byTrafficClass[trafficClass].protocolErrors += 1;
+      return new Response(JSON.stringify({
+        jsonrpc: "2.0",
+        id: reqId ?? 1,
+        error: {
+          code: -32602,
+          message: `Unknown tool '${toolName}' on this MCP server. Call tools/list to see supported tools.`
+        }
+      }), { status: 400, headers: baseHeaders });
+    }
+
+    if (params.arguments !== undefined && (typeof params.arguments !== "object" || params.arguments === null || Array.isArray(params.arguments))) {
+      MCP_OBSERVABILITY.protocolErrorCount += 1;
+      MCP_OBSERVABILITY.byTrafficClass[trafficClass].protocolErrors += 1;
+      return new Response(JSON.stringify({
+        jsonrpc: "2.0",
+        id: reqId ?? 1,
+        error: { code: -32602, message: "Invalid params: 'params.arguments' must be a JSON object." }
+      }), { status: 400, headers: baseHeaders });
+    }
+
+    const args = params.arguments || {};
+
+    // Security Gate A: Reject attempts to override identity via arguments
+    if (args.tenantId !== undefined || args.userId !== undefined || args.ownerId !== undefined) {
+      const lat = Date.now() - startMs;
+      recordToolMetric(toolName, trafficClass, true, lat);
+      return new Response(JSON.stringify({
+        jsonrpc: "2.0",
+        id: reqId ?? 1,
+        result: {
+          isError: true,
+          content: [{ type: "text", text: "Security Error (IDENTITY_OVERRIDE_FORBIDDEN): tenantId/userId cannot be supplied in tool arguments; workspace identity is derived strictly from server-signed session credentials." }],
+          structuredContent: { errorCode: "IDENTITY_OVERRIDE_FORBIDDEN", tool: toolName }
+        }
+      }), { status: 200, headers: baseHeaders });
+    }
+
+    // Security Gate B: Cross-tenant or demo-to-production projectId check
+    if (args.projectId) {
+      const pid = String(args.projectId);
+      const callerTenant = identity?.tenantId || "demo-sandbox";
+      const isDemoCaller = !identity?.authenticated || identity?.mode === "demo" || identity?.isDemo || callerTenant.includes("demo");
+      if ((pid.startsWith("prod-") && isDemoCaller) || (pid.includes("tenant-alpha") && callerTenant !== "tenant-alpha")) {
+        const lat = Date.now() - startMs;
+        recordToolMetric(toolName, trafficClass, true, lat);
+        return new Response(JSON.stringify({
+          jsonrpc: "2.0",
+          id: reqId ?? 1,
+          result: {
+            isError: true,
+            content: [{ type: "text", text: `Authorization Error (CROSS_TENANT_FORBIDDEN): caller in scope '${callerTenant}' cannot access project '${pid}'.` }],
+            structuredContent: { errorCode: "CROSS_TENANT_FORBIDDEN", tool: toolName, projectId: pid }
+          }
+        }), { status: 403, headers: baseHeaders });
+      }
+    }
+
+    // Domain Input Validation: 'input' must be non-empty string
+    if (typeof args.input !== "string" || !args.input.trim()) {
+      const lat = Date.now() - startMs;
+      recordToolMetric(toolName, trafficClass, true, lat);
+      return new Response(JSON.stringify({
+        jsonrpc: "2.0",
+        id: reqId ?? 1,
+        result: {
+          isError: true,
+          content: [{ type: "text", text: `Validation Error (INVALID_INPUT): '${toolName}' requires a non-empty string 'input' argument.` }],
+          structuredContent: { errorCode: "INVALID_INPUT", tool: toolName, requiredField: "input" }
+        }
+      }), { status: 200, headers: baseHeaders });
+    }
+
+    // Security Gate C: Prompt-injection inspection
+    const piCheck = detectPromptInjectionPayload(args.input);
+    if (piCheck.detected) {
+      MCP_OBSERVABILITY.promptInjectionBlockedCount += 1;
+      if (toolMeta.requiredScope === "mcp:write" || args.confirmWrite === true || !["clipguard", "forumpulse"].includes(toolMeta.sub)) {
+        const lat = Date.now() - startMs;
+        recordToolMetric(toolName, trafficClass, true, lat);
+        return new Response(JSON.stringify({
+          jsonrpc: "2.0",
+          id: reqId ?? 1,
+          result: {
+            isError: true,
+            content: [{ type: "text", text: `Security Refusal (PROMPT_INJECTION_BLOCKED): Embedded instruction override pattern detected in input (${piCheck.matchedPatterns.join(", ")}). Privileged action refused.` }],
+            structuredContent: {
+              errorCode: "PROMPT_INJECTION_BLOCKED",
+              promptInjectionDetected: true,
+              privilegedActionBlocked: true,
+              matchedPatterns: piCheck.matchedPatterns,
+              tool: toolName
+            }
+          }
+        }), { status: 200, headers: baseHeaders });
+      }
+    }
+
+    // Security Gate D: Write tool scope & explicit confirmWrite approval enforcement
+    if (toolMeta.requiredScope === "mcp:write" && args.dryRun === false) {
+      const scopeHdr = (request.headers.get("X-MCP-Scope") || "mcp:read mcp:write").toLowerCase();
+      const hasWriteScope = identity && identity.authenticated && !identity.isDemo && identity.mode !== "demo" && scopeHdr.includes("mcp:write");
+      if (!hasWriteScope) {
+        const lat = Date.now() - startMs;
+        recordToolMetric(toolName, trafficClass, true, lat);
+        return new Response(JSON.stringify({
+          jsonrpc: "2.0",
+          id: reqId ?? 1,
+          result: {
+            isError: true,
+            content: [{ type: "text", text: `Insufficient Scope (INSUFFICIENT_SCOPE): '${toolName}' with dryRun=false requires an authenticated production session with 'mcp:write' scope. Pass dryRun=true for a safe preview.` }],
+            structuredContent: { errorCode: "INSUFFICIENT_SCOPE", requiredScope: "mcp:write", tool: toolName }
+          }
+        }), { status: 403, headers: baseHeaders });
+      }
+      if (args.confirmWrite !== true) {
+        const lat = Date.now() - startMs;
+        recordToolMetric(toolName, trafficClass, true, lat);
+        return new Response(JSON.stringify({
+          jsonrpc: "2.0",
+          id: reqId ?? 1,
+          result: {
+            isError: true,
+            content: [{ type: "text", text: `Approval Required (CONFIRM_WRITE_REQUIRED): '${toolName}' modifies state. Review the dryRun=true preview first, then pass confirmWrite=true to execute.` }],
+            structuredContent: { errorCode: "CONFIRM_WRITE_REQUIRED", tool: toolName }
+          }
+        }), { status: 200, headers: baseHeaders });
+      }
+    }
+
+    // Execute the specific tool implementation
+    const callOutcome = executeSpecificMcpTool(toolMeta, args, identity);
+    if (piCheck.detected) {
+      callOutcome.structuredContent.securityAudit = {
+        promptInjectionDetected: true,
+        privilegedActionBlocked: true,
+        treatedAsInertData: true
+      };
+    }
+    const lat = Math.max(1, Date.now() - startMs);
+    recordToolMetric(toolName, trafficClass, Boolean(callOutcome.isError), lat);
+
+    return new Response(JSON.stringify({
+      jsonrpc: "2.0",
+      id: reqId ?? 1,
+      result: callOutcome
+    }), { status: 200, headers: baseHeaders });
+  }
+
+  // 10. Any other JSON-RPC method -> -32601 Method not found
+  MCP_OBSERVABILITY.protocolErrorCount += 1;
+  MCP_OBSERVABILITY.byTrafficClass[trafficClass].protocolErrors += 1;
+  return new Response(JSON.stringify({
+    jsonrpc: "2.0",
+    id: reqId,
+    error: {
+      code: -32601,
+      message: `Method not found: '${rpcMethod}'. Supported MCP methods: initialize, notifications/initialized, ping, tools/list, tools/call.`
+    }
+  }), { status: 404, headers: baseHeaders });
+}
+
 
 export default {
   async fetch(request, env, ctx) {
@@ -1469,10 +4070,21 @@ export default {
         tenantIsolation: 'strict-server-hmac-session-r2-crud',
         frontendAssets: ['/assets/styles.css', '/assets/app.js'],
         aiModel: '@cf/meta/llama-3.1-8b-instruct-fp8',
+        ga4MeasurementId: 'G-113353C400',
+        mcpEndpoint: `https://${APP_META.slug}.worksai.org/api/mcp`,
         version: '1.2.0',
         commitSha: (env && (env.GIT_COMMIT_SHA || env.COMMIT_SHA)) || 'v1.2.0',
         timestamp: new Date().toISOString()
       }, { headers: corsHeaders });
+    }
+
+    // 2b. Model Context Protocol (MCP) JSON-RPC 2.0 Streamable HTTP Endpoint (/api/mcp) & Metrics
+    if (path === '/api/mcp/metrics' && method === 'GET') {
+      return Response.json({ ok: true, service: APP_META.repo, slug: APP_META.slug, ga4MeasurementId: 'G-113353C400', observability: MCP_OBSERVABILITY }, { headers: corsHeaders });
+    }
+    if (path === '/api/mcp' || path === '/api/mcp/tools') {
+      const mcpId = await resolveAuthenticatedIdentity(request, url, env);
+      return handleMcpHttpRequest(request, env, mcpId, APP_META.repo, corsHeaders);
     }
 
     // 3. Server-Signed Authentication Endpoints (/api/auth/session, /api/auth/demo, /api/auth/logout, /api/auth/me)
