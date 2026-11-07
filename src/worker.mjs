@@ -1,5 +1,5 @@
 // WorksAi GraphMind (graphmind.worksai.org) — Dedicated Standalone Cloudflare Worker v1.2.0
-// Repository: DevinAiUk/worksai-graphmind | Category: Category C — VS Code Extension & Browser Sandbox
+// Service: worksai-graphmind | Category: Category C — VS Code Extension & Browser Sandbox
 // Includes: Tenant+User-Scoped R2 CRUD Persistence, Native Format Exports, Real Binary Package Downloads, /docs, /guide, and Zero-PII Telemetry.
 
 const APP_META = {
@@ -1700,6 +1700,7 @@ export default {
         tenantIsolation: 'strict-r2-tenant-user-crud',
         aiModel: '@cf/meta/llama-3.1-8b-instruct-fp8',
         version: '1.2.0',
+        commitSha: (env && (env.GIT_COMMIT_SHA || env.COMMIT_SHA)) || 'v1.2.0',
         timestamp: new Date().toISOString()
       }, { headers: corsHeaders });
     }
@@ -1716,6 +1717,7 @@ export default {
       return Response.json({
         product: APP_META.slug,
         version: '1.2.0',
+        commitSha: (env && (env.GIT_COMMIT_SHA || env.COMMIT_SHA)) || 'v1.2.0',
         filename: APP_META.binaryPackage.filename,
         sizeBytes: APP_META.binaryPackage.sizeBytes,
         sha256: APP_META.binaryPackage.sha256,
