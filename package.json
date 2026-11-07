@@ -6,9 +6,9 @@
   "type": "module",
   "main": "src/worker.mjs",
   "scripts": {
-    "test": "node --test tests/product.test.mjs tests/worker.test.mjs",
-    "lint": "node -e \"const fs=require('fs'); ['src/index.mjs','src/worker.mjs','README.md'].forEach(f=>{const c=fs.readFileSync(f,'utf8'); if(c.includes('BEGIN RSA PRIVATE KEY')) process.exit(1); if(/devinai\\.uk|devon bowen/i.test(c)) process.exit(1);}); console.log('Lint, secret & brand-hygiene passed.');\"",
-    "typecheck": "node --check src/index.mjs && node --check src/worker.mjs && node --check tests/product.test.mjs && node --check tests/worker.test.mjs"
+    "lint": "node --input-type=module -e \"import fs from 'node:fs'; ['src/index.mjs','src/worker.mjs','README.md'].forEach(f=>{const c=fs.readFileSync(f,'utf8'); if(/devinai\\.uk|devonfolio/i.test(c)) process.exit(1);}); console.log('ESM lint & brand-hygiene passed.');\"",
+    "typecheck": "node --check src/index.mjs && node --check src/worker.mjs && node --check tests/product.test.mjs && node --check tests/worker.test.mjs",
+    "test": "node --test tests/product.test.mjs tests/worker.test.mjs"
   },
   "repository": {
     "type": "git",

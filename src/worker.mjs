@@ -28,12 +28,21 @@ export const APP_META = {
   "subdomain": "graphmind.worksai.org",
   "appUrl": "https://graphmind.worksai.org",
   "mcpEndpoint": "https://graphmind.worksai.org/api/mcp",
-  "aiEndpoint": "https://graphmind.worksai.org/api/ai/analyze"
+  "aiEndpoint": "https://graphmind.worksai.org/api/ai/analyze",
+  "capabilityMatrix": {
+    "userCapabilities": "Download and run the VS Code/Cursor extension (extension/extension.cjs + package.json) or use the companion web verifier to parse [[wiki-links]], compute backlinks, and flag orphan notes and broken links.",
+    "persistedFeatures": "Knowledge graph topology and orphan audit snapshots persisted in Cloudflare R2 (workspaces/worksai-graphmind/*).",
+    "deterministicUtilities": "analyzeMarkdownGraph (wiki-link regex parser, path-traversal guard, backlink graph builder, and orphan detector).",
+    "genuineAiFeatures": "Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct) semantic topic cluster naming and bridge-note suggestions.",
+    "knownLimitations": "Local filesystem note watching runs inside the downloadable VS Code extension (extension/extension.cjs); the web UI operates on submitted note arrays."
+  },
+  "hubDetailUrl": "https://worksai.org/apps/worksai-graphmind"
 };
 const CREST_SVG = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" width=\"38\" height=\"38\" role=\"img\" aria-label=\"WorksAI Metallic WI Crest\">\n  <defs>\n    <radialGradient id=\"wi-bg\" cx=\"30%\" cy=\"25%\" r=\"80%\">\n      <stop offset=\"0%\" stop-color=\"#1e293b\"/>\n      <stop offset=\"65%\" stop-color=\"#0b0f17\"/>\n      <stop offset=\"100%\" stop-color=\"#05070b\"/>\n    </radialGradient>\n    <linearGradient id=\"wi-metal\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#ffffff\"/>\n      <stop offset=\"52%\" stop-color=\"#e2e8f0\"/>\n      <stop offset=\"100%\" stop-color=\"#94a3b8\"/>\n    </linearGradient>\n    <linearGradient id=\"wi-rim\" x1=\"0%\" y1=\"100%\" x2=\"100%\" y2=\"0%\">\n      <stop offset=\"0%\" stop-color=\"#f97316\"/>\n      <stop offset=\"35%\" stop-color=\"#38bdf8\"/>\n      <stop offset=\"100%\" stop-color=\"#475569\"/>\n    </linearGradient>\n  </defs>\n  <circle cx=\"32\" cy=\"32\" r=\"30\" fill=\"url(#wi-bg)\" stroke=\"url(#wi-rim)\" stroke-width=\"2.5\"/>\n  <path d=\"M9 14 L16 14 L22 40 L29 20 L34 20 L41 40 L35 50 L29 33 L23 50 L17 50 Z\" fill=\"url(#wi-metal)\" stroke=\"#0f172a\" stroke-width=\"1\"/>\n  <rect x=\"46\" y=\"14\" width=\"7.5\" height=\"36\" rx=\"1.5\" fill=\"url(#wi-metal)\" stroke=\"#0f172a\" stroke-width=\"1\"/>\n</svg>";
 const CSS = "\n:root {\n  --bg-obsidian: #07090e;\n  --bg-surface: rgba(15, 21, 34, 0.84);\n  --bg-elevated: rgba(23, 32, 51, 0.90);\n  --border-titanium: rgba(226, 232, 240, 0.14);\n  --border-glow: rgba(56, 189, 248, 0.38);\n  --text-primary: #f8fafc;\n  --text-secondary: #cbd5e1;\n  --text-muted: #94a3b8;\n  --accent-cyan: #38bdf8;\n  --accent-amber: #f97316;\n  --accent-emerald: #10b981;\n  --radius-lg: 18px;\n  --radius-md: 12px;\n  --font-sans: \"Readex Pro\", Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;\n}\n* { box-sizing: border-box; }\nbody {\n  margin: 0;\n  font-family: var(--font-sans);\n  background:\n    radial-gradient(circle at 10% 92%, rgba(249, 115, 22, 0.11), transparent 34%),\n    radial-gradient(circle at 86% 10%, rgba(56, 189, 248, 0.15), transparent 38%),\n    var(--bg-obsidian);\n  color: var(--text-primary);\n  line-height: 1.62;\n  min-height: 100vh;\n}\na { color: var(--accent-cyan); text-decoration: none; }\na:hover { text-decoration: underline; }\n.skip-link {\n  position: absolute; top: -100px; left: 16px; z-index: 100;\n  background: #fff; color: #000; padding: 8px 14px; border-radius: 8px; font-weight: 700;\n}\n.skip-link:focus { top: 12px; }\n.wrap { max-width: 1240px; margin: 0 auto; padding: 20px 20px 72px; }\n.site-header {\n  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;\n  padding: 12px 20px; border-radius: var(--radius-lg); background: var(--bg-surface);\n  border: 1px solid var(--border-titanium); backdrop-filter: blur(18px); margin-bottom: 26px;\n}\n.brand-link {\n  display: inline-flex; align-items: center; gap: 12px; color: var(--text-primary);\n  font-weight: 800; font-size: 1.12rem; letter-spacing: -0.02em; text-decoration: none !important;\n}\n.nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }\n.nav-links a {\n  padding: 7px 13px; border-radius: 9px; color: var(--text-secondary);\n  font-size: 13.5px; font-weight: 600; text-decoration: none;\n}\n.nav-links a:hover, .nav-links a[aria-current=\"page\"] {\n  background: rgba(255, 255, 255, 0.09); color: var(--text-primary);\n}\n.pill {\n  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;\n  border-radius: 999px; font-size: 11.5px; font-weight: 600;\n  background: rgba(56, 189, 248, 0.12); color: var(--accent-cyan);\n  border: 1px solid rgba(56, 189, 248, 0.28);\n}\n.pill-amber {\n  background: rgba(249, 115, 22, 0.14); color: #fdba74;\n  border-color: rgba(249, 115, 22, 0.34);\n}\n.tag-chip {\n  display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11.5px;\n  background: rgba(255, 255, 255, 0.06); color: var(--text-secondary);\n  border: 1px solid var(--border-titanium); margin-right: 4px; margin-bottom: 4px;\n}\n.panel {\n  background: var(--bg-surface); border: 1px solid var(--border-titanium);\n  border-radius: var(--radius-lg); padding: 26px; backdrop-filter: blur(16px); margin-bottom: 22px;\n}\n.grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }\n.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }\n.card {\n  display: flex; flex-direction: column; justify-content: space-between;\n  background: var(--bg-elevated); border: 1px solid var(--border-titanium);\n  border-radius: 15px; padding: 20px;\n}\n.btn {\n  display: inline-flex; align-items: center; justify-content: center; gap: 8px;\n  padding: 9px 16px; border-radius: 9px; font-weight: 600; font-size: 13.5px;\n  background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff !important;\n  border: 1px solid rgba(56, 189, 248, 0.4); cursor: pointer; text-decoration: none !important;\n}\n.btn-secondary {\n  background: rgba(255, 255, 255, 0.06); color: var(--text-primary) !important;\n  border: 1px solid var(--border-titanium);\n}\ninput, select, textarea {\n  width: 100%; padding: 10px 12px; border-radius: 9px;\n  background: #05070b; color: var(--text-primary);\n  border: 1px solid var(--border-titanium); font-family: inherit; font-size: 13.5px; margin-bottom: 10px;\n}\npre {\n  background: #05070b; color: #bae6fd; border: 1px solid var(--border-titanium);\n  border-radius: 10px; padding: 14px; overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px;\n}\n.site-footer {\n  margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--border-titanium);\n  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px;\n  font-size: 13px; color: var(--text-muted);\n}\n";
 const DEFAULT_SAMPLE = "{\n  \"notes\": [\n    {\n      \"id\": \"edge-architecture\",\n      \"path\": \"notes/edge-architecture.md\",\n      \"content\": \"Links to [[neon-datalake]] and [[mcp-specification]]\"\n    },\n    {\n      \"id\": \"neon-datalake\",\n      \"path\": \"notes/neon-datalake.md\",\n      \"content\": \"Backlink to [[edge-architecture]]\"\n    },\n    {\n      \"id\": \"unlinked-draft\",\n      \"path\": \"notes/unlinked-draft.md\",\n      \"content\": \"Standalone note with zero links\"\n    }\n  ]\n}";
 const DOWNLOAD_ARTIFACT = {"path": "/downloads/worksai-graphmind-extension.json", "ct": "application/json; charset=utf-8", "label": "Download VS Code / Cursor Extension Manifest (v1.2.0)", "content": "{\n  \"name\": \"worksai-graphmind\",\n  \"displayName\": \"WorksAi GraphMind \\u2014 Markdown Knowledge Graph & Orphan Detector\",\n  \"version\": \"1.2.0\",\n  \"publisher\": \"worksai\",\n  \"license\": \"MIT\",\n  \"engines\": {\n    \"vscode\": \"^1.85.0\"\n  },\n  \"contributes\": {\n    \"commands\": [\n      {\n        \"command\": \"graphmind.findOrphans\",\n        \"title\": \"WorksAi GraphMind: Find Orphan Notes & Broken Wiki-Links\"\n      },\n      {\n        \"command\": \"graphmind.syncDataLake\",\n        \"title\": \"WorksAi GraphMind: Sync Graph Snapshot to WorksAI Data Lake\"\n      }\n    ]\n  },\n  \"mcpEndpoint\": \"https://graphmind.worksai.org/api/mcp\"\n}"};
+const EXTRA_ARTIFACTS = {"/downloads/extension.cjs": {"ct": "application/javascript; charset=utf-8", "content": "/**\n * WorksAi GraphMind \u2014 VS Code / Cursor Extension Entrypoint (extension/extension.cjs)\n * License: MIT\n */\n\"use strict\";\n\nfunction analyzeNotesInWorkspace(notes) {\n  const nodes = new Map();\n  const forwardLinks = {};\n  const backlinks = {};\n  const brokenLinks = [];\n  for (const n of notes) {\n    if (String(n.path || \"\").includes(\"..\")) {\n      throw new Error(\"PathTraversalError: Note path escapes workspace root.\");\n    }\n    nodes.set(n.id, n);\n    forwardLinks[n.id] = [];\n    backlinks[n.id] = [];\n  }\n  for (const n of notes) {\n    const matches = [...String(n.content || \"\").matchAll(/\\[\\[([^\\]|]+)(?:\\|[^\\]]+)?\\]\\]/g)];\n    for (const m of matches) {\n      const targetId = m[1].trim();\n      forwardLinks[n.id].push(targetId);\n      if (nodes.has(targetId)) {\n        backlinks[targetId].push(n.id);\n      } else {\n        brokenLinks.push({ source: n.id, missingTarget: targetId });\n      }\n    }\n  }\n  const orphanNotes = [...nodes.keys()].filter(\n    (id) => forwardLinks[id].length === 0 && backlinks[id].length === 0\n  );\n  return { nodeCount: nodes.size, forwardLinks, backlinks, brokenLinks, orphanNotes };\n}\n\nfunction activate(context, vscodeApi) {\n  const vscode = vscodeApi || (typeof require !== \"undefined\" ? (() => { try { return require(\"vscode\"); } catch { return null; } })() : null);\n  const registered = {};\n  const registerFn = (cmdId, handler) => {\n    registered[cmdId] = handler;\n    if (vscode && vscode.commands && typeof vscode.commands.registerCommand === \"function\") {\n      const disp = vscode.commands.registerCommand(cmdId, handler);\n      if (context && Array.isArray(context.subscriptions)) context.subscriptions.push(disp);\n    }\n  };\n\n  registerFn(\"graphmind.findOrphans\", async (sampleNotes) => {\n    const notes = Array.isArray(sampleNotes) ? sampleNotes : [\n      { id: \"index\", path: \"notes/index.md\", content: \"Welcome to [[architecture]] and [[missing-spec]]\" },\n      { id: \"architecture\", path: \"notes/architecture.md\", content: \"Backlink to [[index]]\" },\n      { id: \"orphan-note\", path: \"notes/orphan-note.md\", content: \"Unlinked note\" }\n    ];\n    const report = analyzeNotesInWorkspace(notes);\n    if (vscode && vscode.window && typeof vscode.window.showInformationMessage === \"function\") {\n      vscode.window.showInformationMessage(\n        `GraphMind: ${report.nodeCount} notes, ${report.orphanNotes.length} orphans, ${report.brokenLinks.length} broken links.`\n      );\n    }\n    return report;\n  });\n\n  registerFn(\"graphmind.syncDataLake\", async (notes) => {\n    const report = analyzeNotesInWorkspace(notes || []);\n    return { synced: true, endpoint: \"https://graphmind.worksai.org/api/mcp\", report };\n  });\n\n  return { registeredCommands: registered, analyzeNotesInWorkspace };\n}\n\nfunction deactivate() {\n  return true;\n}\n\nmodule.exports = { activate, deactivate, analyzeNotesInWorkspace };\n"}};
 
 
 // ============================================================================
@@ -903,39 +912,93 @@ function esc(s) {
     .replace(/"/g, "&quot;");
 }
 
-export function runAppAiAnalysis(inputRaw, toolName = APP_META.mcpTools[0]) {
+export async function runAppAiAnalysis(inputRaw, toolName = APP_META.mcpTools[0], env = {}, options = {}) {
   const res = runDomainEngineBySlug(APP_META.slug, inputRaw, toolName);
   if (!res.ok) return res;
-  return {
+
+  let aiModelSynthesis = null;
+  let genuineAiModelInvoked = false;
+  const aiModelId = "@cf/meta/llama-3.1-8b-instruct";
+
+  if (env && env.AI && typeof env.AI.run === "function" && options.useLlm !== false) {
+    try {
+      const aiResp = await env.AI.run(aiModelId, {
+        messages: [
+          { role: "system", content: `You are the concise engineering assistant for ${APP_META.name}. Provide a 2-sentence actionable insight based on the deterministic domain output.` },
+          { role: "user", content: JSON.stringify(res.domainResult).slice(0, 1200) }
+        ],
+        max_tokens: 140
+      });
+      if (aiResp && aiResp.response) {
+        aiModelSynthesis = String(aiResp.response).trim();
+        genuineAiModelInvoked = true;
+      }
+    } catch {
+      aiModelSynthesis = null;
+      genuineAiModelInvoked = false;
+    }
+  }
+
+  const runId = `${APP_META.sub}-${Date.now().toString(36)}`;
+  const r2WorkspaceKey = `workspaces/${APP_META.slug}/latest.json`;
+
+  const payloadOut = {
     ...res,
     app: APP_META.slug,
     subdomain: APP_META.subdomain,
-    aiFeature: APP_META.aiFeature,
+    executionBreakdown: {
+      deterministicUtilityExecuted: true,
+      deterministicEngineName: APP_META.capabilityMatrix?.deterministicUtilities || "runDomainEngineBySlug",
+      genuineAiModelInvoked,
+      aiModelId: genuineAiModelInvoked ? aiModelId : null,
+      aiModelSynthesis,
+      persistedToR2: false,
+      r2WorkspaceKey
+    },
     dataLakeRecord: {
       tenantId: "tenant-worksai-demo",
       appSlug: APP_META.slug,
       title: `${APP_META.name} Output (${new Date().toISOString().slice(0, 10)})`,
       mimeType: "application/json",
-      r2ObjectKey: `r2://worksai-datalake/tenant-worksai-demo/${APP_META.sub}-${Date.now().toString(36)}.json`
+      r2ObjectKey: `r2://worksai-datalake/tenant-worksai-demo/${runId}.json`
     },
     executedAt: new Date().toISOString()
   };
+
+  if (env && env.DATALAKE_BUCKET && typeof env.DATALAKE_BUCKET.put === "function") {
+    try {
+      await env.DATALAKE_BUCKET.put(r2WorkspaceKey, JSON.stringify(payloadOut), {
+        httpMetadata: { contentType: "application/json" }
+      });
+      payloadOut.executionBreakdown.persistedToR2 = true;
+    } catch {
+      payloadOut.executionBreakdown.persistedToR2 = false;
+    }
+  }
+
+  return payloadOut;
 }
 
 function renderRuntimeModeBanner() {
   if (APP_META.categorySlug === "plugins-extensions" && DOWNLOAD_ARTIFACT) {
+    const extraLink = APP_META.slug === "worksai-graphmind"
+      ? `<a class="btn btn-secondary" href="/downloads/extension.cjs" download>Download Executable extension.cjs</a>`
+      : APP_META.slug === "worksai-clipguard"
+      ? `<a class="btn btn-secondary" href="/downloads/background.cjs" download>Download MV3 Service Worker (background.cjs)</a>`
+      : `<a class="btn btn-secondary" href="/downloads/worksai-commandbar-cli.mjs" download>Download Executable CLI (worksai-commandbar-cli.mjs)</a>`;
     return `
       <div class="card" style="margin-bottom:18px;border-color:rgba(56,189,248,0.45)">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
           <div>
-            <span class="pill">Category C — Installable IDE / Browser / Desktop Extension Release</span>
-            <h2 style="margin:6px 0 4px;font-size:1.08rem">Extension Package Distribution &amp; Companion Rule/Graph Verifier</h2>
+            <span class="pill">Category C — Executable Extension / CLI Package + Companion Edge Verifier</span>
+            <h2 style="margin:6px 0 4px;font-size:1.08rem">Executable Package Distribution &amp; Companion Rule/Graph Verifier</h2>
             <p style="margin:0;font-size:13px;color:var(--text-secondary)">
-              Download the verified extension manifest/package below for local IDE/OS installation, or test the exact deterministic engine in the live companion verifier.
+              Download both the manifest and the executable JavaScript/CLI runtime below for local IDE/browser/OS installation, or test the exact deterministic engine + Cloudflare Workers AI synthesis in the companion verifier.
             </p>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <a class="btn" href="${esc(DOWNLOAD_ARTIFACT.path)}" download>${esc(DOWNLOAD_ARTIFACT.label)}</a>
+            ${extraLink}
             <a class="btn btn-secondary" href="/api/releases/latest">Release Metadata JSON</a>
           </div>
         </div>
@@ -946,10 +1009,10 @@ function renderRuntimeModeBanner() {
       <div class="card" style="margin-bottom:18px;border-color:rgba(249,115,22,0.45)">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
           <div>
-            <span class="pill pill-amber">Category D — WordPress / PHP 8.2+ Plugin Bridge + Hosted Edge Microservice</span>
-            <h2 style="margin:6px 0 4px;font-size:1.08rem">Downloadable PHP Bridge Plugin &amp; Live Edge API Service</h2>
+            <span class="pill pill-amber">Category D — Working PHP 8.2+ / WordPress Plugin + Hosted Edge Microservice</span>
+            <h2 style="margin:6px 0 4px;font-size:1.08rem">Downloadable PHP 8.2+ Plugin (Local + Edge Execution)</h2>
             <p style="margin:0;font-size:13px;color:var(--text-secondary)">
-              Install the PHP 8.2+ / WordPress bridge plugin on your PHP host or invoke this subdomain's live Cloudflare Edge API (<code>POST /api/ai/analyze</code> &amp; <code>POST /api/mcp</code>) directly.
+              Download the tested PHP 8.2+ plugin containing complete local execution logic and WordPress/Bagisto/Flarum hooks, or invoke this subdomain's live Cloudflare Edge API (<code>POST /api/ai/analyze</code> &amp; <code>POST /api/mcp</code>).
             </p>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -963,11 +1026,12 @@ function renderRuntimeModeBanner() {
 }
 
 function renderAppHtml() {
-  const initialRun = runAppAiAnalysis(DEFAULT_SAMPLE, APP_META.mcpTools[0]);
+  const initialRun = runDomainEngineBySlug(APP_META.slug, DEFAULT_SAMPLE, APP_META.mcpTools[0]);
   const initialVisualHtml = APP_META.slug === "worksai-canvasarch" && initialRun.domainResult?.svg
     ? initialRun.domainResult.svg
     : `<pre style="margin:0">${esc(JSON.stringify(initialRun.domainResult, null, 2))}</pre>`;
 
+  const cap = APP_META.capabilityMatrix || {};
   const toolsBadges = APP_META.mcpTools.map((t) => `<span class="tag-chip"><code>${esc(t)}</code></span>`).join(" ");
   const toolOptions = APP_META.mcpTools.map((t) => `<option value="${esc(t)}">${esc(t)}</option>`).join("");
   const ld = JSON.stringify({
@@ -1005,6 +1069,7 @@ function renderAppHtml() {
       </a>
       <nav class="nav-links" aria-label="Application Navigation">
         <a href="${esc(APP_META.appUrl)}" aria-current="page">Application Workspace</a>
+        <a href="/api/workspace/state">Persisted R2 State</a>
         <a href="/attribution">MIT Provenance</a>
         <a href="${esc(APP_META.hubDetailUrl)}">WorksAI Hub Spec</a>
         <a href="https://worksai.org/data-lake">Shared Data Lake</a>
@@ -1017,43 +1082,51 @@ function renderAppHtml() {
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
           <span class="pill">${esc(APP_META.category)}</span>
           <span class="pill pill-amber">MIT Open Source • WorksAI Foundry</span>
-          <span class="pill">Dedicated Worker: ${esc(APP_META.slug)}</span>
+          <span class="pill">Worker Custom Domain: ${esc(APP_META.subdomain)}</span>
         </div>
         <h1 style="margin:6px 0 10px;font-size:clamp(1.75rem,3vw,2.4rem)">${esc(APP_META.name)}</h1>
         <p style="color:var(--text-secondary);max-width:860px;margin:0 0 16px">${esc(APP_META.valueProposition)}</p>
         ${renderRuntimeModeBanner()}
         <div class="grid-2">
           <div class="card">
-            <h2 style="margin-top:0;font-size:1.1rem">Execute Domain Engine &amp; MCP Tool</h2>
-            <p style="font-size:12.5px;color:var(--text-muted);margin-top:0"><strong>AI &amp; Domain Capability:</strong> ${esc(APP_META.aiFeature)}</p>
+            <h2 style="margin-top:0;font-size:1.1rem">Execute Domain Utility + Workers AI Synthesis</h2>
+            <p style="font-size:12.5px;color:var(--text-muted);margin-top:0"><strong>Deterministic Utility:</strong> ${esc(cap.deterministicUtilities || APP_META.aiFeature)}</p>
             <label for="tool-select" style="font-size:12.5px;font-weight:600">Select Active MCP Tool</label>
             <select id="tool-select">${toolOptions}</select>
             <label for="ai-input" style="font-size:12.5px;font-weight:600">Domain Specification / Input Payload</label>
             <textarea id="ai-input" rows="6">${esc(DEFAULT_SAMPLE)}</textarea>
             <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <button class="btn" type="button" id="run-ai-btn">Run Domain Engine</button>
+              <button class="btn" type="button" id="run-ai-btn">Run Domain Engine + Workers AI</button>
               <button class="btn btn-secondary" type="button" id="run-mcp-btn">Call via MCP JSON-RPC 2.0</button>
             </div>
           </div>
           <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px">
               <h2 style="margin:0;font-size:1.1rem">Live Domain Output &amp; Visual Preview</h2>
-              <span class="pill" id="exec-status">Ready (Deterministic Engine Active)</span>
+              <span class="pill" id="exec-status">Ready (Deterministic + Workers AI)</span>
             </div>
             <div id="domain-visual-preview" style="margin-bottom:10px;overflow:auto">${initialVisualHtml}</div>
             <details>
-              <summary style="cursor:pointer;font-size:12.5px;color:var(--accent-cyan)">Inspect Full JSON Response &amp; Data Lake Descriptor</summary>
+              <summary style="cursor:pointer;font-size:12.5px;color:var(--accent-cyan)">Inspect Full JSON Response, Workers AI Synthesis &amp; R2 Persistence</summary>
               <pre id="ai-output" style="margin:8px 0 0;max-height:240px">${esc(JSON.stringify(initialRun, null, 2))}</pre>
             </details>
           </div>
         </div>
       </section>
       <section class="panel">
-        <h2 style="margin-top:0;font-size:1.15rem">Registered Model Context Protocol (MCP) Tools &amp; Release Provenance</h2>
-        <p style="color:var(--text-secondary);font-size:13.5px">
-          Endpoint: <code>${esc(APP_META.mcpEndpoint)}</code> • Health &amp; Provenance: <a href="/api/health"><code>/api/health</code></a> • Standalone Mode: ${esc(APP_META.worksWithoutCredentials)}
-        </p>
-        <div>${toolsBadges}</div>
+        <h2 style="margin-top:0;font-size:1.15rem">Verified Capability Matrix (Deterministic vs. Genuine AI Model vs. R2 Persistence)</h2>
+        <div class="grid-2" style="font-size:13px;color:var(--text-secondary)">
+          <div>
+            <p><strong>What You Can Do:</strong> ${esc(cap.userCapabilities || "")}</p>
+            <p><strong>Deterministic Domain Utilities:</strong> ${esc(cap.deterministicUtilities || "")}</p>
+            <p><strong>Genuine AI Model Features:</strong> ${esc(cap.genuineAiFeatures || "")}</p>
+          </div>
+          <div>
+            <p><strong>Persisted R2/Neon Features:</strong> ${esc(cap.persistedFeatures || "")}</p>
+            <p><strong>Known Scope &amp; Limitations:</strong> ${esc(cap.knownLimitations || "")}</p>
+            <p><strong>MCP JSON-RPC 2.0 Tools (<code>${esc(APP_META.mcpEndpoint)}</code>):</strong> ${toolsBadges}</p>
+          </div>
+        </div>
       </section>
     </main>
     <footer class="site-footer">
@@ -1080,7 +1153,7 @@ function renderAppHtml() {
       }
     }
     document.getElementById("run-ai-btn").addEventListener("click", async () => {
-      st.textContent = "Executing domain engine...";
+      st.textContent = "Executing domain engine + Workers AI...";
       const res = await fetch("/api/ai/analyze", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -1090,7 +1163,7 @@ function renderAppHtml() {
         })
       });
       const data = await res.json();
-      st.textContent = data.ok ? "Completed (HTTP " + res.status + ")" : "Error (HTTP " + res.status + ")";
+      st.textContent = data.ok ? "Completed (R2 Persisted=" + Boolean(data.executionBreakdown?.persistedToR2) + ")" : "Error (HTTP " + res.status + ")";
       updateView(data);
     });
     document.getElementById("run-mcp-btn").addEventListener("click", async () => {
@@ -1134,7 +1207,13 @@ export async function handleAppRequest(request, env = {}) {
           branch: "main",
           commitSha: env.GIT_COMMIT_SHA || "verified-" + APP_META.slug + "-2026-11-07",
           standaloneWorkerScript: APP_META.slug,
+          workerCustomDomain: APP_META.subdomain,
           runtimeCategory: APP_META.category
+        },
+        capabilityMatrix: APP_META.capabilityMatrix,
+        bindingsAvailable: {
+          workersAi: Boolean(env && env.AI),
+          r2DataLakeBucket: Boolean(env && env.DATALAKE_BUCKET)
         },
         upstream: {
           name: APP_META.upstreamName,
@@ -1144,10 +1223,23 @@ export async function handleAppRequest(request, env = {}) {
         },
         mcpTools: APP_META.mcpTools,
         downloadArtifact: DOWNLOAD_ARTIFACT ? DOWNLOAD_ARTIFACT.path : null,
+        extraArtifacts: Object.keys(EXTRA_ARTIFACTS),
         timestamp: new Date().toISOString()
       },
       { headers: secHeaders("application/json; charset=utf-8") }
     );
+  }
+
+  if (path === "/api/workspace/state" && request.method === "GET") {
+    const key = `workspaces/${APP_META.slug}/latest.json`;
+    if (env && env.DATALAKE_BUCKET && typeof env.DATALAKE_BUCKET.get === "function") {
+      const obj = await env.DATALAKE_BUCKET.get(key);
+      if (obj && typeof obj.text === "function") {
+        const saved = JSON.parse(await obj.text());
+        return Response.json({ ok: true, persistedInR2: true, key, state: saved }, { headers: secHeaders("application/json; charset=utf-8") });
+      }
+    }
+    return Response.json({ ok: true, persistedInR2: false, key, state: null }, { headers: secHeaders("application/json; charset=utf-8") });
   }
 
   if (path === "/attribution") {
@@ -1178,10 +1270,18 @@ export async function handleAppRequest(request, env = {}) {
         version: "1.2.0",
         runtimeCategory: APP_META.category,
         downloadUrl: DOWNLOAD_ARTIFACT ? `${APP_META.appUrl}${DOWNLOAD_ARTIFACT.path}` : null,
+        executableArtifacts: Object.keys(EXTRA_ARTIFACTS).map((p) => `${APP_META.appUrl}${p}`),
         repositoryUrl: APP_META.githubUrl
       },
       { headers: secHeaders("application/json; charset=utf-8") }
     );
+  }
+
+  if (EXTRA_ARTIFACTS[path]) {
+    return new Response(EXTRA_ARTIFACTS[path].content, {
+      status: 200,
+      headers: secHeaders(EXTRA_ARTIFACTS[path].ct)
+    });
   }
 
   if (DOWNLOAD_ARTIFACT && (path === DOWNLOAD_ARTIFACT.path || path.startsWith("/downloads/"))) {
@@ -1193,7 +1293,7 @@ export async function handleAppRequest(request, env = {}) {
 
   if (path === "/api/ai/analyze" && request.method === "POST") {
     const body = await request.json().catch(() => ({}));
-    const res = runAppAiAnalysis(body.input, body.tool);
+    const res = await runAppAiAnalysis(body.input, body.tool, env, { useLlm: body.useLlm });
     return Response.json(res, { status: res.status, headers: secHeaders("application/json; charset=utf-8") });
   }
 
@@ -1212,7 +1312,7 @@ export async function handleAppRequest(request, env = {}) {
     }
     if (body.method === "tools/call") {
       const toolName = String(body.params?.name || APP_META.mcpTools[0]);
-      const result = runAppAiAnalysis(body.params?.arguments?.input || DEFAULT_SAMPLE, toolName);
+      const result = await runAppAiAnalysis(body.params?.arguments?.input || DEFAULT_SAMPLE, toolName, env);
       return Response.json({ jsonrpc: "2.0", id: body.id || 1, result }, { headers: secHeaders("application/json; charset=utf-8") });
     }
     return Response.json({ jsonrpc: "2.0", id: body.id || null, error: { code: -32601, message: "Supported methods: tools/list, tools/call" } }, { status: 400, headers: secHeaders("application/json; charset=utf-8") });

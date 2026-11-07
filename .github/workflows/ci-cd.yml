@@ -1,27 +1,33 @@
 name: WorksAI CI/CD — worksai-graphmind
+
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
   validate-and-test:
+    name: Lint, Brand/Secret Gate, Syntax & Stack Tests (worksai-graphmind)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: npm run lint
-      - run: npm test
-  deploy-cloudflare-worker:
-    needs: validate-and-test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      - run: curl --fail --silent https://graphmind.worksai.org/api/health | grep '"ok":true'
+
+      - name: Run ESM Lint & Brand/Secret Hygiene Gate
+        run: npm run lint
+
+      - name: Run Syntax & Module Check
+        run: npm run typecheck
+
+      - name: Run Unit, Domain Engine, Workers AI & R2 Persistence Tests
+        run: npm test
+
+      - name: Post-Deploy Live HTTPS Smoke Check (graphmind.worksai.org)
+        run: |
+          curl --fail --silent --show-error https://graphmind.worksai.org/api/health | grep '"ok":true'

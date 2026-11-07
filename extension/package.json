@@ -1,0 +1,23 @@
+{
+  "name": "worksai-graphmind",
+  "displayName": "WorksAi GraphMind \u2014 Markdown Knowledge Graph & Orphan Detector",
+  "version": "1.2.0",
+  "publisher": "worksai",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "graphmind.findOrphans",
+        "title": "WorksAi GraphMind: Find Orphan Notes & Broken Wiki-Links"
+      },
+      {
+        "command": "graphmind.syncDataLake",
+        "title": "WorksAi GraphMind: Sync Graph Snapshot to WorksAI Data Lake"
+      }
+    ]
+  },
+  "mcpEndpoint": "https://graphmind.worksai.org/api/mcp"
+}

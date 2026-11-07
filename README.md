@@ -1,31 +1,22 @@
-# WorksAi GraphMind (`worksai-07`)
+# WorksAi GraphMind (`worksai-graphmind`)
 
 > Bidirectional [[wikilink]] knowledge graphs, orphan link diagnostics, and MCP agent context for VS Code & Cursor.
 
-**Category:** C. Plugins or extensions  
-**License:** MIT (Derivative of [Foam](https://github.com/foambubble/foam) @ `7a2e632`)  
-**Portfolio Page:** `https://devinai.uk/worksai/products/worksai-graphmind/`
+- **Live Subdomain Application:** [https://graphmind.worksai.org](https://graphmind.worksai.org)
+- **WorksAI Hub Specification:** [https://worksai.org/apps/worksai-graphmind](https://worksai.org/apps/worksai-graphmind)
+- **Category:** C. Plugins or extensions
+- **License:** MIT (Derived from [Foam](https://github.com/foambubble/foam) @ `7a2e632`)
 
-## Value Proposition & Scope
-Gives engineers and technical writers Obsidian-grade bidirectional wikilinks, backlink graphs, and AI agent MCP tools right inside VS Code and Cursor without Obsidian's $50/user/year commercial license + $96/year Sync fees.
+## Capability Matrix
+- **What You Can Do:** Download and run the VS Code/Cursor extension (extension/extension.cjs + package.json) or use the companion web verifier to parse [[wiki-links]], compute backlinks, and flag orphan notes and broken links.
+- **Deterministic Domain Utilities:** analyzeMarkdownGraph (wiki-link regex parser, path-traversal guard, backlink graph builder, and orphan detector).
+- **Genuine AI Model Features:** Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct) semantic topic cluster naming and bridge-note suggestions.
+- **Persisted R2/Neon Features:** Knowledge graph topology and orphan audit snapshots persisted in Cloudflare R2 (workspaces/worksai-graphmind/*).
+- **Known Limitations:** Local filesystem note watching runs inside the downloadable VS Code extension (extension/extension.cjs); the web UI operates on submitted note arrays.
 
-### What Works Out-of-the-Box (Zero External Credentials Required)
-Full Markdown graph parsing, backlink resolution, broken-link linting, unlinked mention discovery, and local MCP server execution.
-
-### What Requires User Configuration (`.env.example`)
-Optional `WORKSAI_CLOUD_TOKEN` for hosted team knowledge-graph publishing.
-
-## Measurable Acceptance Criteria
-- AC-01: Parses Markdown files to extract `[[wikilinks]]`, aliases (`[[target|label]]`), `#tags`, and YAML frontmatter into a directed graph.
-- AC-02: Computes accurate forward links, incoming backlinks, orphan notes, and broken dead-end links.
-- AC-03: Suggests high-confidence unlinked mentions where a note title appears in plain text inside another note.
-- AC-04: Rejects file paths outside the workspace root (`PathTraversalError`) and responds to MCP tool calls (`query_graph`, `get_backlinks`).
-
-## Known Limitations
-- Publishing to the public VS Code Marketplace or Open VSX requires an owner Personal Access Token (`VSCE_PAT`).
-- Graphs exceeding 25,000 Markdown files should enable incremental index caching.
-
-## Quick Start & Verification
+## Verification & Local Testing
 ```bash
+npm run lint
+npm run typecheck
 npm test
 ```
