@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "WorksAi GraphMind",
+  "version": "1.0.0",
+  "description": "Bidirectional [[wikilink]] knowledge graphs, orphan link diagnostics, and MCP agent context for VS Code & Cursor.",
+  "permissions": [
+    "storage",
+    "clipboardWrite"
+  ],
+  "action": {
+    "default_popup": "public/index.html",
+    "default_title": "WorksAi GraphMind"
+  }
+}
